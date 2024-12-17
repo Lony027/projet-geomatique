@@ -13,7 +13,6 @@ let map = L.map(divmap, {
     layers: [layer]
 });
 
-// Pour stocker les couches des communes
 let communesLayerGroup = L.layerGroup();
 
 fetch('departements.geojson')
@@ -29,7 +28,6 @@ fetch('departements.geojson')
                 let nom_departement = feature.properties.nom;
                 let code_departement = feature.properties.code;
 
-                // Effets de survol
                 layer.on('mouseover', function () {
                     layer.setStyle({
                         weight: 3
@@ -41,21 +39,15 @@ fetch('departements.geojson')
                     });
                 });
 
-                // Au clic : Zoomer sur le département et afficher les communes avec leurs contours
                 layer.on('click', function () {
-                    // Zoomer sur les limites du département
                     map.fitBounds(layer.getBounds());
-
-                    // Effacer les anciennes communes affichées
                     communesLayerGroup.clearLayers();
 
-                    // Récupérer les communes avec leurs contours
                     fetch(`https://geo.api.gouv.fr/departements/${code_departement}/communes?fields=nom,code,contour`)
                         .then(response => response.json())
                         .then(communes => {
                             console.log(`Communes du département ${nom_departement} récupérées`);
 
-                            // Ajouter chaque commune avec son contour
                             communes.forEach(commune => {
                                 if (commune.contour) {
                                     let communeLayer = L.geoJSON(commune.contour, {
@@ -65,13 +57,11 @@ fetch('departements.geojson')
                                             opacity: 0.8
                                         },
                                         onEachFeature: function (feature, layer) {
-                                            // Associer les données à chaque commune
                                             layer.bindPopup(`
                                                 <strong>Commune : </strong>${commune.nom}<br>
                                                 <strong>Code : </strong>${commune.code}
                                             `);
 
-                                            // Effets de survol
                                             layer.on('mouseover', function () {
                                                 layer.setStyle({
                                                     weight: 3
@@ -83,18 +73,15 @@ fetch('departements.geojson')
                                                 });
                                             });
 
-                                            // Clic sur une commune : afficher ses informations dans la console
                                             layer.on('click', function () {
                                                 console.log(`Commune cliquée : ${commune.nom} (Code : ${commune.code})`);
                                             });
                                         }
                                     });
-                                    // Ajouter la commune au groupe de couches
                                     communesLayerGroup.addLayer(communeLayer);
                                 }
                             });
 
-                            // Ajouter toutes les communes à la carte
                             communesLayerGroup.addTo(map);
                         })
                         .catch(error => console.error(`Erreur lors de la récupération des communes :`, error));
