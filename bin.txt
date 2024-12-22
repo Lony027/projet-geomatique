@@ -1,0 +1,47 @@
+ // layer.on('click', function () {
+                //     map.fitBounds(layer.getBounds());
+                //     communesLayerGroup.clearLayers();
+
+                //     fetch(`https://geo.api.gouv.fr/departements/${code_departement}/communes?fields=nom,code,contour`)
+                //         .then(response => response.json())
+                //         .then(communes => {
+                //             console.log(`Communes du département ${nom_departement} récupérées`);
+
+                //             communes.forEach(commune => {
+                //                 if (commune.contour) {
+                //                     let communeLayer = L.geoJSON(commune.contour, {
+                //                         style: {
+                //                             color: '#3388ff',
+                //                             weight: 1,
+                //                             opacity: 0.8
+                //                         },
+                //                         onEachFeature: function (feature, layer) {
+                //                             layer.bindPopup(`
+                //                                 <strong>Commune : </strong>${commune.nom}<br>
+                //                                 <strong>Code : </strong>${commune.code}
+                //                             `);
+
+                //                             layer.on('mouseover', function () {
+                //                                 layer.setStyle({
+                //                                     weight: 3
+                //                                 });
+                //                             });
+                //                             layer.on('mouseout', function () {
+                //                                 layer.setStyle({
+                //                                     weight: 0.5
+                //                                 });
+                //                             });
+
+                //                             layer.on('click', function () {
+                //                                 console.log(`Commune cliquée : ${commune.nom} (Code : ${commune.code})`);
+                //                             });
+                //                         }
+                //                     });
+                //                     communesLayerGroup.addLayer(communeLayer);
+                //                 }
+                //             });
+
+                //             communesLayerGroup.addTo(map);
+                //         })
+                //         .catch(error => console.error(`Erreur lors de la récupération des communes :`, error));
+                // });
