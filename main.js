@@ -340,7 +340,7 @@ function moveToCommunes(departementLayer) {
                 return {
                     type: "Feature",
                     properties: {
-                        code: commune.code,
+                        code: commune.code, // Code postal
                         nom: commune.nom
                     },
                     geometry: commune.contour
@@ -369,6 +369,8 @@ function moveToCommunes(departementLayer) {
 
                     layer.on('click', function () {
                         const cleanName = feature.properties.nom.trim();
+                        const codePostal = feature.properties.code; // Récupérer le code postal
+                        console.log(`Commune : ${cleanName}, Code Postal : ${codePostal}`); // Afficher dans la console
                         updateBreadcrumb(cleanName);
                         map.fitBounds(layer.getBounds());
                     });
@@ -379,6 +381,7 @@ function moveToCommunes(departementLayer) {
         })
         .catch(error => console.error("Erreur lors de la requête API des communes :", error));
 }
+
 
 
 // Charger initialement les régions
