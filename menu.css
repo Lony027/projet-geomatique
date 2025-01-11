@@ -1,0 +1,165 @@
+/* Constantes */
+:root { --pd_btns: 10px; }
+
+
+
+/* slider CSS */
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: 30px auto;
+}
+
+/* La barre de fond */
+.slider-background {
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: #272A31;
+    border-radius: 4px;
+}
+
+/* La plage active (range sélectionnée) */
+.slider-range {
+    position: absolute;
+    height: 8px;
+    background: #4A1175;
+    border-radius: 4px;
+}
+
+/* Slider invisible avec seulement le curseur visible */
+input[type="range"] {
+    -webkit-appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: #4A1175;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.values {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+
+    #min-value, #max-value {
+        width: 70px;
+        height: 25px;
+        background-color: #272A31;
+        display: grid;
+        place-items: center;
+    }
+}
+
+
+
+
+/* Left menu CSS */
+
+#left-menu {
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 40vw;
+    min-width: 300px;
+    height: 100vh;
+    z-index: 99999;
+    background-color: #1B1C1E;
+    padding-left: 10px;
+
+    color: white;
+    font-family: Helvetica, sans-serif;
+
+    h1 {
+        margin: 20px auto;
+    }
+
+    .selected {
+        background-color: #4A1175;
+    }
+
+    #section_year {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        h2 {
+            margin: 20px 0;
+        }
+
+        #btns_year {
+            /* display: flex;
+            flex-direction: column;
+            align-items: center; */
+        
+            .btn_year:hover {
+                border: solid white;
+            }
+
+            #selectYear {
+                background-color: #272A31;
+                padding: 5px;
+                border-radius: 5px;
+                color: white;
+                border: none;
+                width: 30%;
+                margin: 20px 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    #section_type {
+        width: 100%;
+        /* border: solid red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* gap: 20px; */
+        padding-right: 10px;
+        margin-bottom: 30px;
+
+        .aside_type {
+            width: 100%;
+            /* border: solid green; */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+    }
+}
+
+.long_select {
+    background-color: #272A31;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px;
+    width: 48%;
+    border: none;
+    background-color: #272A31;
+    color: white;
+    border-radius: var(--pd_btns);
+}
+
+#section_round {
+    padding-right: 10px;
+}

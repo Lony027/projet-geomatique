@@ -6,46 +6,72 @@
     <title>Élections Présidentielles</title>
     <link rel="icon" href="">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="main.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <style>
-        /* Styles généraux */
-        * { padding: 0; margin: 0; box-sizing: border-box; }
-        
-        /* Carte pleine page */
-        #map { width: 100vw; height: 90vh; }
-        
-        /* Fil d'Ariane */
-        #breadcrumb {
-            padding: 10px;
-            background-color: #f4f4f4;
-            border-bottom: 1px solid #ddd;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        }
-        #breadcrumb .breadcrumb-item {
-            color: #007BFF;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        #breadcrumb .breadcrumb-item:hover {
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
     <!-- Fil d'Ariane -->
-    <div id="breadcrumb">Veuillez sélectionner une région...</div>
-    <button id="clear">clear</button>
+    
+    <!-- <button id="clear">clear</button>
     <button id="regions">regions</button>
     <button id="departements">departements</button>
     <button id="circonscriptions">circonscription</button>
-    <button id="communes">communes</button>
+    <button id="communes">communes</button> -->
+    <aside id="left-menu">
+        <h1>Elections Présidentielles</h1>
+
+        <section id="section_year">
+            <h2>Date</h2>
+            <div id="btns_year">
+                <article>
+                    <button id="btnYear" class="btn">Année</button>
+                    <button id="btnRangeYear" class="btn">Plage d'années</button>
+                </article>
+                <select name="selectYear" id="selectYear">
+                    <option value="2012">2012</option>
+                    <option value="2017">2017</option>
+                </select>
+                <div class="slider-container">
+                    <div class="slider-background"></div>
+                    <div class="slider-range"></div>
+                    <input type="range" id="range-min" min="0" max="5" value="3" step="1">
+                    <input type="range" id="range-max" min="0" max="5" value="4" step="1">
+                    <div class="values">
+                        <span id="min-value">0</span>
+                        <span id="max-value">5</span>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="section_type">
+            <h2>Selection</h2>
+            <aside class="aside_type">
+                <button class="btn">Gagnants</button>
+                <button class="btn">Candidat</button>
+            </aside>
+            <select name="candidats" class="long_select" id="candidats">
+                <option value="lasalle">Lasalle</option>
+            </select>
+        </section>
+
+        <section id="section_round">
+            <h2>Tour</h2>
+            <select name="tour" class="long_select" id="tour">
+                <option value="premier">Premier Tour</option>
+                <option value="second">Second Tour</option>
+            </select>
+        </section>
+    </aside>
     
     <!-- Conteneur de la carte -->
     <div id="map" class="leaflet-container" tabindex="0"></div>
 
     <!-- Script principal -->
     <script src="./main.js"></script>
+    <script src="./menu.js"></script>
     <script src="./load-data.js"></script>
 </body>
 </html>

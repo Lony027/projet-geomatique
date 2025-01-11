@@ -28,7 +28,7 @@ function updateBreadcrumb(newLayerName) {
     if (breadcrumb.length === 3) {
         breadcrumb.shift(); // Retirer le premier élément si on atteint la limite de 3
     }
-
+    
     breadcrumb.push(newLayerName);
     console.log("Fil d'Ariane mis à jour :", breadcrumb);
 
@@ -55,7 +55,6 @@ function breadcrumbClick(index) {
         clearLayers(1); // Supprimer les couches des départements et communes
         zoomToRegion(regionName); // Recentrer sur la région
     } else if (depth === 2) {
-        // Clic sur un département
         let regionName = breadcrumb[0];
         let departementName = breadcrumb[1];
         breadcrumb = [regionName, departementName];
@@ -116,7 +115,6 @@ function zoomToRegion(regionName) {
         })
         .catch(error => console.error("Erreur lors du chargement des régions :", error));
 }
-
 
 // Fonction pour zoomer sur un département à partir de son nom
 function zoomToDepartement(departementName) {
@@ -179,8 +177,6 @@ function zoomToDepartement(departementName) {
         .catch(error => console.error("Erreur lors du chargement des départements :", error));
 }
 
-
-
 // Fonction pour nettoyer les calques en fonction de la profondeur
 function clearLayers(upToDepth) {
     if (upToDepth < 1) {
@@ -193,8 +189,6 @@ function clearLayers(upToDepth) {
         communesLayerGroup.clearLayers();
     }
 }
-
-
 
 // Fonction pour générer et ajouter des calques GeoJSON à un groupe spécifique
 function generateLayerByGeoJson(file, layerGroup) {
@@ -265,8 +259,6 @@ function dynamicClearLayers(level) {
             break;
     }
 }
-
-// Modification des fonctions pour intégrer la dynamique
 
 // Naviguer vers les départements d'une région
 function moveToDepartements(regionLayer) {
@@ -381,7 +373,6 @@ function moveToCommunes(departementLayer) {
         })
         .catch(error => console.error("Erreur lors de la requête API des communes :", error));
 }
-
 
 
 // Charger initialement les régions

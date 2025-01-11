@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Slider Range</title>
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 300px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        .slider-track {
+            position: absolute;
+            height: 8px;
+            background: #d1d5db;
+            border-radius: 4px;
+        }
+
+        .slider-range {
+            position: absolute;
+            height: 8px;
+            background: #3498db;
+            border-radius: 4px;
+        }
+
+        .values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        } */
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slider-track"></div>
+    <div class="slider-range"></div>
+    <input type="range" id="range-min" min="0" max="100" value="20">
+    <input type="range" id="range-max" min="0" max="100" value="80">
+    <div class="values">
+        <span id="min-value">20</span>
+        <span id="max-value">80</span>
+    </div>
+</div>
+
+<script>
+    const rangeMin = document.getElementById('range-min');
+    const rangeMax = document.getElementById('range-max');
+    const minValueSpan = document.getElementById('min-value');
+    const maxValueSpan = document.getElementById('max-value');
+    const sliderTrack = document.querySelector('.slider-range');
+
+    function updateRange() {
+        const minVal = parseInt(rangeMin.value);
+        const maxVal = parseInt(rangeMax.value);
+
+        if (minVal > maxVal - 10) {
+            rangeMin.value = maxVal - 10;
+        }
+        if (maxVal < minVal + 10) {
+            rangeMax.value = minVal + 10;
+        }
+
+        minValueSpan.textContent = rangeMin.value;
+        maxValueSpan.textContent = rangeMax.value;
+
+        const minPercent = (rangeMin.value / rangeMin.max) * 100;
+        const maxPercent = (rangeMax.value / rangeMax.max) * 100;
+
+        sliderTrack.style.left = minPercent + '%';
+        sliderTrack.style.right = (100 - maxPercent) + '%';
+    }
+
+    rangeMin.addEventListener('input', updateRange);
+    rangeMax.addEventListener('input', updateRange);
+
+    updateRange();
+</script>
+
+</body>
+</html>
