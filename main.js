@@ -74,7 +74,7 @@ function breadcrumbClick(index) {
 }
 
 function zoomToRegion(regionName) {
-    fetch("regions.geojson")
+    fetch("ressources/geojson/regions.geojson")
         .then(response => response.json())
         .then(data => {
             let regionFeature = data.features.find(feature => feature.properties.nom.trim() === regionName);
@@ -82,7 +82,7 @@ function zoomToRegion(regionName) {
                 let regionLayer = L.geoJSON(regionFeature);
                 map.fitBounds(regionLayer.getBounds());
 
-                fetch("departements.geojson")
+                fetch("ressources/geojson/departements.geojson")
                     .then(response => response.json())
                     .then(departementsData => {
                         let filteredDepartements = departementsData.features.filter(departement =>
@@ -118,7 +118,7 @@ function zoomToRegion(regionName) {
 
 // Fonction pour zoomer sur un département à partir de son nom
 function zoomToDepartement(departementName) {
-    fetch("departements.geojson")
+    fetch("ressources/geojson/departements.geojson")
         .then(response => response.json())
         .then(data => {
             let departementFeature = data.features.find(feature => feature.properties.nom.trim() === departementName);
@@ -211,19 +211,19 @@ function generateLayerByGeoJson(file, layerGroup) {
 
                     layer.on('click', function () {
                         switch (file){
-                            case "regions.geojson":
+                            case "ressources/geojson/regions.geojson":
                                 const cleanName = feature.properties.nom.trim();
                                 updateBreadcrumb(cleanName);
                                 moveToDepartements(layer);
                                 console.log("Région sélectionnée");
                                 break;
-                            case "departements.geojson":
+                            case "ressources/geojson/departements.geojson":
                                 const depName = feature.properties.nom.trim();
                                 updateBreadcrumb(depName);
                                 moveToCommunes(layer);
                                 console.log("Département sélectionné");
                                 break;
-                            case "communes.geojson":
+                            case "ressources/geojson/communes.geojson":
                                 // Action pour les communes si nécessaire
                                 break;
                         }
@@ -269,7 +269,7 @@ function moveToDepartements(regionLayer) {
     fetch(`https://geo.api.gouv.fr/regions/${regionCode}/departements`)
         .then(response => response.json())
         .then(departements => {
-            fetch("departements.geojson")
+            fetch("ressources/geojson/departements.geojson")
                 .then(response => response.json())
                 .then(geojsonData => {
                     let filteredDepartements = geojsonData.features.filter(feature =>
@@ -374,6 +374,4 @@ function moveToCommunes(departementLayer) {
         .catch(error => console.error("Erreur lors de la requête API des communes :", error));
 }
 
-// Charger initialement les régions
-generateLayerByGeoJson("regions.geojson", regionsLayerGroup);
-
+generateLayerByGeoJson("ressources/geojson/regions.geojson", regionsLayerGroup);
