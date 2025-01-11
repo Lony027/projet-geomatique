@@ -386,3 +386,31 @@ function moveToCommunes(departementLayer) {
 
 // Charger initialement les régions
 generateLayerByGeoJson("ressources/geojson/regions.geojson", regionsLayerGroup);
+
+
+// Fonction de test pour charger les données présidentielles et afficher les résultats d'une région
+async function testElectionData() {
+    try {
+        // Chargement des données pour l'année 1974, tour 1
+        let data = await loadDataPresidentielles('1974', '1');
+        
+        // Récupérer les résultats par région (exemple : région Occitanie, code 76)
+        let regionData = await getByRegion(data, '76');
+        console.log('Résultats pour la région Occitanie (code 76) :', regionData);
+        
+        // Afficher les résultats par département (exemple : Hérault, code 34)
+        let departementData = getByDepartmentCode(data, '34');
+        console.log('Résultats pour le département Hérault (34) :', departementData);
+        
+        // Afficher les partis politiques présents
+        let parties = getParties(data);
+        console.log('Partis politiques présents :', parties);
+    } catch (error) {
+        console.error('Erreur lors du test des données électorales :', error);
+    }
+}
+
+// Appel de la fonction de test au chargement de la page
+window.onload = async () => {
+    await testElectionData();
+};
