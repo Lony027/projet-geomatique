@@ -14,6 +14,22 @@ let map = L.map(divmap, {
     layers: [layer]
 });
 
+// const partyColors = {
+//     "LAGUILLER (LO)": "#FF0000",
+//     "KRIVINE (LCR)": "#800080",   
+//     "MITTERRAND (PS)": "#0000FF",
+//     "MULLER (MDSR)": "#008000",  
+//     "DUMONT (ECO)": "#00FF00",    
+//     "GISCARD D'ESTAING (RI)": "#FFFF00", 
+//     "CHABAN-DELMAS (UDR)": "#FFA500",  
+//     "RENOUVIN (NAR)": "#A52A2A",  
+//     "ROYER (DVD)": "#000000",     
+//     "LE PEN (FN)": "#000080",     
+//     "HERAUD (DIV)": "#808080",   
+//     "SEBAG (DIV)": "#C0C0C0"      
+// };
+
+
 // Définition des groupes de calques
 let regionsLayerGroup = L.layerGroup().addTo(map);
 let departementsLayerGroup = L.layerGroup().addTo(map);
@@ -22,6 +38,24 @@ let communesLayerGroup = L.layerGroup().addTo(map);
 var currentLayer = { name: "Régions", data: null, parent: null };
 var breadcrumb = [];
 let depth = 0;
+
+function hover(layer) {
+    layer.on('mouseover', function () {
+        layer.setStyle({
+            weight: 3, 
+            color: '#000000', 
+            opacity: 1
+        });
+    });
+
+    layer.on('mouseout', function () {
+        layer.setStyle({
+            weight: 1, 
+            color: '#3388ff', 
+            opacity: 0.8
+        });
+    });
+}
 
 // Fonction de mise à jour du fil d’Ariane
 function updateBreadcrumb(newLayerName) {
@@ -81,20 +115,17 @@ function zoomToRegion(regionName) {
             if (regionFeature) {
                 let regionLayer = L.geoJSON(regionFeature);
                 map.fitBounds(regionLayer.getBounds());
-
                 fetch("ressources/geojson/departements.geojson")
                     .then(response => response.json())
                     .then(departementsData => {
                         let filteredDepartements = departementsData.features.filter(departement =>
                             regionLayer.getBounds().contains(L.geoJSON(departement).getBounds())
                         );
-
                         let filteredGeoJson = {
                             type: "FeatureCollection",
                             features: filteredDepartements
                         };
-
-                        departementsLayerGroup.clearLayers(); // Nettoyer les couches précédentes
+                        departementsLayerGroup.clearLayers();
                         L.geoJSON(filteredGeoJson, {
                             style: {
                                 color: '#3388ff',
@@ -114,6 +145,19 @@ function zoomToRegion(regionName) {
             }
         })
         .catch(error => console.error("Erreur lors du chargement des régions :", error));
+}
+
+
+function clearLayers(upToDepth) {
+    if (upToDepth < 1) {
+        regionsLayerGroup.clearLayers();
+    }
+    if (upToDepth < 2) {
+        departementsLayerGroup.clearLayers();
+    }
+    if (upToDepth < 3) {
+        communesLayerGroup.clearLayers();
+    }
 }
 
 // Fonction pour zoomer sur un département à partir de son nom
@@ -177,82 +221,165 @@ function zoomToDepartement(departementName) {
         .catch(error => console.error("Erreur lors du chargement des départements :", error));
 }
 
-// Fonction pour nettoyer les calques en fonction de la profondeur
-function clearLayers(upToDepth) {
-    if (upToDepth < 1) {
-        regionsLayerGroup.clearLayers();
+
+
+
+
+
+
+
+
+
+
+// Generate layer by date selection and round
+
+const partyColors = {
+    "RPR": "#1f77b4",
+    "FN": "#d62728",
+    "PS": "#2ca02c",
+    "UDF": "#ff7f0e",
+    "PCF": "#9467bd",
+    "ECO": "#8c564b",
+    "DIV": "#e377c2",
+    "DVD": "#7f7f7f",
+    "DVG": "#bcbd22",
+    "LO": "#17becf",
+    "UMP": "#0055a4",
+    "NPA": "#dd1c77",
+    "UDR": "#4682b4",
+    "UNR": "#4682b4",
+    "CIR": "#6a5acd"
+};
+
+function getPartyColor(party) {
+    const match = party.match(/\((.*?)\)/);
+    if (match) {
+        const partyName = match[1];
+        return partyColors[partyName] || "#cccccc";
     }
-    if (upToDepth < 2) {
-        departementsLayerGroup.clearLayers();
-    }
-    if (upToDepth < 3) {
-        communesLayerGroup.clearLayers();
-    }
+    return "#cccccc";
 }
 
-// Fonction pour générer et ajouter des calques GeoJSON à un groupe spécifique
-function generateLayerByGeoJson(file, layerGroup) {
-    fetch(file)
-        .then(response => response.json())
-        .then(data => {
-            let geoJsonLayer = L.geoJSON(data, {
-                style: {
-                    color: '#ff7800',
-                    weight: 0.5,
-                    opacity: 0.65
-                },
-                onEachFeature: function (feature, layer) {
-                    layer.on('mouseover', function () {
-                        layer.setStyle({ weight: 3 });
-                    });
-                    layer.on('mouseout', function () {
-                        layer.setStyle({ weight: 0.5 });
-                    });
+async function generateLayerByGeoJson(file, layerGroup) {
+    const selectYearElement = document.getElementById("selectYear");
+    const selectTourElement = document.getElementById("tour");
 
-                    layer.on('click', function () {
-                        switch (file){
-                            case "ressources/geojson/regions.geojson":
-                                const cleanName = feature.properties.nom.trim();
-                                updateBreadcrumb(cleanName);
-                                moveToDepartements(layer);
-                                console.log("Région sélectionnée");
-                                break;
-                            case "ressources/geojson/departements.geojson":
-                                const depName = feature.properties.nom.trim();
-                                updateBreadcrumb(depName);
-                                moveToCommunes(layer);
-                                console.log("Département sélectionné");
-                                break;
-                            case "ressources/geojson/communes.geojson":
-                                // Action pour les communes si nécessaire
-                                break;
+    function getSelectedYear() {
+        return selectYearElement.options[selectYearElement.selectedIndex]?.value || availableYear[0];
+    }
+
+    function getSelectedTour() {
+        return selectTourElement.options[selectTourElement.selectedIndex]?.value || '1';
+    }
+
+    async function loadAndUpdateData() {
+        const selectedYear = getSelectedYear();
+        const selectedTour = getSelectedTour();
+        const data = await loadDataPresidentielles(selectedYear, selectedTour);
+
+        fetch(file)
+            .then(response => response.json())
+            .then(geoJsonData => {
+                layerGroup.clearLayers();
+
+                let geoJsonLayer = L.geoJSON(geoJsonData, {
+                    style: {
+                        color: '#3388ff',
+                        weight: 1,
+                        fillOpacity: 0.7
+                    },
+                    onEachFeature: async function (feature, layer) {
+                        const regionCode = feature.properties.code;
+                        const regionData = await getByRegion(data, regionCode);
+
+                        const winningParty = Object.keys(regionData)
+                            .filter(key => key !== 'code_region' && key !== 'inscrits' && key !== 'votants' && key !== 'exprimes' && key !== 'blancs_et_nuls')
+                            .reduce((maxParty, currentParty) => regionData[currentParty] > (regionData[maxParty] || 0) ? currentParty : maxParty, '');
+
+                        // console.log(`Données pour la région ${regionCode}:`, regionData);
+                        // console.log(`Région: ${feature.properties.nom}, Parti gagnant: ${winningParty}, Votes: ${regionData[winningParty]}`);
+                        // console.log(`Couleur attribuée à ${winningParty}: ${getPartyColor(winningParty)}`);
+
+                        const fillColor = getPartyColor(winningParty);
+
+                        if (!winningParty || regionData[winningParty] === 0) {
+                            console.warn(`Pas de données valides pour la région ${regionCode}`);
+                            return;
                         }
-                    });
-                }
-            });
 
-            geoJsonLayer.addTo(layerGroup);
-        })
-        .catch(error => console.error("Erreur lors du chargement du GeoJSON :", error));
+                        layer.setStyle({
+                            color: fillColor,
+                            weight: 1,
+                            fillOpacity: 0.2,
+                            fillColor: fillColor
+                        });
+
+                        // Afficher un popup temporaire au survol de la souris avec le nom du parti gagnant
+                        const popupContent = `<b>Parti gagnant :</b> ${winningParty}`;
+                        const center = layer.getBounds().getCenter();
+                        const popup = L.popup({
+                            className: 'region-popup',
+                            closeButton: false,
+                            autoClose: false
+                        }).setLatLng(center).setContent(popupContent);
+
+                        layer.on('mouseover', function () {
+                            layer.setStyle({ weight: 3 });
+                            popup.openOn(layer._map);
+                        });
+
+                        layer.on('mouseout', function () {
+                            layer.setStyle({ weight: 1 });
+                            layer._map.closePopup(popup);
+                        });
+
+                        layer.on('click', function () {
+                            const cleanName = feature.properties.nom.trim();
+                            updateBreadcrumb(cleanName);
+                            moveToDepartements(layer);
+                            console.log("Région sélectionnée", cleanName);
+                        });
+                    }
+                });
+
+                geoJsonLayer.addTo(layerGroup);
+            })
+            .catch(error => console.error("Erreur lors du chargement du GeoJSON :", error));
+    }
+
+    loadAndUpdateData();
+
+    selectYearElement.addEventListener("change", loadAndUpdateData);
+    selectTourElement.addEventListener("change", loadAndUpdateData);
 }
 
-// Fonction de nettoyage dynamique des couches en fonction de la hiérarchie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function dynamicClearLayers(level) {
     switch (level) {
         case "region":
-            // On conserve les régions, mais on nettoie les départements et les communes
             departementsLayerGroup.clearLayers();
             communesLayerGroup.clearLayers();
             break;
         case "departement":
-            // On conserve les départements, mais on nettoie les communes
             communesLayerGroup.clearLayers();
             break;
         case "commune":
-            // Rien à nettoyer en dessous
             break;
         default:
-            // Nettoyage complet (si besoin)
             regionsLayerGroup.clearLayers();
             departementsLayerGroup.clearLayers();
             communesLayerGroup.clearLayers();
@@ -261,54 +388,72 @@ function dynamicClearLayers(level) {
 }
 
 // Naviguer vers les départements d'une région
-function moveToDepartements(regionLayer) {
+async function moveToDepartements(regionLayer) {
     dynamicClearLayers("region");
     let regionCode = regionLayer.feature.properties.code;
+    console.log(`Région sélectionnée : ${regionCode}`);
     map.fitBounds(regionLayer.getBounds());
 
-    fetch(`https://geo.api.gouv.fr/regions/${regionCode}/departements`)
+    let departements = await fetchData(`https://geo.api.gouv.fr/regions/${regionCode}/departements`);
+    console.log("Départements chargés :", departements);
+
+    let selectedYear = document.getElementById("selectYear").value;
+    let selectedTour = document.getElementById("tour").value;
+    console.log(`Année sélectionnée : ${selectedYear}, Tour : ${selectedTour}`);
+
+    fetch("ressources/geojson/departements.geojson")
         .then(response => response.json())
-        .then(departements => {
-            fetch("ressources/geojson/departements.geojson")
-                .then(response => response.json())
-                .then(geojsonData => {
-                    let filteredDepartements = geojsonData.features.filter(feature =>
-                        departements.some(dep => dep.code === feature.properties.code)
-                    );
+        .then(async geojsonData => {
+            let filteredDepartements = geojsonData.features.filter(feature =>
+                departements.some(dep => dep.code === feature.properties.code)
+            );
+            console.log("Départements filtrés par région :", filteredDepartements);
 
-                    let filteredGeoJson = {
-                        type: "FeatureCollection",
-                        features: filteredDepartements
-                    };
+            let data = await loadDataPresidentielles(selectedYear, selectedTour);
+            console.log("Données électorales chargées :", data);
 
-                    let departementLayer = L.geoJSON(filteredGeoJson, {
-                        style: {
-                            color: '#3388ff',
-                            weight: 1,
-                            opacity: 0.8
-                        },
-                        onEachFeature: function (feature, layer) {
-                            layer.on('mouseover', function () {
-                                layer.setStyle({ weight: 3 });
-                            });
+            let departementLayer = L.geoJSON(filteredDepartements, {
+                style: function (feature) {
+                    let departementResults = getByDepartmentCode(data, feature.properties.code);
+                    let totalVotesByParty = {};
 
-                            layer.on('mouseout', function () {
-                                layer.setStyle({ weight: 1 });
-                            });
-
-                            layer.on('click', function () {
-                                const cleanName = feature.properties.nom.trim();
-                                updateBreadcrumb(cleanName);
-                                moveToCommunes(layer);
-                            });
+                    departementResults.forEach(result => {
+                        for (let [party, votes] of Object.entries(result)) {
+                            if (party.match(/^.*\)$/g)) {
+                                totalVotesByParty[party] = (totalVotesByParty[party] || 0) + votes;
+                            }
                         }
                     });
 
-                    departementLayer.addTo(departementsLayerGroup);
-                })
-                .catch(error => console.error("Erreur lors du chargement du GeoJSON des départements :", error));
+                    let winningParty = Object.keys(totalVotesByParty).reduce((maxParty, currentParty) =>
+                        totalVotesByParty[currentParty] > (totalVotesByParty[maxParty] || 0) ? currentParty : maxParty
+                    );
+
+                    let fillColor = partyColors[winningParty.match(/\((.*?)\)/)?.[1]];
+                    console.log(`Parti gagnant pour ${feature.properties.nom} : ${winningParty}, Couleur : ${fillColor}`);
+
+                    return {
+                        color: fillColor,
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.5,
+                        fillColor: fillColor
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.on('click', function () {
+                        const cleanName = feature.properties.nom.trim();
+                        updateBreadcrumb(cleanName);
+                        moveToCommunes(layer);
+                    });
+                    
+                    hover(layer);
+                }
+            });
+
+            departementLayer.addTo(departementsLayerGroup);
         })
-        .catch(error => console.error("Erreur lors de la requête API des départements :", error));
+        .catch(error => console.error("Erreur lors du chargement du GeoJSON des départements :", error));
 }
 
 function moveToCommunes(departementLayer) {
@@ -390,7 +535,7 @@ async function testElectionData() {
         console.log('Résultats pour la région Occitanie (code 76) :', regionData);
         
         // Afficher les résultats par département (exemple : Hérault, code 34)
-        let departementData = getByDepartmentCode(data, '34');
+        let departementData = getByDepartementName(data, 'HERAULT');
         console.log('Résultats pour le département Hérault (34) :', departementData);
         
         // Afficher les partis politiques présents

@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Fil d'Ariane -->
-    
+    <div id="breadcrumb">Veuillez sélectionner une région...</div>
     <!-- <button id="clear">clear</button>
     <button id="regions">regions</button>
     <button id="departements">departements</button>
@@ -25,13 +25,10 @@
             <h2>Date</h2>
             <div id="btns_year">
                 <article>
-                    <button id="btnYear" class="btn">Année</button>
+                    <button id="btnYear" class="btn selected">Année</button>
                     <button id="btnRangeYear" class="btn">Plage d'années</button>
                 </article>
-                <select name="selectYear" id="selectYear">
-                    <option value="2012">2012</option>
-                    <option value="2017">2017</option>
-                </select>
+                <select name="selectYear" id="selectYear"></select>
                 <div class="slider-container">
                     <div class="slider-background"></div>
                     <div class="slider-range"></div>
@@ -49,7 +46,7 @@
         <section id="section_type">
             <h2>Selection</h2>
             <aside class="aside_type">
-                <button class="btn">Gagnants</button>
+                <button class="btn selected">Gagnants</button>
                 <button class="btn">Candidat</button>
             </aside>
             <select name="candidats" class="long_select" id="candidats">
@@ -60,8 +57,8 @@
         <section id="section_round">
             <h2>Tour</h2>
             <select name="tour" class="long_select" id="tour">
-                <option value="premier">Premier Tour</option>
-                <option value="second">Second Tour</option>
+                <option value="1">Premier Tour</option>
+                <option value="2">Second Tour</option>
             </select>
         </section>
     </aside>
@@ -70,8 +67,8 @@
     <div id="map" class="leaflet-container" tabindex="0"></div>
 
     <!-- Script principal -->
-    <script src="./main.js"></script>
-    <script src="./menu.js"></script>
     <script src="./load-data.js"></script>
+    <script src="./map.js"></script>
+    <script src="./menu.js"></script>
 </body>
 </html>
