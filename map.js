@@ -14,22 +14,6 @@ let map = L.map(divmap, {
     layers: [layer]
 });
 
-// const partyColors = {
-//     "LAGUILLER (LO)": "#FF0000",
-//     "KRIVINE (LCR)": "#800080",   
-//     "MITTERRAND (PS)": "#0000FF",
-//     "MULLER (MDSR)": "#008000",  
-//     "DUMONT (ECO)": "#00FF00",    
-//     "GISCARD D'ESTAING (RI)": "#FFFF00", 
-//     "CHABAN-DELMAS (UDR)": "#FFA500",  
-//     "RENOUVIN (NAR)": "#A52A2A",  
-//     "ROYER (DVD)": "#000000",     
-//     "LE PEN (FN)": "#000080",     
-//     "HERAUD (DIV)": "#808080",   
-//     "SEBAG (DIV)": "#C0C0C0"      
-// };
-
-
 let regionsLayerGroup = L.layerGroup().addTo(map);
 let departementsLayerGroup = L.layerGroup().addTo(map);
 let communesLayerGroup = L.layerGroup().addTo(map);
@@ -569,29 +553,24 @@ function moveToCommunes(departementLayer) {
 generateLayerByGeoJson("ressources/geojson/regions.geojson", regionsLayerGroup);
 
 
-// Fonction de test pour charger les données présidentielles et afficher les résultats d'une région
-async function testElectionData() {
-    try {
-        // Chargement des données pour l'année 1974, tour 1
-        let data = await loadDataPresidentielles('1974', '1');
-        
-        // Récupérer les résultats par région (exemple : région Occitanie, code 76)
-        let regionData = await getByRegion(data, '76');
-        console.log('Résultats pour la région Occitanie (code 76) :', regionData);
-        
-        // Afficher les résultats par département (exemple : Hérault, code 34)
-        let departementData = getByDepartementName(data, 'HERAULT');
-        console.log('Résultats pour le département Hérault (34) :', departementData);
-        
-        // Afficher les partis politiques présents
-        let parties = getParties(data);
-        console.log('Partis politiques présents :', parties);
-    } catch (error) {
-        console.error('Erreur lors du test des données électorales :', error);
-    }
+function resetMapOnTourChange() {
+    // Efface toutes les couches et les étiquettes
+    dynamicClearLayers("all");
+    departmentLabelsLayer.clearLayers();
+
+    // Recentrer la carte sur la vue initiale des régions
+    map.setView([47.0811658, 2.399125], 6);
+
+    // Récupérer les valeurs de l'année et du tour sélectionnés
+    let selectedYear = document.getElementById("selectYear").value;
+    let selectedTour = document.getElementById("tour").value;
+
+    console.log(`Réinitialisation de la carte pour l'année ${selectedYear}, tour ${selectedTour}`);
+
+    // Générer les calques des régions avec les nouvelles données
+    generateLayerByGeoJson("ressources/geojson/regions.geojson", regionsLayerGroup);
 }
 
-// Appel de la fonction de test au chargement de la page
-window.onload = async () => {
-    await testElectionData();
-};
+// Attachez l'événement au changement de sélection du tour
+document.getElementById("tour").addEventListener("change", resetMapOnTourChange);
+
