@@ -30,7 +30,6 @@ let map = L.map(divmap, {
 // };
 
 
-// Définition des groupes de calques
 let regionsLayerGroup = L.layerGroup().addTo(map);
 let departementsLayerGroup = L.layerGroup().addTo(map);
 let communesLayerGroup = L.layerGroup().addTo(map);
@@ -42,8 +41,7 @@ let depth = 0;
 function hover(layer) {
     layer.on('mouseover', function () {
         layer.setStyle({
-            weight: 3, 
-            color: '#000000', 
+            weight: 5, 
             opacity: 1
         });
     });
@@ -51,7 +49,6 @@ function hover(layer) {
     layer.on('mouseout', function () {
         layer.setStyle({
             weight: 1, 
-            color: '#3388ff', 
             opacity: 0.8
         });
     });
@@ -128,7 +125,7 @@ function zoomToRegion(regionName) {
                         departementsLayerGroup.clearLayers();
                         L.geoJSON(filteredGeoJson, {
                             style: {
-                                color: '#3388ff',
+                                color: '#F1F1F1',
                                 weight: 1,
                                 opacity: 0.8
                             },
@@ -248,7 +245,8 @@ const partyColors = {
     "NPA": "#dd1c77",
     "UDR": "#4682b4",
     "UNR": "#4682b4",
-    "CIR": "#6a5acd"
+    "CIR": "#6a5acd",
+    "RI": "#f4a460",
 };
 
 function getPartyColor(party) {
@@ -257,7 +255,7 @@ function getPartyColor(party) {
         const partyName = match[1];
         return partyColors[partyName] || "#cccccc";
     }
-    return "#cccccc";
+    return "#F1F1F1";
 }
 
 async function generateLayerByGeoJson(file, layerGroup) {
@@ -284,7 +282,7 @@ async function generateLayerByGeoJson(file, layerGroup) {
 
                 let geoJsonLayer = L.geoJSON(geoJsonData, {
                     style: {
-                        color: '#3388ff',
+                        color: '#F1F1F1',
                         weight: 1,
                         fillOpacity: 0.7
                     },
@@ -315,22 +313,22 @@ async function generateLayerByGeoJson(file, layerGroup) {
                         });
 
                         // Afficher un popup temporaire au survol de la souris avec le nom du parti gagnant
-                        const popupContent = `<b>Parti gagnant :</b> ${winningParty}`;
-                        const center = layer.getBounds().getCenter();
-                        const popup = L.popup({
-                            className: 'region-popup',
-                            closeButton: false,
-                            autoClose: false
-                        }).setLatLng(center).setContent(popupContent);
+                        // const popupContent = `<b>Parti gagnant :</b> ${winningParty}`;
+                        // const center = layer.getBounds().getCenter();
+                        // const popup = L.popup({
+                        //     className: 'region-popup',
+                        //     closeButton: false,
+                        //     autoClose: false
+                        // }).setLatLng(center).setContent(popupContent);
 
                         layer.on('mouseover', function () {
                             layer.setStyle({ weight: 3 });
-                            popup.openOn(layer._map);
+                            // popup.openOn(layer._map);
                         });
 
                         layer.on('mouseout', function () {
                             layer.setStyle({ weight: 1 });
-                            layer._map.closePopup(popup);
+                            // layer._map.closePopup(popup);
                         });
 
                         layer.on('click', function () {
@@ -388,8 +386,12 @@ function dynamicClearLayers(level) {
 }
 
 // Naviguer vers les départements d'une région
+let departmentLabelsLayer = L.layerGroup().addTo(map);
+
 async function moveToDepartements(regionLayer) {
     dynamicClearLayers("region");
+    departmentLabelsLayer.clearLayers();
+
     let regionCode = regionLayer.feature.properties.code;
     console.log(`Région sélectionnée : ${regionCode}`);
     map.fitBounds(regionLayer.getBounds());
@@ -414,8 +416,13 @@ async function moveToDepartements(regionLayer) {
 
             let departementLayer = L.geoJSON(filteredDepartements, {
                 style: function (feature) {
-                    let departementResults = getByDepartmentCode(data, feature.properties.code);
+                    let departementResults = getByDepartmentCode(data, feature.properties.code) || [];
                     let totalVotesByParty = {};
+
+                    if (departementResults.length === 0) {
+                        console.warn(`Aucun résultat trouvé pour le département ${feature.properties.nom}`);
+                        return { color: "#cccccc", weight: 1, fillOpacity: 0.2, fillColor: "#cccccc" };
+                    }
 
                     departementResults.forEach(result => {
                         for (let [party, votes] of Object.entries(result)) {
@@ -426,10 +433,11 @@ async function moveToDepartements(regionLayer) {
                     });
 
                     let winningParty = Object.keys(totalVotesByParty).reduce((maxParty, currentParty) =>
-                        totalVotesByParty[currentParty] > (totalVotesByParty[maxParty] || 0) ? currentParty : maxParty
+                        totalVotesByParty[currentParty] > (totalVotesByParty[maxParty] || 0) ? currentParty : maxParty,
+                        Object.keys(totalVotesByParty)[0] || ""
                     );
 
-                    let fillColor = partyColors[winningParty.match(/\((.*?)\)/)?.[1]];
+                    let fillColor = partyColors[winningParty.match(/\((.*?)\)/)?.[1]] || "#cccccc";
                     console.log(`Parti gagnant pour ${feature.properties.nom} : ${winningParty}, Couleur : ${fillColor}`);
 
                     return {
@@ -446,15 +454,52 @@ async function moveToDepartements(regionLayer) {
                         updateBreadcrumb(cleanName);
                         moveToCommunes(layer);
                     });
-                    
+
+                    let center = layer.getBounds().getCenter();
+                    let winningParty = getWinningPartyForFeature(feature, data);
+                    if (winningParty) {
+                        let textLabel = L.divIcon({
+                            className: 'winning-party-label',
+                            html: `<div style="background-color: white; padding: 2px 5px; border-radius: 5px; box-shadow: 0 0 3px rgba(0,0,0,0.3);">${winningParty}</div>`,
+                            iconSize: [100, 30]
+                        });
+                        L.marker(center, { icon: textLabel }).addTo(departmentLabelsLayer);
+                    }
+
                     hover(layer);
                 }
             });
 
             departementLayer.addTo(departementsLayerGroup);
+
+            regionsLayerGroup.eachLayer(layer => {
+                layer.setStyle({
+                    fillOpacity: 0,
+                    color: "#ffffff",
+                    weight: 1
+                });
+            });
         })
         .catch(error => console.error("Erreur lors du chargement du GeoJSON des départements :", error));
 }
+
+function getWinningPartyForFeature(feature, data) {
+    let departementResults = getByDepartmentCode(data, feature.properties.code);
+    let totalVotesByParty = {};
+
+    departementResults.forEach(result => {
+        for (let [party, votes] of Object.entries(result)) {
+            if (party.match(/^.*\)$/g)) {
+                totalVotesByParty[party] = (totalVotesByParty[party] || 0) + votes;
+            }
+        }
+    });
+
+    return Object.keys(totalVotesByParty).reduce((maxParty, currentParty) =>
+        totalVotesByParty[currentParty] > (totalVotesByParty[maxParty] || 0) ? currentParty : maxParty
+    );
+}
+
 
 function moveToCommunes(departementLayer) {
     dynamicClearLayers("departement"); // Nettoyer les couches inférieures
