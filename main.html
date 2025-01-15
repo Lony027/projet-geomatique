@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Fil d'Ariane -->
-    <div id="breadcrumb">Veuillez sélectionner une région...</div>
+    
     <!-- <button id="clear">clear</button>
     <button id="regions">regions</button>
     <button id="departements">departements</button>
@@ -22,24 +22,10 @@
         <h1>Elections Présidentielles</h1>
 
         <section id="section_year">
-            <h2>Date</h2>
+            <h2>Année</h2>
             <div id="btns_year">
-                <article>
-                    <button id="btnYear" class="btn selected">Année</button>
-                    <button id="btnRangeYear" class="btn">Plage d'années</button>
-                </article>
+                <!-- <button id="btnYear" class="btn selected">Année</button> -->
                 <select name="selectYear" id="selectYear"></select>
-                <div class="slider-container">
-                    <div class="slider-background"></div>
-                    <div class="slider-range"></div>
-                    <input type="range" id="range-min" min="0" max="5" value="3" step="1">
-                    <input type="range" id="range-max" min="0" max="5" value="4" step="1">
-                    <div class="values">
-                        <span id="min-value">0</span>
-                        <span id="max-value">5</span>
-                    </div>
-                </div>
-                
             </div>
         </section>
 
@@ -65,10 +51,7 @@
     </aside>
     
     <div id="map" class="leaflet-container" tabindex="0">
-        <section id="colors" style="z-index: 9999999; color: white;">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, alias? Atque excepturi voluptatem illo quisquam sed voluptas velit tempora accusamus possimus voluptatum reiciendis ut repudiandae architecto eius debitis, nobis iusto?
-        </section>
-
+        <div id="breadcrumb">Veuillez sélectionner une région...</div>
     </div>
 
     <script src="./load-data.js"></script>

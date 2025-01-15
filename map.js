@@ -14,6 +14,26 @@ let map = L.map(divmap, {
     layers: [layer]
 });
 
+const partyColors = {
+    "RPR": "#1f77b4",
+    "FN": "#d62728",
+    "PS": "#2ca02c",
+    "UDF": "#ff7f0e",
+    "PCF": "#9467bd",
+    "ECO": "#8c564b",
+    "DIV": "#e377c2",
+    "DVD": "#7f7f7f",
+    "DVG": "#bcbd22",
+    "LO": "#17becf",
+    "UMP": "#0055a4",
+    "NPA": "#dd1c77",
+    "UDR": "#4682b4",
+    "UNR": "#4682b4",
+    "CIR": "#6a5acd",
+    "RI": "#f4a460",
+};
+
+
 let regionsLayerGroup = L.layerGroup().addTo(map);
 let departementsLayerGroup = L.layerGroup().addTo(map);
 let communesLayerGroup = L.layerGroup().addTo(map);
@@ -213,25 +233,6 @@ function zoomToDepartement(departementName) {
 
 
 // Generate layer by date selection and round
-
-const partyColors = {
-    "RPR": "#1f77b4",
-    "FN": "#d62728",
-    "PS": "#2ca02c",
-    "UDF": "#ff7f0e",
-    "PCF": "#9467bd",
-    "ECO": "#8c564b",
-    "DIV": "#e377c2",
-    "DVD": "#7f7f7f",
-    "DVG": "#bcbd22",
-    "LO": "#17becf",
-    "UMP": "#0055a4",
-    "NPA": "#dd1c77",
-    "UDR": "#4682b4",
-    "UNR": "#4682b4",
-    "CIR": "#6a5acd",
-    "RI": "#f4a460",
-};
 
 function getPartyColor(party) {
     const match = party.match(/\((.*?)\)/);
