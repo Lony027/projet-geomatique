@@ -61,7 +61,9 @@ input[type="range"]::-webkit-slider-thumb {
     }
 }
 
-
+h2 {
+    margin-bottom: 10px;
+}
 
 
 /* Left menu CSS */
@@ -69,6 +71,7 @@ input[type="range"]::-webkit-slider-thumb {
 #left-menu {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     left: 0;
     top: 0;
     width: 40vw;
@@ -81,9 +84,11 @@ input[type="range"]::-webkit-slider-thumb {
     color: white;
     font-family: Helvetica, sans-serif;
 
-    h1 {
+    /* h1 {
         margin: 20px auto;
-    }
+    } */
+
+    
 
     .selected {
         background-color: #4A1175;
@@ -93,10 +98,6 @@ input[type="range"]::-webkit-slider-thumb {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-
-        h2 {
-            margin-bottom: 20px 0;
-        }
 
         #btns_year {
             /* display: flex;
@@ -115,7 +116,7 @@ input[type="range"]::-webkit-slider-thumb {
                 color: white;
                 border: none;
                 width: 100%;
-                margin: 20px 50%;
+                margin: 0 50%;
                 transform: translateX(-50%);
             }
         }
@@ -129,7 +130,7 @@ input[type="range"]::-webkit-slider-thumb {
         justify-content: center;
         /* gap: 20px; */
         padding-right: 10px;
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
 
         .aside_type {
             width: 100%;
@@ -137,7 +138,35 @@ input[type="range"]::-webkit-slider-thumb {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            margin-top: 20px;
+            /* margin-top: 20px; */
+        }
+    }
+
+    #section_color {
+        width: 100%;
+        height: 50%;
+        /* margin-top: 20px; */
+        display: flex;
+        /* border: solid red; */
+
+        div {
+            /* border: solid green; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            input {
+                background: none;
+                border: none;
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+            }
+
+            input:hover {
+                cursor: pointer;
+                border: solid 1px white;
+            }
         }
     }
 }

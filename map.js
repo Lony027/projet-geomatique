@@ -21,8 +21,8 @@ const partyColors = {
     "UDF": "#ff7f0e",
     "PCF": "#9467bd",
     "ECO": "#8c564b",
-    "DIV": "#e377c2",
-    "DVD": "#7f7f7f",
+    // "DIV": "#e377c2",
+    // "DVD": "#7f7f7f",
     "DVG": "#bcbd22",
     "LO": "#17becf",
     "UMP": "#0055a4",
@@ -31,6 +31,26 @@ const partyColors = {
     "UNR": "#4682b4",
     "CIR": "#6a5acd",
     "RI": "#f4a460",
+};
+
+// Full names for parties
+const partyFullNames = {
+    "RPR": "Les Républicains",
+    "FN": "Front National",
+    "PS": "Parti Socialiste",
+    "UDF": "Union pour la Démocratie Française",
+    "PCF": "Parti Communiste Français",
+    "ECO": "Écologistes",
+    "DIV": "Divers",
+    // "DVD": "Divers Droite",
+    // "DVG": "Divers Gauche",
+    "LO": "Lutte Ouvrière",
+    "UMP": "Union pour un Mouvement Populaire",
+    "NPA": "Nouveau Parti Anticapitaliste",
+    "UDR": "Union des Démocrates pour la République",
+    "UNR": "Union pour la Nouvelle République",
+    "CIR": "Candidats Indépendants Républicains",
+    "RI": "Républicains Indépendants",
 };
 
 
