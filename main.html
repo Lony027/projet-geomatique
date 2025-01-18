@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="drom.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 </head>
 <body>
@@ -52,10 +53,18 @@
     
     <div id="map" class="leaflet-container" tabindex="0">
         <div id="breadcrumb">Veuillez sélectionner une région...</div>
+        <section>
+            <div class="mayotte"></div>
+            <div class="reunion"></div>
+            <div class="guadeloupe"></div>
+            <div class="martinique"></div>
+            <div class="guyane"></div>
+        </section>
     </div>
 
     <script src="./load-data.js"></script>
     <script src="./map.js"></script>
     <script src="./menu.js"></script>
+    <script src="drom.js"></script>
 </body>
 </html>
