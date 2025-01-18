@@ -575,3 +575,18 @@ function resetMapOnTourChange() {
 // Attachez l'événement au changement de sélection du tour
 document.getElementById("tour").addEventListener("change", resetMapOnTourChange);
 
+(async function main() {
+    const data = await loadDataPresidentielles("1965", "1");
+
+    // Calculate by region
+    const regionalResults = await getVictoryPercentageByRegion(data, "UNR");
+    console.log("Results by region:", regionalResults);
+
+    // Calculate by department
+    const departmentResults = getVictoryPercentageByDepartment(data, "UNR");
+    console.log("Results by department:", departmentResults);
+
+    // Calculate by constituency
+    const constituencyResults = getVictoryPercentageByConstituency(data, "UNR");
+    console.log("Results by constituency:", constituencyResults);
+})();
