@@ -93,6 +93,8 @@ function replaceAndTruncateArray(array, index, newValue) {
 /*
   mapDepth : 
     1 : Region
+    2 : Departement
+    3 : Circo
 */
 function updateBreadcrumb(newLayerName, mapDepth) {
   if (
@@ -122,8 +124,8 @@ function updateBreadcrumb(newLayerName, mapDepth) {
 }
 
 function resetBreadcrumb() {
-  updateBreadcrumbHTML();
   breadcrumb = [];
+  updateBreadcrumbHTML();
   return;
 }
 
