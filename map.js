@@ -64,7 +64,7 @@ let communesLayerGroup = L.layerGroup().addTo(map);
 
 var currentLayer = { name: 'Régions', data: null, parent: null };
 var breadcrumb = [];
-let depth = 0;
+// let depth = 0;
 
 function hover(layer) {
   layer.on('mouseover', function () {
@@ -82,58 +82,87 @@ function hover(layer) {
   });
 }
 
-// Fonction de mise à jour du fil d’Ariane
-function updateBreadcrumb(newLayerName) {
-  if (breadcrumb.length === 3) {
-    breadcrumb.shift(); // Retirer le premier élément si on atteint la limite de 3
+
+function replaceAndTruncateArray(array, index, newValue) {
+  if (index < 0 || index >= array.length) {
+    throw new Error('Index out of bounds');
   }
-
-  breadcrumb.push(newLayerName);
-  console.log("Fil d'Ariane mis à jour :", breadcrumb);
-
-  let breadcrumbString = breadcrumb
-    .map((name, index) => {
-      return `<a href="#" onclick="breadcrumbClick(${index})">${name}</a>`;
-    })
-    .join(' > ');
-
-  breadcrumbElement.innerHTML = breadcrumbString;
-  depth = breadcrumb.length;
-
-  clearLayers(depth);
+  return array.slice(0, index).concat(newValue);
 }
 
-// Fonction de gestion des clics sur le fil d’Ariane
-function breadcrumbClick(index) {
-  depth = index + 1;
-
-  // Nettoyage des couches en fonction du niveau cliqué
-  if (depth === 1) {
-    // Clic sur une région
-    let regionName = breadcrumb[0];
-    breadcrumb = [regionName];
-    console.log(`Retour à la région : ${regionName}`);
-    clearLayers(1); // Supprimer les couches des départements et communes
-    zoomToRegion(regionName); // Recentrer sur la région
-  } else if (depth === 2) {
-    let regionName = breadcrumb[0];
-    let departementName = breadcrumb[1];
-    breadcrumb = [regionName, departementName];
-    console.log(`Retour au département : ${departementName}`);
-    clearLayers(2); // Supprimer les couches des communes
-    zoomToDepartement(departementName);
-  } else if (depth === 3) {
-    // Clic sur une commune (pour future implémentation si nécessaire)
-    console.log('Niveau commune cliqué : aucune action requise.');
+/*
+  mapDepth : 
+    1 : Region
+    2 : Departement
+    3 : Circo
+*/
+function updateBreadcrumb(newLayerName, mapDepth) {
+  if (
+    mapDepth == null ||
+    newLayerName == null ||
+    mapDepth < 1 ||
+    mapDepth > 3
+  ) {
+    throw new Error('Wrong parameters');
   }
 
-  // Mise à jour de l’affichage du fil d’Ariane
-  let breadcrumbString = breadcrumb
-    .map((name, idx) => {
-      return `<a href="#" onclick="breadcrumbClick(${idx})">${name}</a>`;
-    })
-    .join(' > ');
+  let bcLen = breadcrumb.length; // gérer si incoherence avec mapdepth ou si superieur a 3
+  if (mapDepth > bcLen + 1) {
+    return;
+  }
+  if (bcLen == mapDepth - 1) {
+    breadcrumb.push(newLayerName);
+  } else {
+    breadcrumb = replaceAndTruncateArray(
+      breadcrumb,
+      mapDepth - 1,
+      newLayerName
+    );
+  }
+  updateBreadcrumbHTML();
+  // clearLayers(breadcrumb.length);
+}
+
+function resetBreadcrumb() {
+  breadcrumb = [];
+  updateBreadcrumbHTML();
+  return;
+}
+
+function updateBreadcrumbHTML() {
+  let breadcrumbString = `<a href="#" onclick="breadcrumbClick(0)">France</a>`;
+  if (breadcrumb.length > 0) {
+    breadcrumbString += ' > '
+    breadcrumbString += breadcrumb
+      .map((name, index) => {
+        return `<a href="#" onclick="breadcrumbClick(${index+1})">${name}</a>`;
+      })
+      .join(' > ');
+  }
   breadcrumbElement.innerHTML = breadcrumbString;
+}
+
+function breadcrumbClick(depth) {
+  if (depth == null || depth < 1 || depth > 3) {
+    throw new Error('breadcrumbClick: Depth is null or out of bound')
+  }
+
+  breadcrumb = breadcrumb.slice(0, depth);
+  clearLayers(depth);
+  switch (depth) {
+    case 0:
+      // @to-do: reset to orignial France view
+    case 1:
+      zoomToRegion(breadcrumb[0]);
+      break;
+    case 2:
+      zoomToDepartement(breadcrumb[1]);
+      break;
+    case 3:
+      // @to-do: add circonscription
+      break;
+  }
+  updateBreadcrumbHTML();
 }
 
 function zoomToRegion(regionName) {
@@ -169,7 +198,7 @@ function zoomToRegion(regionName) {
               onEachFeature: function (feature, layer) {
                 layer.on('click', function () {
                   const cleanName = feature.properties.nom.trim();
-                  updateBreadcrumb(cleanName);
+                  updateBreadcrumb(cleanName, 1);
                   moveToCommunes(layer);
                 });
               },
@@ -254,7 +283,7 @@ function zoomToDepartement(departementName) {
               onEachFeature: function (feature, layer) {
                 layer.on('click', function () {
                   const cleanName = feature.properties.nom.trim();
-                  updateBreadcrumb(cleanName);
+                  updateBreadcrumb(cleanName, 2);
                   map.fitBounds(layer.getBounds()); // Zoomer sur la commune
                 });
               },
@@ -376,7 +405,7 @@ async function generateLayerByGeoJson(file, layerGroup) {
 
             layer.on('click', function () {
               const cleanName = feature.properties.nom.trim();
-              updateBreadcrumb(cleanName);
+              updateBreadcrumb(cleanName, 1);
               moveToDepartements(layer);
               console.log('Région sélectionnée', cleanName);
             });
@@ -499,7 +528,7 @@ async function moveToDepartements(regionLayer) {
         onEachFeature: function (feature, layer) {
           layer.on('click', function () {
             const cleanName = feature.properties.nom.trim();
-            updateBreadcrumb(cleanName);
+            updateBreadcrumb(cleanName, 2);
             moveToCommunes(layer);
           });
 
@@ -613,7 +642,7 @@ function moveToCommunes(departementLayer) {
             const cleanName = feature.properties.nom.trim();
             const codePostal = feature.properties.code; // Récupérer le code postal
             console.log(`Commune : ${cleanName}, Code Postal : ${codePostal}`); // Afficher dans la console
-            updateBreadcrumb(cleanName);
+            updateBreadcrumb(cleanName, 3);
             map.fitBounds(layer.getBounds());
           });
         },
@@ -634,6 +663,8 @@ function resetMapOnTourChange() {
   dynamicClearLayers('all');
   departmentLabelsLayer.clearLayers();
 
+  resetBreadcrumb();
+
   // Recentrer la carte sur la vue initiale des régions
   map.setView([47.0811658, 2.399125], 6);
 
@@ -644,6 +675,7 @@ function resetMapOnTourChange() {
   console.log(
     `Réinitialisation de la carte pour l'année ${selectedYear}, tour ${selectedTour}`
   );
+
 
   // Générer les calques des régions avec les nouvelles données
   generateLayerByGeoJson(
@@ -656,6 +688,7 @@ function resetMapOnTourChange() {
 document
   .getElementById('tour')
   .addEventListener('change', resetMapOnTourChange);
+
 
 (async function main() {
   const data = await loadDataPresidentielles('1965', '1');
@@ -672,3 +705,4 @@ document
   const constituencyResults = getVictoryPercentageByConstituency(data, 'UNR');
   console.log('Results by constituency:', constituencyResults);
 })();
+
