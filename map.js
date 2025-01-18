@@ -26,8 +26,8 @@ const partyColors = {
   UDF: '#ff7f0e',
   PCF: '#9467bd',
   ECO: '#8c564b',
-  DIV: '#e377c2',
-  DVD: '#7f7f7f',
+  // "DIV": "#e377c2",
+  // "DVD": "#7f7f7f",
   DVG: '#bcbd22',
   LO: '#17becf',
   UMP: '#0055a4',
@@ -36,6 +36,26 @@ const partyColors = {
   UNR: '#4682b4',
   CIR: '#6a5acd',
   RI: '#f4a460',
+};
+
+// Full names for parties
+const partyFullNames = {
+  RPR: 'Les Républicains',
+  FN: 'Front National',
+  PS: 'Parti Socialiste',
+  UDF: 'Union pour la Démocratie Française',
+  PCF: 'Parti Communiste Français',
+  ECO: 'Écologistes',
+  DIV: 'Divers',
+  // "DVD": "Divers Droite",
+  // "DVG": "Divers Gauche",
+  LO: 'Lutte Ouvrière',
+  UMP: 'Union pour un Mouvement Populaire',
+  NPA: 'Nouveau Parti Anticapitaliste',
+  UDR: 'Union des Démocrates pour la République',
+  UNR: 'Union pour la Nouvelle République',
+  CIR: 'Candidats Indépendants Républicains',
+  RI: 'Républicains Indépendants',
 };
 
 let regionsLayerGroup = L.layerGroup().addTo(map);
@@ -61,6 +81,7 @@ function hover(layer) {
     });
   });
 }
+
 
 function replaceAndTruncateArray(array, index, newValue) {
   if (index < 0 || index >= array.length) {
@@ -313,7 +334,6 @@ async function generateLayerByGeoJson(file, layerGroup) {
       .then((response) => response.json())
       .then((geoJsonData) => {
         layerGroup.clearLayers();
-        // breadcrumb = [];
 
         let geoJsonLayer = L.geoJSON(geoJsonData, {
           style: {
@@ -654,6 +674,7 @@ function resetMapOnTourChange() {
     `Réinitialisation de la carte pour l'année ${selectedYear}, tour ${selectedTour}`
   );
 
+
   // Générer les calques des régions avec les nouvelles données
   generateLayerByGeoJson(
     'ressources/geojson/regions.geojson',
@@ -665,3 +686,21 @@ function resetMapOnTourChange() {
 document
   .getElementById('tour')
   .addEventListener('change', resetMapOnTourChange);
+
+
+(async function main() {
+  const data = await loadDataPresidentielles('1965', '1');
+
+  // Calculate by region
+  const regionalResults = await getVictoryPercentageByRegion(data, 'UNR');
+  console.log('Results by region:', regionalResults);
+
+  // Calculate by department
+  const departmentResults = getVictoryPercentageByDepartment(data, 'UNR');
+  console.log('Results by department:', departmentResults);
+
+  // Calculate by constituency
+  const constituencyResults = getVictoryPercentageByConstituency(data, 'UNR');
+  console.log('Results by constituency:', constituencyResults);
+})();
+

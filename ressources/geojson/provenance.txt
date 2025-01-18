@@ -1,2 +1,6 @@
-Circonscriptions :
-https://www.data.gouv.fr/fr/datasets/contours-geographiques-des-circonscriptions-legislatives/
+GeoJson :
+
+    Régions : https://france-geojson.gregoiredavid.fr/
+    Département : https://france-geojson.gregoiredavid.fr/
+    Circonscriptions : https://www.data.gouv.fr/fr/datasets/contours-geographiques-des-circonscriptions-legislatives/
+    Communes : https://www.data.gouv.fr/fr/datasets/contours-des-communes-de-france-simplifie-avec-regions-et-departement-doutre-mer-rapproches/
