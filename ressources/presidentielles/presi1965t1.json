@@ -2,7 +2,7 @@
   {
     "code_departement": "01",
     "departement": "AIN",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 68818,
     "votants": 54262,
     "exprimes": 53769,
@@ -17,7 +17,7 @@
   {
     "code_departement": "01",
     "departement": "AIN",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 70186,
     "votants": 57221,
     "exprimes": 56780,
@@ -32,7 +32,7 @@
   {
     "code_departement": "01",
     "departement": "AIN",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 67492,
     "votants": 55503,
     "exprimes": 55006,
@@ -47,7 +47,7 @@
   {
     "code_departement": "02",
     "departement": "AISNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 52618,
     "votants": 46064,
     "exprimes": 45564,
@@ -62,7 +62,7 @@
   {
     "code_departement": "02",
     "departement": "AISNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 68770,
     "votants": 59908,
     "exprimes": 59145,
@@ -77,7 +77,7 @@
   {
     "code_departement": "02",
     "departement": "AISNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 48492,
     "votants": 42604,
     "exprimes": 41950,
@@ -92,7 +92,7 @@
   {
     "code_departement": "02",
     "departement": "AISNE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 53732,
     "votants": 47000,
     "exprimes": 46369,
@@ -107,7 +107,7 @@
   {
     "code_departement": "02",
     "departement": "AISNE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 67138,
     "votants": 58058,
     "exprimes": 57522,
@@ -122,7 +122,7 @@
   {
     "code_departement": "03",
     "departement": "ALLIER",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 55694,
     "votants": 45789,
     "exprimes": 45289,
@@ -137,7 +137,7 @@
   {
     "code_departement": "03",
     "departement": "ALLIER",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 64120,
     "votants": 54742,
     "exprimes": 54141,
@@ -152,7 +152,7 @@
   {
     "code_departement": "03",
     "departement": "ALLIER",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 57620,
     "votants": 48003,
     "exprimes": 47540,
@@ -167,7 +167,7 @@
   {
     "code_departement": "03",
     "departement": "ALLIER",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 66930,
     "votants": 56008,
     "exprimes": 55418,
@@ -182,7 +182,7 @@
   {
     "code_departement": "04",
     "departement": "ALPES-DE-HAUTE-PROVENCE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 31060,
     "votants": 25172,
     "exprimes": 24848,
@@ -197,7 +197,7 @@
   {
     "code_departement": "04",
     "departement": "ALPES-DE-HAUTE-PROVENCE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 31536,
     "votants": 26193,
     "exprimes": 25806,
@@ -212,7 +212,7 @@
   {
     "code_departement": "05",
     "departement": "HAUTES-ALPES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 31580,
     "votants": 25916,
     "exprimes": 25582,
@@ -227,7 +227,7 @@
   {
     "code_departement": "05",
     "departement": "HAUTES-ALPES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 25998,
     "votants": 19854,
     "exprimes": 19610,
@@ -242,7 +242,7 @@
   {
     "code_departement": "06",
     "departement": "ALPES-MARITIMES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 62170,
     "votants": 52636,
     "exprimes": 52032,
@@ -257,7 +257,7 @@
   {
     "code_departement": "06",
     "departement": "ALPES-MARITIMES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 66974,
     "votants": 56657,
     "exprimes": 56120,
@@ -272,7 +272,7 @@
   {
     "code_departement": "06",
     "departement": "ALPES-MARITIMES",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 69269,
     "votants": 58278,
     "exprimes": 57597,
@@ -287,7 +287,7 @@
   {
     "code_departement": "06",
     "departement": "ALPES-MARITIMES",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 60930,
     "votants": 51035,
     "exprimes": 50327,
@@ -302,7 +302,7 @@
   {
     "code_departement": "06",
     "departement": "ALPES-MARITIMES",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 75032,
     "votants": 64257,
     "exprimes": 63551,
@@ -317,7 +317,7 @@
   {
     "code_departement": "06",
     "departement": "ALPES-MARITIMES",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 74594,
     "votants": 62918,
     "exprimes": 62113,
@@ -332,7 +332,7 @@
   {
     "code_departement": "07",
     "departement": "ARDECHE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 58401,
     "votants": 49565,
     "exprimes": 49125,
@@ -347,7 +347,7 @@
   {
     "code_departement": "07",
     "departement": "ARDECHE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 56480,
     "votants": 47425,
     "exprimes": 46976,
@@ -362,7 +362,7 @@
   {
     "code_departement": "07",
     "departement": "ARDECHE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 50745,
     "votants": 41450,
     "exprimes": 41069,
@@ -377,7 +377,7 @@
   {
     "code_departement": "08",
     "departement": "ARDENNES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 54115,
     "votants": 45812,
     "exprimes": 45275,
@@ -392,7 +392,7 @@
   {
     "code_departement": "08",
     "departement": "ARDENNES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 60575,
     "votants": 51791,
     "exprimes": 51311,
@@ -407,7 +407,7 @@
   {
     "code_departement": "08",
     "departement": "ARDENNES",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 52089,
     "votants": 44594,
     "exprimes": 44114,
@@ -422,7 +422,7 @@
   {
     "code_departement": "09",
     "departement": "ARIEGE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 45146,
     "votants": 36966,
     "exprimes": 36597,
@@ -437,7 +437,7 @@
   {
     "code_departement": "09",
     "departement": "ARIEGE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 49596,
     "votants": 40288,
     "exprimes": 39846,
@@ -452,7 +452,7 @@
   {
     "code_departement": "10",
     "departement": "AUBE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 43961,
     "votants": 37866,
     "exprimes": 37427,
@@ -467,7 +467,7 @@
   {
     "code_departement": "10",
     "departement": "AUBE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 50812,
     "votants": 43406,
     "exprimes": 42921,
@@ -482,7 +482,7 @@
   {
     "code_departement": "10",
     "departement": "AUBE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 58650,
     "votants": 50443,
     "exprimes": 49932,
@@ -497,7 +497,7 @@
   {
     "code_departement": "11",
     "departement": "AUDE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 57558,
     "votants": 49891,
     "exprimes": 49166,
@@ -512,7 +512,7 @@
   {
     "code_departement": "11",
     "departement": "AUDE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 63160,
     "votants": 53655,
     "exprimes": 53006,
@@ -527,7 +527,7 @@
   {
     "code_departement": "11",
     "departement": "AUDE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 53259,
     "votants": 45543,
     "exprimes": 44821,
@@ -542,7 +542,7 @@
   {
     "code_departement": "12",
     "departement": "AVEYRON",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 62956,
     "votants": 52557,
     "exprimes": 51892,
@@ -557,7 +557,7 @@
   {
     "code_departement": "12",
     "departement": "AVEYRON",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 59956,
     "votants": 50755,
     "exprimes": 50126,
@@ -572,7 +572,7 @@
   {
     "code_departement": "12",
     "departement": "AVEYRON",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 66133,
     "votants": 55953,
     "exprimes": 55058,
@@ -587,7 +587,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 51159,
     "votants": 38785,
     "exprimes": 38477,
@@ -602,7 +602,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 79574,
     "votants": 64302,
     "exprimes": 63824,
@@ -617,7 +617,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 60459,
     "votants": 45921,
     "exprimes": 45464,
@@ -632,7 +632,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 62232,
     "votants": 48934,
     "exprimes": 48508,
@@ -647,7 +647,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 56587,
     "votants": 45217,
     "exprimes": 44816,
@@ -662,7 +662,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 59939,
     "votants": 49168,
     "exprimes": 48605,
@@ -677,7 +677,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 54201,
     "votants": 42285,
     "exprimes": 41990,
@@ -692,7 +692,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 76901,
     "votants": 62751,
     "exprimes": 62237,
@@ -707,7 +707,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 78481,
     "votants": 66663,
     "exprimes": 65924,
@@ -722,7 +722,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 99006,
     "votants": 83125,
     "exprimes": 82278,
@@ -737,7 +737,7 @@
   {
     "code_departement": "13",
     "departement": "BOUCHES-DU-RHONE",
-    "circonscription": 11,
+    "circonscription": "11",
     "inscrits": 72244,
     "votants": 62518,
     "exprimes": 61718,
@@ -752,7 +752,7 @@
   {
     "code_departement": "14",
     "departement": "CALVADOS",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 83754,
     "votants": 72588,
     "exprimes": 71976,
@@ -767,7 +767,7 @@
   {
     "code_departement": "14",
     "departement": "CALVADOS",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 50308,
     "votants": 43231,
     "exprimes": 42814,
@@ -782,7 +782,7 @@
   {
     "code_departement": "14",
     "departement": "CALVADOS",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 56592,
     "votants": 48674,
     "exprimes": 48239,
@@ -797,7 +797,7 @@
   {
     "code_departement": "14",
     "departement": "CALVADOS",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 43047,
     "votants": 36456,
     "exprimes": 36160,
@@ -812,7 +812,7 @@
   {
     "code_departement": "14",
     "departement": "CALVADOS",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 47886,
     "votants": 41660,
     "exprimes": 41179,
@@ -827,7 +827,7 @@
   {
     "code_departement": "15",
     "departement": "CANTAL",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 57499,
     "votants": 45751,
     "exprimes": 45362,
@@ -842,7 +842,7 @@
   {
     "code_departement": "15",
     "departement": "CANTAL",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53179,
     "votants": 40888,
     "exprimes": 40610,
@@ -857,7 +857,7 @@
   {
     "code_departement": "16",
     "departement": "CHARENTE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 80216,
     "votants": 67554,
     "exprimes": 66964,
@@ -872,7 +872,7 @@
   {
     "code_departement": "16",
     "departement": "CHARENTE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 59939,
     "votants": 50567,
     "exprimes": 50079,
@@ -887,7 +887,7 @@
   {
     "code_departement": "16",
     "departement": "CHARENTE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 66168,
     "votants": 55727,
     "exprimes": 54995,
@@ -902,7 +902,7 @@
   {
     "code_departement": "17",
     "departement": "CHARENTE-MARITIME",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 66133,
     "votants": 54975,
     "exprimes": 54610,
@@ -917,7 +917,7 @@
   {
     "code_departement": "17",
     "departement": "CHARENTE-MARITIME",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 43978,
     "votants": 35552,
     "exprimes": 35210,
@@ -932,7 +932,7 @@
   {
     "code_departement": "17",
     "departement": "CHARENTE-MARITIME",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 46202,
     "votants": 37511,
     "exprimes": 37077,
@@ -947,7 +947,7 @@
   {
     "code_departement": "17",
     "departement": "CHARENTE-MARITIME",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 69197,
     "votants": 56634,
     "exprimes": 55905,
@@ -962,7 +962,7 @@
   {
     "code_departement": "17",
     "departement": "CHARENTE-MARITIME",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 65071,
     "votants": 53569,
     "exprimes": 53015,
@@ -977,7 +977,7 @@
   {
     "code_departement": "18",
     "departement": "CHER",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 64011,
     "votants": 54026,
     "exprimes": 53514,
@@ -992,7 +992,7 @@
   {
     "code_departement": "18",
     "departement": "CHER",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 64152,
     "votants": 54773,
     "exprimes": 54214,
@@ -1007,7 +1007,7 @@
   {
     "code_departement": "18",
     "departement": "CHER",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 57942,
     "votants": 47082,
     "exprimes": 46559,
@@ -1022,7 +1022,7 @@
   {
     "code_departement": "19",
     "departement": "CORREZE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 55810,
     "votants": 46203,
     "exprimes": 45847,
@@ -1037,7 +1037,7 @@
   {
     "code_departement": "19",
     "departement": "CORREZE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 61305,
     "votants": 52378,
     "exprimes": 51934,
@@ -1052,7 +1052,7 @@
   {
     "code_departement": "19",
     "departement": "CORREZE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 44786,
     "votants": 36789,
     "exprimes": 36474,
@@ -1067,7 +1067,7 @@
   {
     "code_departement": "20",
     "departement": "CORSE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 63092,
     "votants": 37169,
     "exprimes": 36991,
@@ -1082,7 +1082,7 @@
   {
     "code_departement": "20",
     "departement": "CORSE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 49723,
     "votants": 28534,
     "exprimes": 28347,
@@ -1097,7 +1097,7 @@
   {
     "code_departement": "20",
     "departement": "CORSE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 65514,
     "votants": 34914,
     "exprimes": 34700,
@@ -1112,7 +1112,7 @@
   {
     "code_departement": "21",
     "departement": "COTE-D'OR",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 67552,
     "votants": 56505,
     "exprimes": 56053,
@@ -1127,7 +1127,7 @@
   {
     "code_departement": "21",
     "departement": "COTE-D'OR",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 65325,
     "votants": 54120,
     "exprimes": 53701,
@@ -1142,7 +1142,7 @@
   {
     "code_departement": "21",
     "departement": "COTE-D'OR",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 50990,
     "votants": 41942,
     "exprimes": 41515,
@@ -1157,7 +1157,7 @@
   {
     "code_departement": "21",
     "departement": "COTE-D'OR",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 48885,
     "votants": 41176,
     "exprimes": 40781,
@@ -1172,7 +1172,7 @@
   {
     "code_departement": "22",
     "departement": "COTES-D'ARMOR",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 78968,
     "votants": 69428,
     "exprimes": 69044,
@@ -1187,7 +1187,7 @@
   {
     "code_departement": "22",
     "departement": "COTES-D'ARMOR",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 62508,
     "votants": 53414,
     "exprimes": 52982,
@@ -1202,7 +1202,7 @@
   {
     "code_departement": "22",
     "departement": "COTES-D'ARMOR",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 57287,
     "votants": 49229,
     "exprimes": 48917,
@@ -1217,7 +1217,7 @@
   {
     "code_departement": "22",
     "departement": "COTES-D'ARMOR",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 60727,
     "votants": 52538,
     "exprimes": 52284,
@@ -1232,7 +1232,7 @@
   {
     "code_departement": "22",
     "departement": "COTES-D'ARMOR",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 67236,
     "votants": 57575,
     "exprimes": 57229,
@@ -1247,7 +1247,7 @@
   {
     "code_departement": "23",
     "departement": "CREUSE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 53201,
     "votants": 40474,
     "exprimes": 40128,
@@ -1262,7 +1262,7 @@
   {
     "code_departement": "23",
     "departement": "CREUSE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 59956,
     "votants": 44994,
     "exprimes": 44571,
@@ -1277,7 +1277,7 @@
   {
     "code_departement": "24",
     "departement": "DORDOGNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 64551,
     "votants": 56081,
     "exprimes": 55614,
@@ -1292,7 +1292,7 @@
   {
     "code_departement": "24",
     "departement": "DORDOGNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 60355,
     "votants": 51734,
     "exprimes": 51176,
@@ -1307,7 +1307,7 @@
   {
     "code_departement": "24",
     "departement": "DORDOGNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 65303,
     "votants": 55204,
     "exprimes": 54457,
@@ -1322,7 +1322,7 @@
   {
     "code_departement": "24",
     "departement": "DORDOGNE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 62851,
     "votants": 53524,
     "exprimes": 52814,
@@ -1337,7 +1337,7 @@
   {
     "code_departement": "25",
     "departement": "DOUBS",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 80981,
     "votants": 69368,
     "exprimes": 68815,
@@ -1352,7 +1352,7 @@
   {
     "code_departement": "25",
     "departement": "DOUBS",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 85387,
     "votants": 74171,
     "exprimes": 73497,
@@ -1367,7 +1367,7 @@
   {
     "code_departement": "25",
     "departement": "DOUBS",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 53597,
     "votants": 47176,
     "exprimes": 46864,
@@ -1382,7 +1382,7 @@
   {
     "code_departement": "26",
     "departement": "DROME",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 69955,
     "votants": 58321,
     "exprimes": 57824,
@@ -1397,7 +1397,7 @@
   {
     "code_departement": "26",
     "departement": "DROME",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 59706,
     "votants": 50630,
     "exprimes": 50099,
@@ -1412,7 +1412,7 @@
   {
     "code_departement": "26",
     "departement": "DROME",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 65706,
     "votants": 53959,
     "exprimes": 53488,
@@ -1427,7 +1427,7 @@
   {
     "code_departement": "27",
     "departement": "EURE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 62756,
     "votants": 54484,
     "exprimes": 53956,
@@ -1442,7 +1442,7 @@
   {
     "code_departement": "27",
     "departement": "EURE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 47757,
     "votants": 41024,
     "exprimes": 40623,
@@ -1457,7 +1457,7 @@
   {
     "code_departement": "27",
     "departement": "EURE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 51135,
     "votants": 44663,
     "exprimes": 44196,
@@ -1472,7 +1472,7 @@
   {
     "code_departement": "27",
     "departement": "EURE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 52429,
     "votants": 46893,
     "exprimes": 46382,
@@ -1487,7 +1487,7 @@
   {
     "code_departement": "28",
     "departement": "EURE-ET-LOIR",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 59232,
     "votants": 51787,
     "exprimes": 51187,
@@ -1502,7 +1502,7 @@
   {
     "code_departement": "28",
     "departement": "EURE-ET-LOIR",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 56727,
     "votants": 49053,
     "exprimes": 48601,
@@ -1517,7 +1517,7 @@
   {
     "code_departement": "28",
     "departement": "EURE-ET-LOIR",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 57916,
     "votants": 49083,
     "exprimes": 48392,
@@ -1532,7 +1532,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 65188,
     "votants": 55544,
     "exprimes": 55201,
@@ -1547,7 +1547,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 83910,
     "votants": 70236,
     "exprimes": 70001,
@@ -1562,7 +1562,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 59747,
     "votants": 52699,
     "exprimes": 52473,
@@ -1577,7 +1577,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 55775,
     "votants": 48051,
     "exprimes": 47837,
@@ -1592,7 +1592,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 57161,
     "votants": 50067,
     "exprimes": 49846,
@@ -1607,7 +1607,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 58988,
     "votants": 49195,
     "exprimes": 48982,
@@ -1622,7 +1622,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 53768,
     "votants": 44155,
     "exprimes": 43960,
@@ -1637,7 +1637,7 @@
   {
     "code_departement": "29",
     "departement": "FINISTERE",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 60486,
     "votants": 50665,
     "exprimes": 50389,
@@ -1652,7 +1652,7 @@
   {
     "code_departement": "30",
     "departement": "GARD",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 72631,
     "votants": 59854,
     "exprimes": 59383,
@@ -1667,7 +1667,7 @@
   {
     "code_departement": "30",
     "departement": "GARD",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 90823,
     "votants": 77537,
     "exprimes": 76633,
@@ -1682,7 +1682,7 @@
   {
     "code_departement": "30",
     "departement": "GARD",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 68022,
     "votants": 58984,
     "exprimes": 58314,
@@ -1697,7 +1697,7 @@
   {
     "code_departement": "30",
     "departement": "GARD",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 47801,
     "votants": 40217,
     "exprimes": 39770,
@@ -1712,7 +1712,7 @@
   {
     "code_departement": "31",
     "departement": "HAUTE-GARONNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 58597,
     "votants": 49112,
     "exprimes": 48585,
@@ -1727,7 +1727,7 @@
   {
     "code_departement": "31",
     "departement": "HAUTE-GARONNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 67409,
     "votants": 56715,
     "exprimes": 56165,
@@ -1742,7 +1742,7 @@
   {
     "code_departement": "31",
     "departement": "HAUTE-GARONNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 72892,
     "votants": 61593,
     "exprimes": 61013,
@@ -1757,7 +1757,7 @@
   {
     "code_departement": "31",
     "departement": "HAUTE-GARONNE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 68265,
     "votants": 58190,
     "exprimes": 57610,
@@ -1772,7 +1772,7 @@
   {
     "code_departement": "31",
     "departement": "HAUTE-GARONNE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 62795,
     "votants": 53803,
     "exprimes": 52938,
@@ -1787,7 +1787,7 @@
   {
     "code_departement": "31",
     "departement": "HAUTE-GARONNE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 57174,
     "votants": 45391,
     "exprimes": 44869,
@@ -1802,7 +1802,7 @@
   {
     "code_departement": "32",
     "departement": "GERS",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 60121,
     "votants": 49188,
     "exprimes": 48598,
@@ -1817,7 +1817,7 @@
   {
     "code_departement": "32",
     "departement": "GERS",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 54980,
     "votants": 45426,
     "exprimes": 44927,
@@ -1832,7 +1832,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 77962,
     "votants": 65597,
     "exprimes": 65238,
@@ -1847,7 +1847,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 43069,
     "votants": 35358,
     "exprimes": 35153,
@@ -1862,7 +1862,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 54422,
     "votants": 44842,
     "exprimes": 44623,
@@ -1877,7 +1877,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 56391,
     "votants": 47646,
     "exprimes": 47319,
@@ -1892,7 +1892,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 54545,
     "votants": 45766,
     "exprimes": 45285,
@@ -1907,7 +1907,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 68414,
     "votants": 58463,
     "exprimes": 58073,
@@ -1922,7 +1922,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 65698,
     "votants": 56012,
     "exprimes": 55526,
@@ -1937,7 +1937,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 59459,
     "votants": 51005,
     "exprimes": 50466,
@@ -1952,7 +1952,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 54967,
     "votants": 46309,
     "exprimes": 45788,
@@ -1967,7 +1967,7 @@
   {
     "code_departement": "33",
     "departement": "GIRONDE",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 47111,
     "votants": 39149,
     "exprimes": 38659,
@@ -1982,7 +1982,7 @@
   {
     "code_departement": "34",
     "departement": "HERAULT",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 76316,
     "votants": 65013,
     "exprimes": 64503,
@@ -1997,7 +1997,7 @@
   {
     "code_departement": "34",
     "departement": "HERAULT",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 69715,
     "votants": 59236,
     "exprimes": 58739,
@@ -2012,7 +2012,7 @@
   {
     "code_departement": "34",
     "departement": "HERAULT",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 63109,
     "votants": 53261,
     "exprimes": 52727,
@@ -2027,7 +2027,7 @@
   {
     "code_departement": "34",
     "departement": "HERAULT",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 65700,
     "votants": 55668,
     "exprimes": 55102,
@@ -2042,7 +2042,7 @@
   {
     "code_departement": "34",
     "departement": "HERAULT",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 50143,
     "votants": 40915,
     "exprimes": 40600,
@@ -2057,7 +2057,7 @@
   {
     "code_departement": "35",
     "departement": "ILLE-ET-VILAINE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 75516,
     "votants": 62767,
     "exprimes": 62221,
@@ -2072,7 +2072,7 @@
   {
     "code_departement": "35",
     "departement": "ILLE-ET-VILAINE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 86397,
     "votants": 73502,
     "exprimes": 72955,
@@ -2087,7 +2087,7 @@
   {
     "code_departement": "35",
     "departement": "ILLE-ET-VILAINE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 44953,
     "votants": 40240,
     "exprimes": 39790,
@@ -2102,7 +2102,7 @@
   {
     "code_departement": "35",
     "departement": "ILLE-ET-VILAINE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 48835,
     "votants": 39894,
     "exprimes": 39553,
@@ -2117,7 +2117,7 @@
   {
     "code_departement": "35",
     "departement": "ILLE-ET-VILAINE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 48458,
     "votants": 43167,
     "exprimes": 42751,
@@ -2132,7 +2132,7 @@
   {
     "code_departement": "35",
     "departement": "ILLE-ET-VILAINE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 77674,
     "votants": 66235,
     "exprimes": 65637,
@@ -2147,7 +2147,7 @@
   {
     "code_departement": "36",
     "departement": "INDRE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 51855,
     "votants": 44175,
     "exprimes": 43630,
@@ -2162,7 +2162,7 @@
   {
     "code_departement": "36",
     "departement": "INDRE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 55848,
     "votants": 45014,
     "exprimes": 44339,
@@ -2177,7 +2177,7 @@
   {
     "code_departement": "36",
     "departement": "INDRE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 53379,
     "votants": 44119,
     "exprimes": 43434,
@@ -2192,7 +2192,7 @@
   {
     "code_departement": "37",
     "departement": "INDRE-ET-LOIRE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 78865,
     "votants": 66447,
     "exprimes": 65966,
@@ -2207,7 +2207,7 @@
   {
     "code_departement": "37",
     "departement": "INDRE-ET-LOIRE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 47077,
     "votants": 39343,
     "exprimes": 38830,
@@ -2222,7 +2222,7 @@
   {
     "code_departement": "37",
     "departement": "INDRE-ET-LOIRE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 58476,
     "votants": 50039,
     "exprimes": 49299,
@@ -2237,7 +2237,7 @@
   {
     "code_departement": "37",
     "departement": "INDRE-ET-LOIRE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 62500,
     "votants": 53079,
     "exprimes": 52382,
@@ -2252,7 +2252,7 @@
   {
     "code_departement": "38",
     "departement": "ISERE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 57869,
     "votants": 47675,
     "exprimes": 47335,
@@ -2267,7 +2267,7 @@
   {
     "code_departement": "38",
     "departement": "ISERE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 82202,
     "votants": 69121,
     "exprimes": 68656,
@@ -2282,7 +2282,7 @@
   {
     "code_departement": "38",
     "departement": "ISERE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 57048,
     "votants": 46751,
     "exprimes": 46465,
@@ -2297,7 +2297,7 @@
   {
     "code_departement": "38",
     "departement": "ISERE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 53851,
     "votants": 44090,
     "exprimes": 43735,
@@ -2312,7 +2312,7 @@
   {
     "code_departement": "38",
     "departement": "ISERE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 62101,
     "votants": 52510,
     "exprimes": 51992,
@@ -2327,7 +2327,7 @@
   {
     "code_departement": "38",
     "departement": "ISERE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 53245,
     "votants": 44058,
     "exprimes": 43659,
@@ -2342,7 +2342,7 @@
   {
     "code_departement": "38",
     "departement": "ISERE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 67785,
     "votants": 54057,
     "exprimes": 53629,
@@ -2357,7 +2357,7 @@
   {
     "code_departement": "39",
     "departement": "JURA",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 71024,
     "votants": 58932,
     "exprimes": 58358,
@@ -2372,7 +2372,7 @@
   {
     "code_departement": "39",
     "departement": "JURA",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 70747,
     "votants": 59841,
     "exprimes": 59301,
@@ -2387,7 +2387,7 @@
   {
     "code_departement": "40",
     "departement": "LANDES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 56284,
     "votants": 48157,
     "exprimes": 47701,
@@ -2402,7 +2402,7 @@
   {
     "code_departement": "40",
     "departement": "LANDES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 65944,
     "votants": 57238,
     "exprimes": 56716,
@@ -2417,7 +2417,7 @@
   {
     "code_departement": "40",
     "departement": "LANDES",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 54215,
     "votants": 46678,
     "exprimes": 46170,
@@ -2432,7 +2432,7 @@
   {
     "code_departement": "41",
     "departement": "LOIR-ET-CHER",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 59426,
     "votants": 51470,
     "exprimes": 50888,
@@ -2447,7 +2447,7 @@
   {
     "code_departement": "41",
     "departement": "LOIR-ET-CHER",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53739,
     "votants": 45867,
     "exprimes": 45328,
@@ -2462,7 +2462,7 @@
   {
     "code_departement": "41",
     "departement": "LOIR-ET-CHER",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 49320,
     "votants": 41853,
     "exprimes": 41109,
@@ -2477,7 +2477,7 @@
   {
     "code_departement": "42",
     "departement": "LOIRE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 54981,
     "votants": 45007,
     "exprimes": 44696,
@@ -2492,7 +2492,7 @@
   {
     "code_departement": "42",
     "departement": "LOIRE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 70108,
     "votants": 57521,
     "exprimes": 57136,
@@ -2507,7 +2507,7 @@
   {
     "code_departement": "42",
     "departement": "LOIRE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 62377,
     "votants": 52349,
     "exprimes": 51836,
@@ -2522,7 +2522,7 @@
   {
     "code_departement": "42",
     "departement": "LOIRE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 53460,
     "votants": 44518,
     "exprimes": 44093,
@@ -2537,7 +2537,7 @@
   {
     "code_departement": "42",
     "departement": "LOIRE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 60499,
     "votants": 49585,
     "exprimes": 49082,
@@ -2552,7 +2552,7 @@
   {
     "code_departement": "42",
     "departement": "LOIRE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 47091,
     "votants": 39768,
     "exprimes": 39257,
@@ -2567,7 +2567,7 @@
   {
     "code_departement": "42",
     "departement": "LOIRE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 63249,
     "votants": 52442,
     "exprimes": 51788,
@@ -2582,7 +2582,7 @@
   {
     "code_departement": "43",
     "departement": "HAUTE-LOIRE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 70500,
     "votants": 58559,
     "exprimes": 57954,
@@ -2597,7 +2597,7 @@
   {
     "code_departement": "43",
     "departement": "HAUTE-LOIRE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 68299,
     "votants": 55401,
     "exprimes": 54913,
@@ -2612,7 +2612,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 82584,
     "votants": 69566,
     "exprimes": 69146,
@@ -2627,7 +2627,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 60186,
     "votants": 50755,
     "exprimes": 50450,
@@ -2642,7 +2642,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 58415,
     "votants": 49650,
     "exprimes": 49245,
@@ -2657,7 +2657,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 64190,
     "votants": 55998,
     "exprimes": 55379,
@@ -2672,7 +2672,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 48977,
     "votants": 42142,
     "exprimes": 41657,
@@ -2687,7 +2687,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 68011,
     "votants": 57279,
     "exprimes": 56894,
@@ -2702,7 +2702,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 49584,
     "votants": 42616,
     "exprimes": 42279,
@@ -2717,7 +2717,7 @@
   {
     "code_departement": "44",
     "departement": "LOIRE-ATLANTIQUE",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 57418,
     "votants": 50599,
     "exprimes": 50077,
@@ -2732,7 +2732,7 @@
   {
     "code_departement": "45",
     "departement": "LOIRET",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 60734,
     "votants": 52574,
     "exprimes": 51954,
@@ -2747,7 +2747,7 @@
   {
     "code_departement": "45",
     "departement": "LOIRET",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 62813,
     "votants": 55026,
     "exprimes": 54349,
@@ -2762,7 +2762,7 @@
   {
     "code_departement": "45",
     "departement": "LOIRET",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 58374,
     "votants": 50301,
     "exprimes": 49548,
@@ -2777,7 +2777,7 @@
   {
     "code_departement": "45",
     "departement": "LOIRET",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 61175,
     "votants": 51681,
     "exprimes": 51044,
@@ -2792,7 +2792,7 @@
   {
     "code_departement": "46",
     "departement": "LOT",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 51562,
     "votants": 43543,
     "exprimes": 43002,
@@ -2807,7 +2807,7 @@
   {
     "code_departement": "46",
     "departement": "LOT",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 49526,
     "votants": 41986,
     "exprimes": 41510,
@@ -2822,7 +2822,7 @@
   {
     "code_departement": "47",
     "departement": "LOT-ET-GARONNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 65511,
     "votants": 56247,
     "exprimes": 55663,
@@ -2837,7 +2837,7 @@
   {
     "code_departement": "47",
     "departement": "LOT-ET-GARONNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53545,
     "votants": 45992,
     "exprimes": 45474,
@@ -2852,7 +2852,7 @@
   {
     "code_departement": "47",
     "departement": "LOT-ET-GARONNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 54957,
     "votants": 48183,
     "exprimes": 47580,
@@ -2867,7 +2867,7 @@
   {
     "code_departement": "48",
     "departement": "LOZERE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 30118,
     "votants": 23798,
     "exprimes": 23586,
@@ -2882,7 +2882,7 @@
   {
     "code_departement": "48",
     "departement": "LOZERE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 24033,
     "votants": 19759,
     "exprimes": 19595,
@@ -2897,7 +2897,7 @@
   {
     "code_departement": "49",
     "departement": "MAINE-ET-LOIRE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 49340,
     "votants": 40003,
     "exprimes": 39634,
@@ -2912,7 +2912,7 @@
   {
     "code_departement": "49",
     "departement": "MAINE-ET-LOIRE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 57535,
     "votants": 49172,
     "exprimes": 48688,
@@ -2927,7 +2927,7 @@
   {
     "code_departement": "49",
     "departement": "MAINE-ET-LOIRE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 45583,
     "votants": 36896,
     "exprimes": 36391,
@@ -2942,7 +2942,7 @@
   {
     "code_departement": "49",
     "departement": "MAINE-ET-LOIRE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 53811,
     "votants": 45015,
     "exprimes": 44500,
@@ -2957,7 +2957,7 @@
   {
     "code_departement": "49",
     "departement": "MAINE-ET-LOIRE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 65600,
     "votants": 58362,
     "exprimes": 57793,
@@ -2972,7 +2972,7 @@
   {
     "code_departement": "49",
     "departement": "MAINE-ET-LOIRE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 59939,
     "votants": 50779,
     "exprimes": 50288,
@@ -2987,7 +2987,7 @@
   {
     "code_departement": "50",
     "departement": "MANCHE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 51381,
     "votants": 45126,
     "exprimes": 44803,
@@ -3002,7 +3002,7 @@
   {
     "code_departement": "50",
     "departement": "MANCHE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 65282,
     "votants": 56677,
     "exprimes": 56128,
@@ -3017,7 +3017,7 @@
   {
     "code_departement": "50",
     "departement": "MANCHE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 53646,
     "votants": 46309,
     "exprimes": 45930,
@@ -3032,7 +3032,7 @@
   {
     "code_departement": "50",
     "departement": "MANCHE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 45465,
     "votants": 37813,
     "exprimes": 37579,
@@ -3047,7 +3047,7 @@
   {
     "code_departement": "50",
     "departement": "MANCHE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 52403,
     "votants": 43389,
     "exprimes": 43073,
@@ -3062,7 +3062,7 @@
   {
     "code_departement": "51",
     "departement": "MARNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 63802,
     "votants": 54099,
     "exprimes": 53603,
@@ -3077,7 +3077,7 @@
   {
     "code_departement": "51",
     "departement": "MARNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 66548,
     "votants": 56021,
     "exprimes": 55580,
@@ -3092,7 +3092,7 @@
   {
     "code_departement": "51",
     "departement": "MARNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 65605,
     "votants": 55370,
     "exprimes": 54832,
@@ -3107,7 +3107,7 @@
   {
     "code_departement": "51",
     "departement": "MARNE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 62549,
     "votants": 52786,
     "exprimes": 52227,
@@ -3122,7 +3122,7 @@
   {
     "code_departement": "52",
     "departement": "HAUTE-MARNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 65264,
     "votants": 56128,
     "exprimes": 55405,
@@ -3137,7 +3137,7 @@
   {
     "code_departement": "52",
     "departement": "HAUTE-MARNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 54928,
     "votants": 46917,
     "exprimes": 46452,
@@ -3152,7 +3152,7 @@
   {
     "code_departement": "53",
     "departement": "MAYENNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 56357,
     "votants": 50119,
     "exprimes": 49391,
@@ -3167,7 +3167,7 @@
   {
     "code_departement": "53",
     "departement": "MAYENNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 48651,
     "votants": 43184,
     "exprimes": 42552,
@@ -3182,7 +3182,7 @@
   {
     "code_departement": "53",
     "departement": "MAYENNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 47460,
     "votants": 41875,
     "exprimes": 41183,
@@ -3197,7 +3197,7 @@
   {
     "code_departement": "54",
     "departement": "MEURTHE-ET-MOSELLE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 64476,
     "votants": 55839,
     "exprimes": 55255,
@@ -3212,7 +3212,7 @@
   {
     "code_departement": "54",
     "departement": "MEURTHE-ET-MOSELLE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 63015,
     "votants": 54215,
     "exprimes": 53636,
@@ -3227,7 +3227,7 @@
   {
     "code_departement": "54",
     "departement": "MEURTHE-ET-MOSELLE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 59309,
     "votants": 50053,
     "exprimes": 49904,
@@ -3242,7 +3242,7 @@
   {
     "code_departement": "54",
     "departement": "MEURTHE-ET-MOSELLE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 49288,
     "votants": 42602,
     "exprimes": 42092,
@@ -3257,7 +3257,7 @@
   {
     "code_departement": "54",
     "departement": "MEURTHE-ET-MOSELLE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 39206,
     "votants": 34018,
     "exprimes": 33609,
@@ -3272,7 +3272,7 @@
   {
     "code_departement": "54",
     "departement": "MEURTHE-ET-MOSELLE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 46753,
     "votants": 42174,
     "exprimes": 41929,
@@ -3287,7 +3287,7 @@
   {
     "code_departement": "54",
     "departement": "MEURTHE-ET-MOSELLE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 47388,
     "votants": 41382,
     "exprimes": 41125,
@@ -3302,7 +3302,7 @@
   {
     "code_departement": "55",
     "departement": "MEUSE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 66974,
     "votants": 58017,
     "exprimes": 57326,
@@ -3317,7 +3317,7 @@
   {
     "code_departement": "55",
     "departement": "MEUSE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53897,
     "votants": 46727,
     "exprimes": 46255,
@@ -3332,7 +3332,7 @@
   {
     "code_departement": "56",
     "departement": "MORBIHAN",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 64685,
     "votants": 55370,
     "exprimes": 55011,
@@ -3347,7 +3347,7 @@
   {
     "code_departement": "56",
     "departement": "MORBIHAN",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 54064,
     "votants": 44217,
     "exprimes": 43873,
@@ -3362,7 +3362,7 @@
   {
     "code_departement": "56",
     "departement": "MORBIHAN",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 53758,
     "votants": 46074,
     "exprimes": 45712,
@@ -3377,7 +3377,7 @@
   {
     "code_departement": "56",
     "departement": "MORBIHAN",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 43988,
     "votants": 36425,
     "exprimes": 36150,
@@ -3392,7 +3392,7 @@
   {
     "code_departement": "56",
     "departement": "MORBIHAN",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 65422,
     "votants": 54274,
     "exprimes": 53954,
@@ -3407,7 +3407,7 @@
   {
     "code_departement": "56",
     "departement": "MORBIHAN",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 54861,
     "votants": 45488,
     "exprimes": 45217,
@@ -3422,7 +3422,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 79639,
     "votants": 68439,
     "exprimes": 67821,
@@ -3437,7 +3437,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 54219,
     "votants": 46563,
     "exprimes": 46165,
@@ -3452,7 +3452,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 65792,
     "votants": 57443,
     "exprimes": 56879,
@@ -3467,7 +3467,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 56581,
     "votants": 49202,
     "exprimes": 48677,
@@ -3482,7 +3482,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 67055,
     "votants": 56726,
     "exprimes": 56003,
@@ -3497,7 +3497,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 55444,
     "votants": 47487,
     "exprimes": 46929,
@@ -3512,7 +3512,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 46047,
     "votants": 40279,
     "exprimes": 39758,
@@ -3527,7 +3527,7 @@
   {
     "code_departement": "57",
     "departement": "MOSELLE",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 54590,
     "votants": 47974,
     "exprimes": 47564,
@@ -3542,7 +3542,7 @@
   {
     "code_departement": "58",
     "departement": "NIEVRE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 56349,
     "votants": 48933,
     "exprimes": 48470,
@@ -3557,7 +3557,7 @@
   {
     "code_departement": "58",
     "departement": "NIEVRE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53431,
     "votants": 45332,
     "exprimes": 44847,
@@ -3572,7 +3572,7 @@
   {
     "code_departement": "58",
     "departement": "NIEVRE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 46481,
     "votants": 38944,
     "exprimes": 38495,
@@ -3587,7 +3587,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 45708,
     "votants": 40490,
     "exprimes": 40020,
@@ -3602,7 +3602,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53753,
     "votants": 46089,
     "exprimes": 45398,
@@ -3617,7 +3617,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 44485,
     "votants": 38355,
     "exprimes": 37847,
@@ -3632,7 +3632,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 41180,
     "votants": 36175,
     "exprimes": 35735,
@@ -3647,7 +3647,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 56848,
     "votants": 50785,
     "exprimes": 50093,
@@ -3662,7 +3662,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 54415,
     "votants": 49256,
     "exprimes": 48594,
@@ -3677,7 +3677,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 76080,
     "votants": 68203,
     "exprimes": 67224,
@@ -3692,7 +3692,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 63474,
     "votants": 56262,
     "exprimes": 55315,
@@ -3707,7 +3707,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 72919,
     "votants": 65549,
     "exprimes": 64614,
@@ -3722,7 +3722,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 68319,
     "votants": 62269,
     "exprimes": 61303,
@@ -3737,7 +3737,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 11,
+    "circonscription": "11",
     "inscrits": 88318,
     "votants": 74213,
     "exprimes": 73527,
@@ -3752,7 +3752,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 12,
+    "circonscription": "12",
     "inscrits": 41623,
     "votants": 37786,
     "exprimes": 37320,
@@ -3767,7 +3767,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 13,
+    "circonscription": "13",
     "inscrits": 46328,
     "votants": 42065,
     "exprimes": 41483,
@@ -3782,7 +3782,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 14,
+    "circonscription": "14",
     "inscrits": 69419,
     "votants": 61341,
     "exprimes": 60721,
@@ -3797,7 +3797,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 15,
+    "circonscription": "15",
     "inscrits": 58410,
     "votants": 51886,
     "exprimes": 51393,
@@ -3812,7 +3812,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 16,
+    "circonscription": "16",
     "inscrits": 58628,
     "votants": 51893,
     "exprimes": 51272,
@@ -3827,7 +3827,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 17,
+    "circonscription": "17",
     "inscrits": 45934,
     "votants": 40994,
     "exprimes": 40495,
@@ -3842,7 +3842,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 18,
+    "circonscription": "18",
     "inscrits": 53295,
     "votants": 46196,
     "exprimes": 45655,
@@ -3857,7 +3857,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 19,
+    "circonscription": "19",
     "inscrits": 70994,
     "votants": 61619,
     "exprimes": 60885,
@@ -3872,7 +3872,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 20,
+    "circonscription": "20",
     "inscrits": 71255,
     "votants": 63642,
     "exprimes": 63016,
@@ -3887,7 +3887,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 21,
+    "circonscription": "21",
     "inscrits": 38973,
     "votants": 34067,
     "exprimes": 33680,
@@ -3902,7 +3902,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 22,
+    "circonscription": "22",
     "inscrits": 51822,
     "votants": 45184,
     "exprimes": 44749,
@@ -3917,7 +3917,7 @@
   {
     "code_departement": "59",
     "departement": "NORD",
-    "circonscription": 23,
+    "circonscription": "23",
     "inscrits": 44916,
     "votants": 39918,
     "exprimes": 39487,
@@ -3932,7 +3932,7 @@
   {
     "code_departement": "60",
     "departement": "OISE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 52238,
     "votants": 46247,
     "exprimes": 45528,
@@ -3947,7 +3947,7 @@
   {
     "code_departement": "60",
     "departement": "OISE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 56570,
     "votants": 49489,
     "exprimes": 48873,
@@ -3962,7 +3962,7 @@
   {
     "code_departement": "60",
     "departement": "OISE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 53505,
     "votants": 47030,
     "exprimes": 46448,
@@ -3977,7 +3977,7 @@
   {
     "code_departement": "60",
     "departement": "OISE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 71895,
     "votants": 62861,
     "exprimes": 62177,
@@ -3992,7 +3992,7 @@
   {
     "code_departement": "60",
     "departement": "OISE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 48990,
     "votants": 43071,
     "exprimes": 42466,
@@ -4007,7 +4007,7 @@
   {
     "code_departement": "61",
     "departement": "ORNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 56331,
     "votants": 48444,
     "exprimes": 47934,
@@ -4022,7 +4022,7 @@
   {
     "code_departement": "61",
     "departement": "ORNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 51442,
     "votants": 44176,
     "exprimes": 43641,
@@ -4037,7 +4037,7 @@
   {
     "code_departement": "61",
     "departement": "ORNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 61253,
     "votants": 53337,
     "exprimes": 52892,
@@ -4052,7 +4052,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 60333,
     "votants": 54500,
     "exprimes": 53895,
@@ -4067,7 +4067,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53312,
     "votants": 48233,
     "exprimes": 47623,
@@ -4082,7 +4082,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 52197,
     "votants": 47443,
     "exprimes": 46947,
@@ -4097,7 +4097,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 51399,
     "votants": 45721,
     "exprimes": 45188,
@@ -4112,7 +4112,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 51456,
     "votants": 44869,
     "exprimes": 44440,
@@ -4127,7 +4127,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 56654,
     "votants": 50486,
     "exprimes": 49974,
@@ -4142,7 +4142,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 59519,
     "votants": 49916,
     "exprimes": 49151,
@@ -4157,7 +4157,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 58740,
     "votants": 52910,
     "exprimes": 52184,
@@ -4172,7 +4172,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 55534,
     "votants": 49254,
     "exprimes": 48768,
@@ -4187,7 +4187,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 50590,
     "votants": 43929,
     "exprimes": 43474,
@@ -4202,7 +4202,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 11,
+    "circonscription": "11",
     "inscrits": 52931,
     "votants": 46885,
     "exprimes": 46341,
@@ -4217,7 +4217,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 12,
+    "circonscription": "12",
     "inscrits": 53212,
     "votants": 46123,
     "exprimes": 45654,
@@ -4232,7 +4232,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 13,
+    "circonscription": "13",
     "inscrits": 45376,
     "votants": 40490,
     "exprimes": 40073,
@@ -4247,7 +4247,7 @@
   {
     "code_departement": "62",
     "departement": "PAS-DE-CALAIS",
-    "circonscription": 14,
+    "circonscription": "14",
     "inscrits": 53194,
     "votants": 46560,
     "exprimes": 46076,
@@ -4262,7 +4262,7 @@
   {
     "code_departement": "63",
     "departement": "PUY-DE-DOME",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 72913,
     "votants": 62693,
     "exprimes": 62222,
@@ -4277,7 +4277,7 @@
   {
     "code_departement": "63",
     "departement": "PUY-DE-DOME",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 65417,
     "votants": 55471,
     "exprimes": 55037,
@@ -4292,7 +4292,7 @@
   {
     "code_departement": "63",
     "departement": "PUY-DE-DOME",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 49291,
     "votants": 39848,
     "exprimes": 39514,
@@ -4307,7 +4307,7 @@
   {
     "code_departement": "63",
     "departement": "PUY-DE-DOME",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 63190,
     "votants": 49769,
     "exprimes": 49215,
@@ -4322,7 +4322,7 @@
   {
     "code_departement": "63",
     "departement": "PUY-DE-DOME",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 65044,
     "votants": 52803,
     "exprimes": 52383,
@@ -4337,7 +4337,7 @@
   {
     "code_departement": "64",
     "departement": "PYRENEES-ATLANTIQUES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 97224,
     "votants": 81363,
     "exprimes": 80690,
@@ -4352,7 +4352,7 @@
   {
     "code_departement": "64",
     "departement": "PYRENEES-ATLANTIQUES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 75557,
     "votants": 63851,
     "exprimes": 63175,
@@ -4367,7 +4367,7 @@
   {
     "code_departement": "64",
     "departement": "PYRENEES-ATLANTIQUES",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 48274,
     "votants": 40343,
     "exprimes": 40060,
@@ -4382,7 +4382,7 @@
   {
     "code_departement": "64",
     "departement": "PYRENEES-ATLANTIQUES",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 86295,
     "votants": 73879,
     "exprimes": 73417,
@@ -4397,7 +4397,7 @@
   {
     "code_departement": "65",
     "departement": "HAUTES-PYRENEES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 68351,
     "votants": 55295,
     "exprimes": 54837,
@@ -4412,7 +4412,7 @@
   {
     "code_departement": "65",
     "departement": "HAUTES-PYRENEES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 70832,
     "votants": 59294,
     "exprimes": 58780,
@@ -4427,7 +4427,7 @@
   {
     "code_departement": "66",
     "departement": "PYRENEES-ORIENTALES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 85822,
     "votants": 69902,
     "exprimes": 68977,
@@ -4442,7 +4442,7 @@
   {
     "code_departement": "66",
     "departement": "PYRENEES-ORIENTALES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 77045,
     "votants": 61676,
     "exprimes": 60937,
@@ -4457,7 +4457,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 53409,
     "votants": 42556,
     "exprimes": 42193,
@@ -4472,7 +4472,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 68195,
     "votants": 54963,
     "exprimes": 54400,
@@ -4487,7 +4487,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 78721,
     "votants": 66709,
     "exprimes": 65935,
@@ -4502,7 +4502,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 60493,
     "votants": 52855,
     "exprimes": 52114,
@@ -4517,7 +4517,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 46679,
     "votants": 40148,
     "exprimes": 39662,
@@ -4532,7 +4532,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 51155,
     "votants": 41921,
     "exprimes": 41367,
@@ -4547,7 +4547,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 48190,
     "votants": 40691,
     "exprimes": 40100,
@@ -4562,7 +4562,7 @@
   {
     "code_departement": "67",
     "departement": "BAS-RHIN",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 58759,
     "votants": 49627,
     "exprimes": 49050,
@@ -4577,7 +4577,7 @@
   {
     "code_departement": "68",
     "departement": "HAUT-RHIN",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 69435,
     "votants": 60052,
     "exprimes": 58961,
@@ -4592,7 +4592,7 @@
   {
     "code_departement": "68",
     "departement": "HAUT-RHIN",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 59114,
     "votants": 50520,
     "exprimes": 49665,
@@ -4607,7 +4607,7 @@
   {
     "code_departement": "68",
     "departement": "HAUT-RHIN",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 69808,
     "votants": 61996,
     "exprimes": 61123,
@@ -4622,7 +4622,7 @@
   {
     "code_departement": "68",
     "departement": "HAUT-RHIN",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 77520,
     "votants": 64335,
     "exprimes": 63011,
@@ -4637,7 +4637,7 @@
   {
     "code_departement": "68",
     "departement": "HAUT-RHIN",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 64402,
     "votants": 55514,
     "exprimes": 54683,
@@ -4652,7 +4652,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 63193,
     "votants": 53426,
     "exprimes": 53076,
@@ -4667,7 +4667,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 55063,
     "votants": 46238,
     "exprimes": 45867,
@@ -4682,7 +4682,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 50076,
     "votants": 40902,
     "exprimes": 40574,
@@ -4697,7 +4697,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 67752,
     "votants": 55839,
     "exprimes": 55472,
@@ -4712,7 +4712,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 51448,
     "votants": 43284,
     "exprimes": 42943,
@@ -4727,7 +4727,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 97222,
     "votants": 83558,
     "exprimes": 83008,
@@ -4742,7 +4742,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 90404,
     "votants": 77491,
     "exprimes": 77048,
@@ -4757,7 +4757,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 57604,
     "votants": 50322,
     "exprimes": 49904,
@@ -4772,7 +4772,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 43237,
     "votants": 36699,
     "exprimes": 36254,
@@ -4787,7 +4787,7 @@
   {
     "code_departement": "69",
     "departement": "RHONE",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 47074,
     "votants": 38226,
     "exprimes": 37783,
@@ -4802,7 +4802,7 @@
   {
     "code_departement": "70",
     "departement": "HAUTE-SAONE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 64900,
     "votants": 55326,
     "exprimes": 54731,
@@ -4817,7 +4817,7 @@
   {
     "code_departement": "70",
     "departement": "HAUTE-SAONE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 66943,
     "votants": 57608,
     "exprimes": 56809,
@@ -4832,7 +4832,7 @@
   {
     "code_departement": "71",
     "departement": "SAONE-ET-LOIRE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 68324,
     "votants": 53779,
     "exprimes": 53365,
@@ -4847,7 +4847,7 @@
   {
     "code_departement": "71",
     "departement": "SAONE-ET-LOIRE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 70082,
     "votants": 57239,
     "exprimes": 56732,
@@ -4862,7 +4862,7 @@
   {
     "code_departement": "71",
     "departement": "SAONE-ET-LOIRE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 61976,
     "votants": 51257,
     "exprimes": 50729,
@@ -4877,7 +4877,7 @@
   {
     "code_departement": "71",
     "departement": "SAONE-ET-LOIRE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 62108,
     "votants": 50258,
     "exprimes": 49899,
@@ -4892,7 +4892,7 @@
   {
     "code_departement": "71",
     "departement": "SAONE-ET-LOIRE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 67926,
     "votants": 52687,
     "exprimes": 52186,
@@ -4907,7 +4907,7 @@
   {
     "code_departement": "72",
     "departement": "SARTHE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 52928,
     "votants": 46066,
     "exprimes": 45610,
@@ -4922,7 +4922,7 @@
   {
     "code_departement": "72",
     "departement": "SARTHE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 60634,
     "votants": 51706,
     "exprimes": 51165,
@@ -4937,7 +4937,7 @@
   {
     "code_departement": "72",
     "departement": "SARTHE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 52552,
     "votants": 43461,
     "exprimes": 42839,
@@ -4952,7 +4952,7 @@
   {
     "code_departement": "72",
     "departement": "SARTHE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 56108,
     "votants": 48559,
     "exprimes": 48034,
@@ -4967,7 +4967,7 @@
   {
     "code_departement": "72",
     "departement": "SARTHE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 44896,
     "votants": 37891,
     "exprimes": 37243,
@@ -4982,7 +4982,7 @@
   {
     "code_departement": "73",
     "departement": "SAVOIE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 58461,
     "votants": 47677,
     "exprimes": 47320,
@@ -4997,7 +4997,7 @@
   {
     "code_departement": "73",
     "departement": "SAVOIE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 45055,
     "votants": 34810,
     "exprimes": 34607,
@@ -5012,7 +5012,7 @@
   {
     "code_departement": "73",
     "departement": "SAVOIE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 57768,
     "votants": 46752,
     "exprimes": 46446,
@@ -5027,7 +5027,7 @@
   {
     "code_departement": "74",
     "departement": "HAUTE-SAVOIE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 83441,
     "votants": 69773,
     "exprimes": 69315,
@@ -5042,7 +5042,7 @@
   {
     "code_departement": "74",
     "departement": "HAUTE-SAVOIE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 49099,
     "votants": 39753,
     "exprimes": 39459,
@@ -5057,7 +5057,7 @@
   {
     "code_departement": "74",
     "departement": "HAUTE-SAVOIE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 68526,
     "votants": 56328,
     "exprimes": 55961,
@@ -5072,7 +5072,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 52732,
     "votants": 44438,
     "exprimes": 44040,
@@ -5087,7 +5087,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 55354,
     "votants": 46062,
     "exprimes": 45614,
@@ -5102,7 +5102,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 57497,
     "votants": 44857,
     "exprimes": 44489,
@@ -5117,7 +5117,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 47688,
     "votants": 39157,
     "exprimes": 38867,
@@ -5132,7 +5132,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 55417,
     "votants": 47351,
     "exprimes": 47053,
@@ -5147,7 +5147,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 38854,
     "votants": 33484,
     "exprimes": 33277,
@@ -5162,7 +5162,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 53339,
     "votants": 44237,
     "exprimes": 43909,
@@ -5177,7 +5177,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 66009,
     "votants": 57901,
     "exprimes": 57309,
@@ -5192,7 +5192,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 43955,
     "votants": 38566,
     "exprimes": 38215,
@@ -5207,7 +5207,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 57358,
     "votants": 50253,
     "exprimes": 49779,
@@ -5222,7 +5222,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 11,
+    "circonscription": "11",
     "inscrits": 52380,
     "votants": 44454,
     "exprimes": 44099,
@@ -5237,7 +5237,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 12,
+    "circonscription": "12",
     "inscrits": 47512,
     "votants": 38952,
     "exprimes": 38613,
@@ -5252,7 +5252,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 13,
+    "circonscription": "13",
     "inscrits": 40358,
     "votants": 34879,
     "exprimes": 34571,
@@ -5267,7 +5267,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 14,
+    "circonscription": "14",
     "inscrits": 48281,
     "votants": 42486,
     "exprimes": 42097,
@@ -5282,7 +5282,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 15,
+    "circonscription": "15",
     "inscrits": 56911,
     "votants": 47277,
     "exprimes": 46929,
@@ -5297,7 +5297,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 16,
+    "circonscription": "16",
     "inscrits": 46586,
     "votants": 38771,
     "exprimes": 38443,
@@ -5312,7 +5312,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 17,
+    "circonscription": "17",
     "inscrits": 58433,
     "votants": 48409,
     "exprimes": 48045,
@@ -5327,7 +5327,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 18,
+    "circonscription": "18",
     "inscrits": 43566,
     "votants": 36086,
     "exprimes": 35821,
@@ -5342,7 +5342,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 19,
+    "circonscription": "19",
     "inscrits": 51809,
     "votants": 42686,
     "exprimes": 42382,
@@ -5357,7 +5357,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 20,
+    "circonscription": "20",
     "inscrits": 67289,
     "votants": 56152,
     "exprimes": 55836,
@@ -5372,7 +5372,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 21,
+    "circonscription": "21",
     "inscrits": 57236,
     "votants": 47113,
     "exprimes": 46832,
@@ -5387,7 +5387,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 22,
+    "circonscription": "22",
     "inscrits": 40443,
     "votants": 34420,
     "exprimes": 34188,
@@ -5402,7 +5402,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 23,
+    "circonscription": "23",
     "inscrits": 45684,
     "votants": 38743,
     "exprimes": 38488,
@@ -5417,7 +5417,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 24,
+    "circonscription": "24",
     "inscrits": 43001,
     "votants": 36093,
     "exprimes": 35768,
@@ -5432,7 +5432,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 25,
+    "circonscription": "25",
     "inscrits": 53601,
     "votants": 45250,
     "exprimes": 44849,
@@ -5447,7 +5447,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 26,
+    "circonscription": "26",
     "inscrits": 45966,
     "votants": 38578,
     "exprimes": 38228,
@@ -5462,7 +5462,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 27,
+    "circonscription": "27",
     "inscrits": 43536,
     "votants": 36423,
     "exprimes": 36078,
@@ -5477,7 +5477,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 28,
+    "circonscription": "28",
     "inscrits": 41476,
     "votants": 35994,
     "exprimes": 35679,
@@ -5492,7 +5492,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 29,
+    "circonscription": "29",
     "inscrits": 40235,
     "votants": 35424,
     "exprimes": 35099,
@@ -5507,7 +5507,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 30,
+    "circonscription": "30",
     "inscrits": 43816,
     "votants": 38293,
     "exprimes": 37910,
@@ -5522,7 +5522,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 31,
+    "circonscription": "31",
     "inscrits": 63568,
     "votants": 55738,
     "exprimes": 55189,
@@ -5537,7 +5537,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 32,
+    "circonscription": "32",
     "inscrits": 63912,
     "votants": 55334,
     "exprimes": 54974,
@@ -5552,7 +5552,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 33,
+    "circonscription": "33",
     "inscrits": 59396,
     "votants": 51899,
     "exprimes": 51432,
@@ -5567,7 +5567,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 34,
+    "circonscription": "34",
     "inscrits": 65124,
     "votants": 56880,
     "exprimes": 56471,
@@ -5582,7 +5582,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 35,
+    "circonscription": "35",
     "inscrits": 53004,
     "votants": 46542,
     "exprimes": 45988,
@@ -5597,7 +5597,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 36,
+    "circonscription": "36",
     "inscrits": 65643,
     "votants": 57581,
     "exprimes": 57137,
@@ -5612,7 +5612,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 37,
+    "circonscription": "37",
     "inscrits": 68031,
     "votants": 59391,
     "exprimes": 58911,
@@ -5627,7 +5627,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 38,
+    "circonscription": "38",
     "inscrits": 67998,
     "votants": 60483,
     "exprimes": 59999,
@@ -5642,7 +5642,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 39,
+    "circonscription": "39",
     "inscrits": 70796,
     "votants": 63140,
     "exprimes": 62610,
@@ -5657,7 +5657,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 40,
+    "circonscription": "40",
     "inscrits": 46498,
     "votants": 40830,
     "exprimes": 40445,
@@ -5672,7 +5672,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 41,
+    "circonscription": "41",
     "inscrits": 66751,
     "votants": 58100,
     "exprimes": 57385,
@@ -5687,7 +5687,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 42,
+    "circonscription": "42",
     "inscrits": 62706,
     "votants": 55588,
     "exprimes": 55058,
@@ -5702,7 +5702,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 43,
+    "circonscription": "43",
     "inscrits": 83318,
     "votants": 73445,
     "exprimes": 72744,
@@ -5717,7 +5717,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 44,
+    "circonscription": "44",
     "inscrits": 65823,
     "votants": 56419,
     "exprimes": 55891,
@@ -5732,7 +5732,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 45,
+    "circonscription": "45",
     "inscrits": 69547,
     "votants": 58938,
     "exprimes": 58185,
@@ -5747,7 +5747,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 46,
+    "circonscription": "46",
     "inscrits": 70269,
     "votants": 62698,
     "exprimes": 62091,
@@ -5762,7 +5762,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 47,
+    "circonscription": "47",
     "inscrits": 71395,
     "votants": 63571,
     "exprimes": 63026,
@@ -5777,7 +5777,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 48,
+    "circonscription": "48",
     "inscrits": 78088,
     "votants": 68284,
     "exprimes": 67787,
@@ -5792,7 +5792,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 49,
+    "circonscription": "49",
     "inscrits": 69783,
     "votants": 61536,
     "exprimes": 61030,
@@ -5807,7 +5807,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 50,
+    "circonscription": "50",
     "inscrits": 68827,
     "votants": 60764,
     "exprimes": 60126,
@@ -5822,7 +5822,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 51,
+    "circonscription": "51",
     "inscrits": 74071,
     "votants": 65548,
     "exprimes": 65015,
@@ -5837,7 +5837,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 52,
+    "circonscription": "52",
     "inscrits": 72674,
     "votants": 64498,
     "exprimes": 63911,
@@ -5852,7 +5852,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 53,
+    "circonscription": "53",
     "inscrits": 88244,
     "votants": 78101,
     "exprimes": 77336,
@@ -5867,7 +5867,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 54,
+    "circonscription": "54",
     "inscrits": 90947,
     "votants": 81825,
     "exprimes": 81030,
@@ -5882,7 +5882,7 @@
   {
     "code_departement": "75",
     "departement": "SEINE",
-    "circonscription": 55,
+    "circonscription": "55",
     "inscrits": 67324,
     "votants": 60080,
     "exprimes": 59585,
@@ -5897,7 +5897,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 63027,
     "votants": 52620,
     "exprimes": 52141,
@@ -5912,7 +5912,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 67054,
     "votants": 58114,
     "exprimes": 57486,
@@ -5927,7 +5927,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 67442,
     "votants": 57896,
     "exprimes": 57368,
@@ -5942,7 +5942,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 64421,
     "votants": 55499,
     "exprimes": 54936,
@@ -5957,7 +5957,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 63951,
     "votants": 54257,
     "exprimes": 53745,
@@ -5972,7 +5972,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 79884,
     "votants": 69447,
     "exprimes": 68920,
@@ -5987,7 +5987,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 59946,
     "votants": 51600,
     "exprimes": 51191,
@@ -6002,7 +6002,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 50673,
     "votants": 43738,
     "exprimes": 43253,
@@ -6017,7 +6017,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 55844,
     "votants": 48608,
     "exprimes": 48108,
@@ -6032,7 +6032,7 @@
   {
     "code_departement": "76",
     "departement": "SEINE-MARITIME",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 48137,
     "votants": 41487,
     "exprimes": 40994,
@@ -6047,7 +6047,7 @@
   {
     "code_departement": "77",
     "departement": "SEINE-ET-MARNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 76088,
     "votants": 65929,
     "exprimes": 65211,
@@ -6062,7 +6062,7 @@
   {
     "code_departement": "77",
     "departement": "SEINE-ET-MARNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 71425,
     "votants": 62200,
     "exprimes": 61626,
@@ -6077,7 +6077,7 @@
   {
     "code_departement": "77",
     "departement": "SEINE-ET-MARNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 62271,
     "votants": 53084,
     "exprimes": 52497,
@@ -6092,7 +6092,7 @@
   {
     "code_departement": "77",
     "departement": "SEINE-ET-MARNE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 55324,
     "votants": 47209,
     "exprimes": 46609,
@@ -6107,7 +6107,7 @@
   {
     "code_departement": "77",
     "departement": "SEINE-ET-MARNE",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 58916,
     "votants": 50812,
     "exprimes": 50216,
@@ -6122,7 +6122,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 66206,
     "votants": 58611,
     "exprimes": 58139,
@@ -6137,7 +6137,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 77780,
     "votants": 67808,
     "exprimes": 67196,
@@ -6152,7 +6152,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 90580,
     "votants": 79891,
     "exprimes": 79250,
@@ -6167,7 +6167,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 88917,
     "votants": 77294,
     "exprimes": 76684,
@@ -6182,7 +6182,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 91449,
     "votants": 81097,
     "exprimes": 80507,
@@ -6197,7 +6197,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 6,
+    "circonscription": "06",
     "inscrits": 71536,
     "votants": 62650,
     "exprimes": 62126,
@@ -6212,7 +6212,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 7,
+    "circonscription": "07",
     "inscrits": 72065,
     "votants": 62518,
     "exprimes": 61856,
@@ -6227,7 +6227,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 8,
+    "circonscription": "08",
     "inscrits": 58277,
     "votants": 51037,
     "exprimes": 50524,
@@ -6242,7 +6242,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 9,
+    "circonscription": "09",
     "inscrits": 72056,
     "votants": 63716,
     "exprimes": 63087,
@@ -6257,7 +6257,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 10,
+    "circonscription": "10",
     "inscrits": 86315,
     "votants": 76519,
     "exprimes": 75806,
@@ -6272,7 +6272,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 11,
+    "circonscription": "11",
     "inscrits": 89141,
     "votants": 78406,
     "exprimes": 77621,
@@ -6287,7 +6287,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 12,
+    "circonscription": "12",
     "inscrits": 100179,
     "votants": 88586,
     "exprimes": 87897,
@@ -6302,7 +6302,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 13,
+    "circonscription": "13",
     "inscrits": 72809,
     "votants": 63992,
     "exprimes": 63482,
@@ -6317,7 +6317,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 14,
+    "circonscription": "14",
     "inscrits": 75241,
     "votants": 66495,
     "exprimes": 65843,
@@ -6332,7 +6332,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 15,
+    "circonscription": "15",
     "inscrits": 109609,
     "votants": 96803,
     "exprimes": 96035,
@@ -6347,7 +6347,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 16,
+    "circonscription": "16",
     "inscrits": 76480,
     "votants": 67171,
     "exprimes": 66599,
@@ -6362,7 +6362,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 17,
+    "circonscription": "17",
     "inscrits": 57542,
     "votants": 50604,
     "exprimes": 50041,
@@ -6377,7 +6377,7 @@
   {
     "code_departement": "78",
     "departement": "YVELINES",
-    "circonscription": 18,
+    "circonscription": "18",
     "inscrits": 58050,
     "votants": 51373,
     "exprimes": 50789,
@@ -6392,7 +6392,7 @@
   {
     "code_departement": "79",
     "departement": "DEUX-SEVRES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 77438,
     "votants": 64323,
     "exprimes": 63750,
@@ -6407,7 +6407,7 @@
   {
     "code_departement": "79",
     "departement": "DEUX-SEVRES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 66489,
     "votants": 56529,
     "exprimes": 55763,
@@ -6422,7 +6422,7 @@
   {
     "code_departement": "79",
     "departement": "DEUX-SEVRES",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 55736,
     "votants": 49068,
     "exprimes": 48495,
@@ -6437,7 +6437,7 @@
   {
     "code_departement": "80",
     "departement": "SOMME",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 73212,
     "votants": 66046,
     "exprimes": 65355,
@@ -6452,7 +6452,7 @@
   {
     "code_departement": "80",
     "departement": "SOMME",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53179,
     "votants": 47409,
     "exprimes": 46801,
@@ -6467,7 +6467,7 @@
   {
     "code_departement": "80",
     "departement": "SOMME",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 56649,
     "votants": 51143,
     "exprimes": 50502,
@@ -6482,7 +6482,7 @@
   {
     "code_departement": "80",
     "departement": "SOMME",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 54450,
     "votants": 48747,
     "exprimes": 48125,
@@ -6497,7 +6497,7 @@
   {
     "code_departement": "80",
     "departement": "SOMME",
-    "circonscription": 5,
+    "circonscription": "05",
     "inscrits": 59184,
     "votants": 53233,
     "exprimes": 52548,
@@ -6512,7 +6512,7 @@
   {
     "code_departement": "81",
     "departement": "TARN",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 73076,
     "votants": 63965,
     "exprimes": 62975,
@@ -6527,7 +6527,7 @@
   {
     "code_departement": "81",
     "departement": "TARN",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 68857,
     "votants": 61015,
     "exprimes": 59885,
@@ -6542,7 +6542,7 @@
   {
     "code_departement": "81",
     "departement": "TARN",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 66123,
     "votants": 57748,
     "exprimes": 56805,
@@ -6557,7 +6557,7 @@
   {
     "code_departement": "82",
     "departement": "TARN-ET-GARONNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 53863,
     "votants": 47116,
     "exprimes": 46410,
@@ -6572,7 +6572,7 @@
   {
     "code_departement": "82",
     "departement": "TARN-ET-GARONNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 57473,
     "votants": 49328,
     "exprimes": 48611,
@@ -6587,7 +6587,7 @@
   {
     "code_departement": "83",
     "departement": "VAR",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 70153,
     "votants": 59823,
     "exprimes": 58902,
@@ -6602,7 +6602,7 @@
   {
     "code_departement": "83",
     "departement": "VAR",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 76710,
     "votants": 64304,
     "exprimes": 63535,
@@ -6617,7 +6617,7 @@
   {
     "code_departement": "83",
     "departement": "VAR",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 73970,
     "votants": 59018,
     "exprimes": 58571,
@@ -6632,7 +6632,7 @@
   {
     "code_departement": "83",
     "departement": "VAR",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 92194,
     "votants": 76539,
     "exprimes": 75840,
@@ -6647,7 +6647,7 @@
   {
     "code_departement": "84",
     "departement": "VAUCLUSE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 72777,
     "votants": 63787,
     "exprimes": 62921,
@@ -6662,7 +6662,7 @@
   {
     "code_departement": "84",
     "departement": "VAUCLUSE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 60524,
     "votants": 51552,
     "exprimes": 50565,
@@ -6677,7 +6677,7 @@
   {
     "code_departement": "84",
     "departement": "VAUCLUSE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 61042,
     "votants": 52453,
     "exprimes": 51615,
@@ -6692,7 +6692,7 @@
   {
     "code_departement": "85",
     "departement": "VENDEE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 59484,
     "votants": 52931,
     "exprimes": 52208,
@@ -6707,7 +6707,7 @@
   {
     "code_departement": "85",
     "departement": "VENDEE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 62312,
     "votants": 53003,
     "exprimes": 52371,
@@ -6722,7 +6722,7 @@
   {
     "code_departement": "85",
     "departement": "VENDEE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 69979,
     "votants": 59013,
     "exprimes": 57992,
@@ -6737,7 +6737,7 @@
   {
     "code_departement": "85",
     "departement": "VENDEE",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 62794,
     "votants": 56670,
     "exprimes": 56019,
@@ -6752,7 +6752,7 @@
   {
     "code_departement": "86",
     "departement": "VIENNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 74378,
     "votants": 63166,
     "exprimes": 62487,
@@ -6767,7 +6767,7 @@
   {
     "code_departement": "86",
     "departement": "VIENNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 63115,
     "votants": 52935,
     "exprimes": 52258,
@@ -6782,7 +6782,7 @@
   {
     "code_departement": "86",
     "departement": "VIENNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 69421,
     "votants": 57851,
     "exprimes": 57083,
@@ -6797,7 +6797,7 @@
   {
     "code_departement": "87",
     "departement": "HAUTE-VIENNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 79312,
     "votants": 68070,
     "exprimes": 67280,
@@ -6812,7 +6812,7 @@
   {
     "code_departement": "87",
     "departement": "HAUTE-VIENNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 65452,
     "votants": 54639,
     "exprimes": 53888,
@@ -6827,7 +6827,7 @@
   {
     "code_departement": "87",
     "departement": "HAUTE-VIENNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 82053,
     "votants": 68552,
     "exprimes": 67725,
@@ -6842,7 +6842,7 @@
   {
     "code_departement": "88",
     "departement": "VOSGES",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 69013,
     "votants": 59337,
     "exprimes": 58375,
@@ -6857,7 +6857,7 @@
   {
     "code_departement": "88",
     "departement": "VOSGES",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 52444,
     "votants": 43615,
     "exprimes": 42926,
@@ -6872,7 +6872,7 @@
   {
     "code_departement": "88",
     "departement": "VOSGES",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 52903,
     "votants": 44725,
     "exprimes": 43951,
@@ -6887,7 +6887,7 @@
   {
     "code_departement": "88",
     "departement": "VOSGES",
-    "circonscription": 4,
+    "circonscription": "04",
     "inscrits": 55816,
     "votants": 47613,
     "exprimes": 46852,
@@ -6902,7 +6902,7 @@
   {
     "code_departement": "89",
     "departement": "YONNE",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 53621,
     "votants": 44623,
     "exprimes": 44114,
@@ -6917,7 +6917,7 @@
   {
     "code_departement": "89",
     "departement": "YONNE",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 53820,
     "votants": 45567,
     "exprimes": 45020,
@@ -6932,7 +6932,7 @@
   {
     "code_departement": "89",
     "departement": "YONNE",
-    "circonscription": 3,
+    "circonscription": "03",
     "inscrits": 65058,
     "votants": 55573,
     "exprimes": 54949,
@@ -6947,7 +6947,7 @@
   {
     "code_departement": "90",
     "departement": "TERRITOIRE DE BELFORT",
-    "circonscription": 1,
+    "circonscription": "01",
     "inscrits": 37101,
     "votants": 31255,
     "exprimes": 30948,
@@ -6962,7 +6962,7 @@
   {
     "code_departement": "90",
     "departement": "TERRITOIRE DE BELFORT",
-    "circonscription": 2,
+    "circonscription": "02",
     "inscrits": 27121,
     "votants": 22755,
     "exprimes": 22526,

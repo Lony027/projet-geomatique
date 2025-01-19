@@ -1,141 +1,119 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const rangeMin = document.getElementById('range-min');
-    const rangeMax = document.getElementById('range-max');
-    const minValueSpan = document.getElementById('min-value');
-    const maxValueSpan = document.getElementById('max-value');
-    const sliderTrack = document.querySelector('.slider-range');
-    const selectYear = document.getElementById('selectYear');
+const selectYear = document.getElementById('selectYear');
 
-    const btnYear = document.getElementById('btnYear');
-    const btnRangeYear = document.getElementById('btnRangeYear');
-    const sliderContainer = document.querySelector('.slider-container');
-
-    // Remplir le select avec les années disponibles
-    availableYear.forEach(year => {
-        const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year;
-        selectYear.appendChild(option);
-    });
-
-    // Réinitialiser les calques et les étiquettes lorsque l'année change
-    selectYear.addEventListener('change', function () {
-        console.log("Année sélectionnée :", selectYear.value);
-        dynamicClearLayers(0); // Effacer toutes les couches
-        departmentLabelsLayer.clearLayers(); // Supprimer les anciennes étiquettes
-        map.setView([47.0811658, 2.399125], 6); // Recentrer la carte sur les régions
-
-        // Recharger les régions avec la nouvelle année
-        generateLayerByGeoJson("ressources/geojson/regions.geojson", regionsLayerGroup);
-    });
+availableYear.forEach((year) => {
+  const option = document.createElement('option');
+  option.value = year;
+  option.textContent = year;
+  selectYear.appendChild(option);
 });
 
+selectYear.addEventListener('change', reloadLayer);
 
-// Dynamically populate the color picker section
-function populateColorSection() {
-    const leftDiv = document.querySelector(".div-color-left");
-    const rightDiv = document.querySelector(".div-color-right");
+const selectedTurn = document.getElementById('tour');
+selectedTurn.addEventListener('change', reloadLayer);
 
-    // Split parties into two columns
-    const partyEntries = Object.entries(partyColors);
-    const half = Math.ceil(partyEntries.length / 2);
+// // Dynamically populate the color picker section
+// function populateColorSection() {
+//     const leftDiv = document.querySelector(".div-color-left");
+//     const rightDiv = document.querySelector(".div-color-right");
 
-    const leftParties = partyEntries.slice(0, half);
-    const rightParties = partyEntries.slice(half);
+//     // Split parties into two columns
+//     const partyEntries = Object.entries(partyColors);
+//     const half = Math.ceil(partyEntries.length / 2);
 
-    // Helper function to create color picker elements
-    function createColorPickerElements(parties) {
-        return parties.map(([abbreviation, color]) => {
-            const fullName = partyFullNames[abbreviation] || abbreviation;
+//     const leftParties = partyEntries.slice(0, half);
+//     const rightParties = partyEntries.slice(half);
 
-            // Create an aside element with color picker
-            const aside = document.createElement("aside");
-            aside.className = abbreviation;
-            aside.innerHTML = `
-                <span>
-                    <input type="color" class="color-picker" data-party="${abbreviation}" value="${color}">
-                </span>
-                ${abbreviation} (${fullName})
-            `;
-            return aside;
-        });
-    }
+//     // Helper function to create color picker elements
+//     function createColorPickerElements(parties) {
+//         return parties.map(([abbreviation, color]) => {
+//             const fullName = partyFullNames[abbreviation] || abbreviation;
 
-    // Populate the left and right divs
-    createColorPickerElements(leftParties).forEach(aside => leftDiv.appendChild(aside));
-    createColorPickerElements(rightParties).forEach(aside => rightDiv.appendChild(aside));
-}
+//             // Create an aside element with color picker
+//             const aside = document.createElement("aside");
+//             aside.className = abbreviation;
+//             aside.innerHTML = `
+//                 <span>
+//                     <input type="color" class="color-picker" data-party="${abbreviation}" value="${color}">
+//                 </span>
+//                 ${abbreviation} (${fullName})
+//             `;
+//             return aside;
+//         });
+//     }
 
-// Add event listeners to handle color changes
-function handleColorChanges() {
-    const colorPickers = document.querySelectorAll(".color-picker");
+//     // Populate the left and right divs
+//     createColorPickerElements(leftParties).forEach(aside => leftDiv.appendChild(aside));
+//     createColorPickerElements(rightParties).forEach(aside => rightDiv.appendChild(aside));
+// }
 
-    colorPickers.forEach(picker => {
-        picker.addEventListener("change", event => {
-            const party = event.target.dataset.party;
-            const newColor = event.target.value;
+// // Add event listeners to handle color changes
+// function handleColorChanges() {
+//     const colorPickers = document.querySelectorAll(".color-picker");
 
-            // Update the color in the partyColors object
-            if (party in partyColors) {
-                partyColors[party] = newColor;
-                console.log(`Updated color for ${party}: ${newColor}`);
-            }
-        });
-    });
-}
+//     colorPickers.forEach(picker => {
+//         picker.addEventListener("change", event => {
+//             const party = event.target.dataset.party;
+//             const newColor = event.target.value;
 
-// Initialize the color picker section
-function initColorPicker() {
-    populateColorSection();
-    handleColorChanges();
-}
+//             // Update the color in the partyColors object
+//             if (party in partyColors) {
+//                 partyColors[party] = newColor;
+//                 console.log(`Updated color for ${party}: ${newColor}`);
+//             }
+//         });
+//     });
+// }
 
-// Call the initialization function after DOM is fully loaded
-document.addEventListener("DOMContentLoaded", initColorPicker);
+// // Initialize the color picker section
+// function initColorPicker() {
+//     populateColorSection();
+//     handleColorChanges();
+// }
 
-function updateLayerColors() {
-    console.log("updateLayerColors called");
+// // Call the initialization function after DOM is fully loaded
+// document.addEventListener("DOMContentLoaded", initColorPicker);
 
-    // Supprimer toutes les couches existantes
-    dynamicClearLayers(0); // Supprime toutes les couches (régions, départements, etc.)
-    departmentLabelsLayer.clearLayers(); // Supprime les étiquettes si nécessaire
+// function updateLayerColors() {
+//     console.log("updateLayerColors called");
 
-    // Recharger les régions avec les nouvelles couleurs
-    generateLayerByGeoJson("ressources/geojson/regions.geojson", regionsLayerGroup);
-}
+//     // Supprimer toutes les couches existantes
+//     dynamicClearLayers(0); // Supprime toutes les couches (régions, départements, etc.)
+//     departmentLabelsLayer.clearLayers(); // Supprime les étiquettes si nécessaire
 
+//     // Recharger les régions avec les nouvelles couleurs
+//     generateLayerByGeoJson();
+// }
 
+// function handleColorChanges() {
+//     console.log("Initializing color change handlers");
 
+//     const colorPickers = document.querySelectorAll(".color-picker");
 
-function handleColorChanges() {
-    console.log("Initializing color change handlers");
+//     // Débouncer l'appel à updateLayerColors
+//     const debouncedUpdateLayerColors = debounce(updateLayerColors, 200); // 200ms de délai
 
-    const colorPickers = document.querySelectorAll(".color-picker");
+//     colorPickers.forEach(picker => {
+//         picker.addEventListener("input", event => {
+//             const party = event.target.dataset.party;
+//             const newColor = event.target.value;
 
-    // Débouncer l'appel à updateLayerColors
-    const debouncedUpdateLayerColors = debounce(updateLayerColors, 200); // 200ms de délai
+//             if (party in partyColors) {
+//                 // Met à jour le tableau des couleurs
+//                 partyColors[party] = newColor;
+//                 console.log(`Updated color for ${party}: ${newColor}`);
 
-    colorPickers.forEach(picker => {
-        picker.addEventListener("input", event => {
-            const party = event.target.dataset.party;
-            const newColor = event.target.value;
+//                 // Rafraîchir la carte (avec debounce)
+//                 debouncedUpdateLayerColors();
+//             }
+//         });
+//     });
+// }
 
-            if (party in partyColors) {
-                // Met à jour le tableau des couleurs
-                partyColors[party] = newColor;
-                console.log(`Updated color for ${party}: ${newColor}`);
-
-                // Rafraîchir la carte (avec debounce)
-                debouncedUpdateLayerColors();
-            }
-        });
-    });
-}
-
-function debounce(func, delay) {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout); // Clear le timeout précédent
-        timeout = setTimeout(() => func(...args), delay); // Exécuter après un délai
-    };
-}
+// function debounce(func, delay) {
+//     let timeout;
+//     return (...args) => {
+//         clearTimeout(timeout); // Clear le timeout précédent
+//         timeout = setTimeout(() => func(...args), delay); // Exécuter après un délai
+//     };
+// }

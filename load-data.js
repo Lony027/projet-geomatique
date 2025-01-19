@@ -1,46 +1,39 @@
 const availableYear = [
-  '1965',
-  '1969',
-  '1974',
-  '1981',
-  '1988',
-  '1995',
-  '2002',
-  '2007',
   '2012',
+  '2007',
+  '2002',
+  '1995',
+  '1988',
+  '1981',
+  '1974',
+  '1969',
+  '1965',
 ];
 
 const availableTour = ['1', '2'];
 
-// window.onload = async () => {
-//   let dataP = await loadDataPresidentielles('1974', '1');
-//   console.log(await getByRegion(dataP, '11'));
-// };
-
 function getByDepartmentCode(data, departementCode) {
-  return data.filter((v) => v.code_departement == departementCode);
+  const circos = data.filter((v) => v.code_departement == departementCode);
+  return jsonReduceHelper(data, circos, departementCode, 'code_departement');
 }
 
 function getByDepartmentCodes(data, departementCodeArray) {
   return data.filter((v) => departementCodeArray.includes(v.code_departement));
 }
 
-function getByDepartementName(data, departementName) {
-  return data.filter((v) => v.departement == departementName);
-}
-
-function getByCirconscription(data, departementName, circonscription) {
-  let bufferValue = data.filter(
+function getByCirconscription(data, departementCode, circonscription) {
+  return data.filter(
     (v) =>
-      v.circonscription == circonscription && v.departement == departementName
+      v.circonscription == circonscription &&
+      v.code_departement == departementCode
   );
-  return '' + bufferValue.departementCode + bufferValue.circonscription;
 }
 
 async function getByRegion(data, codeRegion) {
   let departements = await fetchData(
     `https://geo.api.gouv.fr/regions/${codeRegion}/departements`
   );
+
   if (departements == undefined) {
     return;
   }
@@ -74,15 +67,26 @@ async function loadDataPresidentielles(year, tour) {
 }
 
 function getRegionByDepartmentArray(data, dep_code_array, codeRegion) {
-  departements = getByDepartmentCodes(data, dep_code_array);
-  parties = getParties(data);
-  let JSONtoReturn = departements.reduce(
+  const departements = getByDepartmentCodes(data, dep_code_array);
+  if (departements.length == 0) {
+    return;
+  }
+  return jsonReduceHelper(data, departements, codeRegion, 'code_region');
+}
+
+function getParty(data) {
+  let keys = Object.keys(data[0]);
+  return keys.filter((v) => v.match(/^.*\)$/g));
+}
+
+function jsonReduceHelper(data, array, code, keyName) {
+  const parties = getParty(data);
+  let JSONtoReturn = array.reduce(
     (acc, dep) => {
-      acc.code_region = codeRegion;
+      acc[keyName] = code;
       acc.inscrits += dep.inscrits;
-      acc.votants += dep.votants;
-      acc.exprimes += dep.exprimes;
       acc.blancs_et_nuls += dep.blancs_et_nuls;
+      acc.exprimes += dep.exprimes;
 
       parties.forEach((partie) => {
         acc[partie] = (acc[partie] || 0) + (dep[partie] || 0);
@@ -91,25 +95,43 @@ function getRegionByDepartmentArray(data, dep_code_array, codeRegion) {
       return acc;
     },
     {
-      code_region: codeRegion,
+      [keyName]: code,
       inscrits: 0,
-      votants: 0,
       exprimes: 0,
       blancs_et_nuls: 0,
 
-      ...Object.fromEntries(parties.map((party) => [party, 0])), // TO UNDERSTAND
+      ...Object.fromEntries(parties.map((party) => [party, 0])),
     }
   );
   return JSONtoReturn;
 }
 
-function getParties(data) {
-  let keys = Object.keys(data[0]);
-  return keys.filter((v) => v.match(/^.*\)$/g));
+// -----------------------------------------------------------------------------------
+
+// return votes by party
+function calculateTotalVotes(results) {
+  let totalVotesByParty = {};
+  results.forEach((result) => {
+    for (let [party, votes] of Object.entries(result)) {
+      if (party.match(/^.*\)$/g)) {
+        totalVotesByParty[party] = (totalVotesByParty[party] || 0) + votes;
+      }
+    }
+  });
+  return totalVotesByParty;
 }
 
+// function getWinningParty(votesByParty) {
+//   return Object.keys(votesByParty).reduce(
+//     (maxParty, currentParty) =>
+//       votesByParty[currentParty] > (votesByParty[maxParty] || 0)
+//         ? currentParty
+//         : maxParty,
+//     Object.keys(votesByParty)[0] || ''
+//   );
+// }
 
-
+// -----------------------------------------------------------------------------------
 
 // Extract the party abbreviation from the full party name using regex
 function extractPartyAbbreviation(fullName) {
@@ -118,105 +140,110 @@ function extractPartyAbbreviation(fullName) {
 }
 
 async function getVictoryPercentageByRegion(data, partyAbbreviation) {
-  const regions = await fetchData("https://geo.api.gouv.fr/regions");
+  const regions = await fetchData('https://geo.api.gouv.fr/regions');
   if (!regions) return;
 
   const results = {};
 
   for (const region of regions) {
-      const regionCode = region.code;
-      const regionName = region.nom;
+    const regionCode = region.code;
+    const regionName = region.nom;
 
-      // Fetch departments for the current region
-      const departements = await fetchData(`https://geo.api.gouv.fr/regions/${regionCode}/departements`);
-      if (!departements) continue;
+    // Fetch departments for the current region
+    const departements = await fetchData(
+      `https://geo.api.gouv.fr/regions/${regionCode}/departements`
+    );
+    if (!departements) continue;
 
-      const depCodes = departements.map(dep => dep.code);
+    const depCodes = departements.map((dep) => dep.code);
 
-      // Filter data for the departments in this region
-      const regionalData = getByDepartmentCodes(data, depCodes);
+    // Filter data for the departments in this region
+    const regionalData = getByDepartmentCodes(data, depCodes);
 
-      // Calculate total votes for the party abbreviation and total expressed votes
-      const totalVotes = regionalData.reduce((sum, entry) => {
-          for (const key of Object.keys(entry)) {
-              if (extractPartyAbbreviation(key) === partyAbbreviation) {
-                  return sum + (entry[key] || 0);
-              }
-          }
-          return sum;
-      }, 0);
+    // Calculate total votes for the party abbreviation and total expressed votes
+    const totalVotes = regionalData.reduce((sum, entry) => {
+      for (const key of Object.keys(entry)) {
+        if (extractPartyAbbreviation(key) === partyAbbreviation) {
+          return sum + (entry[key] || 0);
+        }
+      }
+      return sum;
+    }, 0);
 
-      const totalExprimes = regionalData.reduce((sum, entry) => sum + entry.exprimes, 0);
+    const totalExprimes = regionalData.reduce(
+      (sum, entry) => sum + entry.exprimes,
+      0
+    );
 
-      // Calculate the percentage of votes
-      const percentage = totalExprimes > 0 ? (totalVotes / totalExprimes) * 100 : 0;
+    // Calculate the percentage of votes
+    const percentage =
+      totalExprimes > 0 ? (totalVotes / totalExprimes) * 100 : 0;
 
-      results[regionName] = `${percentage.toFixed(2)}%`;
+    results[regionName] = `${percentage.toFixed(2)}%`;
   }
 
   return results;
 }
 
-function getVictoryPercentageByDepartment(data, partyAbbreviation) {
-  const departements = [...new Set(data.map(entry => entry.departement))];
+// function getVictoryPercentageByDepartment(data, partyAbbreviation) {
+//   const departements = [...new Set(data.map(entry => entry.departement))];
 
-  const results = {};
+//   const results = {};
 
-  for (const dep of departements) {
-      // Filter data for the current department
-      const departmentData = getByDepartementName(data, dep);
+//   for (const dep of departements) {
+//       // Filter data for the current department
+//       const departmentData = getByDepartementName(data, dep);
 
-      // Calculate total votes for the party abbreviation and total expressed votes
-      const totalVotes = departmentData.reduce((sum, entry) => {
-          for (const key of Object.keys(entry)) {
-              if (extractPartyAbbreviation(key) === partyAbbreviation) {
-                  return sum + (entry[key] || 0);
-              }
-          }
-          return sum;
-      }, 0);
+//       // Calculate total votes for the party abbreviation and total expressed votes
+//       const totalVotes = departmentData.reduce((sum, entry) => {
+//           for (const key of Object.keys(entry)) {
+//               if (extractPartyAbbreviation(key) === partyAbbreviation) {
+//                   return sum + (entry[key] || 0);
+//               }
+//           }
+//           return sum;
+//       }, 0);
 
-      const totalExprimes = departmentData.reduce((sum, entry) => sum + entry.exprimes, 0);
+//       const totalExprimes = departmentData.reduce((sum, entry) => sum + entry.exprimes, 0);
 
-      // Calculate the percentage of votes
-      const percentage = totalExprimes > 0 ? (totalVotes / totalExprimes) * 100 : 0;
+//       // Calculate the percentage of votes
+//       const percentage = totalExprimes > 0 ? (totalVotes / totalExprimes) * 100 : 0;
 
-      results[dep] = `${percentage.toFixed(2)}%`;
-  }
+//       results[dep] = `${percentage.toFixed(2)}%`;
+//   }
 
-  return results;
-}
+//   return results;
+// }
 
-function getVictoryPercentageByConstituency(data, partyAbbreviation) {
-  const constituencies = [...new Set(data.map(entry => entry.circonscription))];
+// function getVictoryPercentageByConstituency(data, partyAbbreviation) {
+//   const constituencies = [...new Set(data.map(entry => entry.circonscription))];
 
-  const results = {};
+//   const results = {};
 
-  for (const constituency of constituencies) {
-      // Filter data for the current constituency
-      const constituencyData = data.filter(entry => entry.circonscription === constituency);
+//   for (const constituency of constituencies) {
+//       // Filter data for the current constituency
+//       const constituencyData = data.filter(entry => entry.circonscription === constituency);
 
-      // Calculate total votes for the party abbreviation and total expressed votes
-      const totalVotes = constituencyData.reduce((sum, entry) => {
-          for (const key of Object.keys(entry)) {
-              if (extractPartyAbbreviation(key) === partyAbbreviation) {
-                  return sum + (entry[key] || 0);
-              }
-          }
-          return sum;
-      }, 0);
+//       // Calculate total votes for the party abbreviation and total expressed votes
+//       const totalVotes = constituencyData.reduce((sum, entry) => {
+//           for (const key of Object.keys(entry)) {
+//               if (extractPartyAbbreviation(key) === partyAbbreviation) {
+//                   return sum + (entry[key] || 0);
+//               }
+//           }
+//           return sum;
+//       }, 0);
 
-      const totalExprimes = constituencyData.reduce((sum, entry) => sum + entry.exprimes, 0);
+//       const totalExprimes = constituencyData.reduce((sum, entry) => sum + entry.exprimes, 0);
 
-      // Calculate the percentage of votes
-      const percentage = totalExprimes > 0 ? (totalVotes / totalExprimes) * 100 : 0;
+//       // Calculate the percentage of votes
+//       const percentage = totalExprimes > 0 ? (totalVotes / totalExprimes) * 100 : 0;
 
-      results[`Circonscription ${constituency}`] = `${percentage.toFixed(2)}%`;
-  }
+//       results[`Circonscription ${constituency}`] = `${percentage.toFixed(2)}%`;
+//   }
 
-  return results;
-}
-
+//   return results;
+// }
 
 /*
 971 = ZA
