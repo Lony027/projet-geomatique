@@ -74,6 +74,10 @@ function getRegionByDepartmentArray(data, dep_code_array, codeRegion) {
   return jsonReduceHelper(data, departements, codeRegion, 'code_region');
 }
 
+function getFranceResults(data) {
+  return jsonReduceHelper(data, data, '', '');
+}
+
 function getParty(data) {
   let keys = Object.keys(data[0]);
   return keys.filter((v) => v.match(/^.*\)$/g));

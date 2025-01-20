@@ -1,13 +1,24 @@
-// @ to-do: check css et html
-// @ to-do: last clean
+// @ to-do: corriger label bound
+// zoom to n'actualise pas label et div results
+//  and check doublon couleur, eviter  empilement couleurs
+// @ to-do: bouton ranger le front, fix menu
 
-// @ to-do:  indiquer quel couleur est associé à parties
-// @ to-do: bouton ranger le front
-
-// @ to-do: pas un tooltip mais un div avec les infos quand on clique, pk pas graph (partie + abstention)
+// @ to-do: div refaire
+// remove appel vers l'etat, avoir un json
 
 // @ to-do: features gagnant (partie + abstention)
-// @ to-do: Search tool
+
+// @ to-do: check css et html
+// @ CSS BREADCRUMB si g le temps
+// search tool si j'ai le temps
+
+// Tout mettre en anglais
+// 1 seul .js
+// rapport
+// cannot hover with label
+// @ to-do: last clean
+
+// Readme
 
 // -----------------------
 
@@ -34,6 +45,7 @@ let map = L.map(divmap, {
 let regionsLayerGroup = L.layerGroup().addTo(map);
 let departementsLayerGroup = L.layerGroup().addTo(map);
 let circoLayerGroup = L.layerGroup().addTo(map);
+let labelLayerGroup = L.layerGroup().addTo(map);
 
 let regionDataGeoJson,
   departmentDataGeoJson,
@@ -45,6 +57,10 @@ let breadcrumb = [];
 
 let currentPartys;
 let partys;
+
+window.onload = () => {
+  init();
+}; // keep or not?
 
 async function init() {
   try {
@@ -65,6 +81,7 @@ async function init() {
 }
 
 async function reloadLayer() {
+  resetTable();
   dynamicClearLayers(0);
   resetBreadcrumb();
 
@@ -73,8 +90,6 @@ async function reloadLayer() {
   currentPartys = getParty(presidentialData);
   generateLayerByGeoJson();
 }
-
-init();
 
 // ------------------------- UTILS
 
@@ -86,6 +101,7 @@ function replaceAndTruncateArray(array, index, newValue) {
 }
 
 function dynamicClearLayers(level) {
+  labelLayerGroup.clearLayers();
   switch (level) {
     case 'region':
       departementsLayerGroup.clearLayers();
@@ -172,10 +188,7 @@ function breadcrumbClick(depth) {
     case 1:
       zoomToRegion(breadcrumb[0]);
       break;
-    case 2:
-      zoomToDepartement(breadcrumb[1]);
-      break;
-    case 3:
+    default: // case 2 & 3
       zoomToDepartement(breadcrumb[1]);
       break;
   }
@@ -218,7 +231,7 @@ function setWeighByDepth(layer, depth, add) {
     add = 0;
   }
   if (depth == 1) {
-    layer.setStyle({ weight: 0.7 + add });
+    layer.setStyle({ weight: 0.7 + add, opacity: 1 });
   } else {
     layer.setStyle({ weight: 0.5 + add, opacity: 0.5 });
   }
@@ -228,7 +241,6 @@ function fillLayerColorByWinningParty(layer, winningParty) {
   const fillColor = colorByParty(winningParty);
   layer.setStyle({
     color: '#F1F1F1',
-    // weight: 1,
     fillOpacity: 0.2,
     fillColor: fillColor,
   });
@@ -236,7 +248,7 @@ function fillLayerColorByWinningParty(layer, winningParty) {
 
 function layerHover(layer, depth) {
   layer.on('mouseover', function () {
-    setWeighByDepth(layer, depth, 1);
+    setWeighByDepth(layer, 1, 1);
   });
 
   layer.on('mouseout', function () {
@@ -244,7 +256,7 @@ function layerHover(layer, depth) {
   });
 }
 
-function layerOnClick(feature, layer, depth) {
+function layerOnClick(feature, data, layer, depth) {
   layer.on('click', function () {
     let cleanName;
     if (depth != 3) {
@@ -253,7 +265,8 @@ function layerOnClick(feature, layer, depth) {
       cleanName = feature.properties.nomCirconscription;
     }
     updateBreadcrumb(cleanName, depth);
-
+    fillTableWithData(data); // add clean name
+    fillTitle(cleanName);
     switch (depth) {
       case 1:
         moveToRegion(layer);
@@ -268,32 +281,95 @@ function layerOnClick(feature, layer, depth) {
   });
 }
 
-// @ to-do: slice percent
-// order by size
-// do a graph?
 // rajouter abstention,vote blanc....
-function infoAbout(data) {
-  const percent = getPercentage(data);
-  let info = '';
-  currentPartys.map(
-    (partie) =>
-      (info += `${partie}  :, ${percent[partie]}% (${data[partie]} votes)\n`)
-  );
-  console.log(info);
+function fillTableWithData(data) {
+  // const percent = getPercentage(data);
+  const partyData = currentPartys.map((party) => ({
+    name: party,
+    percentage: ((data[party] * 100) / data.exprimes).toFixed(2),
+    votes: data[party],
+  }));
+  partyData.push({
+    name: 'BLANCS ET NULS',
+    percentage: ((data['blancs_et_nuls'] * 100) / data.exprimes).toFixed(2),
+    votes: data['blancs_et_nuls'],
+  })
+  console.log(partyData);
+  partyData.sort((a, b) => b.votes - a.votes);
+
+  const table = document.getElementById('table_results');
+  const tbody = table.querySelector('tbody');
+
+  tbody.innerHTML = '<tr><th>Party</th><th>Pourcentage</th><th>Votes</th></tr>';
+
+  partyData.forEach((party) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<th>${party.name}</th><th>${party.percentage}%</th><th>${party.votes}</th>`;
+    tbody.appendChild(row);
+  });
+}
+
+// function addToolTip(layer, data) {
+//   L.tooltip(center, { content: infoAbout(data) }).addTo(map);
+//   layer.on('mouseover', (e) => {
+//     L.tooltip({
+//       content: infoAbout(data),
+//       direction: 'auto',
+//       permanent: false,
+//       interactive: false,
+//     })
+//       .setLatLng(e.latlng)
+//       .addTo(map);
+//     infoAbout(data);
+//   });
+
+//   layer.on('mouseout', () => {
+//     map.eachLayer((tooltipLayer) => {
+//       if (tooltipLayer instanceof L.Tooltip) {
+//         map.removeLayer(tooltipLayer);
+//       }
+//     });
+//   });
+
+function resetTable() {
+  const table = document.getElementById('table_results');
+  const tbody = table.querySelector('tbody');
+
+  tbody.innerHTML = '';
+
+  const title = document.getElementById('result_place');
+  title.innerHTML = '';
+}
+
+function fillTitle(name) {
+  const title = document.getElementById('result_place');
+  title.innerHTML = name;
+}
+
+function addLabel(winningParty, center) {
+  let textLabel = L.divIcon({
+    className: 'winning-party-label',
+    html: `<div style="background-color: white; padding: 2px 5px; border-radius: 5px; box-shadow: 0 0 3px rgba(0,0,0,0.3);">${winningParty}</div>`,
+    iconSize: [100, 30],
+  });
+  L.marker(center, { icon: textLabel }).addTo(labelLayerGroup);
 }
 
 function eachFeatureWrapper(feature, layer, data, depth) {
-  infoAbout(data);
+  let center = layer.getBounds().getCenter();
   const winningParty = getWinningParty(data);
+  addLabel(winningParty, center);
   fillLayerColorByWinningParty(layer, winningParty);
   setWeighByDepth(layer, depth);
   layerHover(layer, depth);
-  layerOnClick(feature, layer, depth);
+  layerOnClick(feature, data, layer, depth);
 }
 
 // -------------------------- MOVE TO LAYER
 
 function generateLayerByGeoJson() {
+  // fillTableWithData(presidentialData);
+  fillTableWithData(getFranceResults(presidentialData));
   let geoJsonLayer = L.geoJSON(regionDataGeoJson, {
     onEachFeature: async function (feature, layer) {
       const regionCode = feature.properties.code;
@@ -415,10 +491,10 @@ function colorByParty(partyName) {
   return partys[partyName];
 }
 
-function getPercentage(data) {
-  let jsonToReturn = {};
-  currentPartys.forEach((partie) => {
-    jsonToReturn[partie] = (data[partie] * 100) / data.exprimes;
-  });
-  return jsonToReturn;
-}
+// function getPercentage(data) {
+//   let jsonToReturn = {};
+//   currentPartys.forEach((partie) => {
+//     jsonToReturn[partie] = ((data[partie] * 100) / data.exprimes).toFixed(2);
+//   });
+//   return jsonToReturn;
+// }
