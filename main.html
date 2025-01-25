@@ -19,25 +19,13 @@
     <button id="circonscriptions">circonscription</button>
     <button id="communes">communes</button> -->
     <aside id="left-menu">
-        <h1>Elections Présidentielles</h1>
+        <h1>Presidential Election</h1>
 
         <section id="section_year">
-            <h2>Année</h2>
+            <h2>Years</h2>
             <div id="btns_year">
-                <!-- <button id="btnYear" class="btn selected">Année</button> -->
                 <select name="selectYear" id="selectYear"></select>
             </div>
-        </section>
-
-        <section id="section_type">
-            <h2>Selection</h2>
-            <aside class="aside_type">
-                <button class="btn selected">Gagnants</button>
-                <button class="btn">Candidat</button>
-            </aside>
-            <select name="candidats" class="long_select" id="candidats">
-                <option value="lasalle">Lasalle</option>
-            </select>
         </section>
 
         <section id="section_round">
@@ -48,10 +36,23 @@
             </select>
         </section>
 
+        <section id="section_type">
+            <h2>Selection</h2>
+            <aside class="aside_type">
+                <button class="btn selected" id="btn_winning">Gagnants</button>
+                <button class="btn" id="btn_candidat">Candidat</button>
+            </aside>
+            <select name="candidats" class="long_select" id="candidats">
+                <option value="lasalle">Lasalle</option>
+            </select>
+        </section>
+
+        
+
         <h2>Results</h2>
         <section id="section_results">
             <div class="">
-                <h4 id="result_place"></h4>
+                <h4 id="result_place">France</h4>
                 <table id="table_results">
                     <tbody id="body_result">
                     </tbody>
@@ -68,6 +69,5 @@
 
     <script src="./load-data.js"></script>
     <script src="./map.js"></script>
-    <script src="./menu.js"></script>
 </body>
 </html>

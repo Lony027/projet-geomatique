@@ -1,95 +1,189 @@
-// @ to-do: corriger label bound
-// zoom to n'actualise pas label et div results
-//  and check doublon couleur, eviter  empilement couleurs
-// @ to-do: bouton ranger le front, fix menu
-
-// @ to-do: div refaire
-// remove appel vers l'etat, avoir un json
-
-// @ to-do: features gagnant (partie + abstention)
-
+// FIX ZOOM!
+// @ to-do: features gagnant (: front et partie dynamique, affichage intuitif, // opacité max sur 1 et min sur 0.10)
+// css menu. prends pas le max de width
 // @ to-do: check css et html
-// @ CSS BREADCRUMB si g le temps
-// search tool si j'ai le temps
+// cannot hover with label
+
+// drom bug
+// add more years
 
 // Tout mettre en anglais
 // 1 seul .js
+// 1 seul CSS
 // rapport
-// cannot hover with label
-// @ to-do: last clean
-
 // Readme
+// @ to-do: last clean
 
 // -----------------------
 
-let divmap = document.getElementById('map');
+let lastRegionLayer;
+let lastDepLayer;
 
-let layer = L.tileLayer(
-  'https://tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}',
-  {
-    attribution:
-      '<a href="https://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    minZoom: 0,
-    maxZoom: 22,
-    accessToken:
-      'H2h0Jx9SUlnTFKSvAuhqfplwTUpFMPQL7J35nEptiCKhwy776J7TTk8m5QR6IKyZ',
-  }
-);
-
-let map = L.map(divmap, {
-  center: [47.0811658, 2.399125],
-  zoom: 6,
-  layers: [layer],
-});
-
-let regionsLayerGroup = L.layerGroup().addTo(map);
-let departementsLayerGroup = L.layerGroup().addTo(map);
-let circoLayerGroup = L.layerGroup().addTo(map);
-let labelLayerGroup = L.layerGroup().addTo(map);
-
-let regionDataGeoJson,
-  departmentDataGeoJson,
-  circoDataGeoJson,
-  presidentialData;
-
-let breadcrumbElement = document.getElementById('breadcrumb');
-let breadcrumb = [];
-
-let currentPartys;
-let partys;
-
-window.onload = () => {
-  init();
-}; // keep or not?
-
-async function init() {
+let presidentialData;
+let partysData, regionDataGeoJson, departmentDataGeoJson, circoDataGeoJson;
+const regionsList = [
+  '11',
+  '24',
+  '27',
+  '28',
+  '32',
+  '44',
+  '52',
+  '53',
+  '75',
+  '76',
+  '84',
+  '93',
+  '94',
+  '01',
+  '02',
+  '03',
+  '04',
+  '06',
+];
+async function initData() {
   try {
-    partys = await fetchData('ressources/parties.json');
-    regionDataGeoJson = await fetchData('ressources/geojson/regions.geojson');
-    departmentDataGeoJson = await fetchData(
-      'ressources/geojson/departements.geojson'
-    );
-    circoDataGeoJson = await fetchData(
-      'ressources/geojson/circonscriptions.geojson'
-    );
-    await setDataPresidentielles();
-    currentPartys = getParty(presidentialData);
-    generateLayerByGeoJson();
-  } catch (error) {
-    console.error('Error fetching data:', error);
+    const promise = await Promise.all([
+      fetchData('ressources/parties.json'),
+      fetchData('ressources/geojson/regions.geojson'),
+      fetchData('ressources/geojson/departements.geojson'),
+      fetchData('ressources/geojson/circonscriptions.geojson'),
+      // fetchData('https://geo.api.gouv.fr/regions'),
+      setDataPresidentielles(),
+    ]);
+
+    partysData = promise[0];
+    regionDataGeoJson = promise[1];
+    departmentDataGeoJson = promise[2];
+    circoDataGeoJson = promise[3];
+    // regionsList = promise[4];
+  } catch (e) {
+    throw new Error('Error while fetching data');
   }
 }
 
-async function reloadLayer() {
-  resetTable();
-  dynamicClearLayers(0);
-  resetBreadcrumb();
+let map;
+function initMap() {
+  let divmap = document.getElementById('map');
+  let layer = L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {
+      attribution: '©OpenStreetMap, ©CartoDB',
+      minZoom: 0,
+      maxZoom: 22,
+    }
+  );
 
-  map.setView([47.0811658, 2.399125], 6);
-  await setDataPresidentielles();
+  map = L.map(divmap, {
+    zoomControl: false,
+    center: [47.0811658, 2.399125],
+    zoom: 6,
+    layers: [layer],
+  });
+
+  // map.createPane('labels');
+  // L.tileLayer(
+  //   'https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png',
+  //   {
+  //     attribution: '©OpenStreetMap, ©CartoDB',
+  //     pane: 'labels',
+  //   }
+  // ).addTo(map);
+}
+
+let regionsLayerGroup,
+  departementsLayerGroup,
+  circoLayerGroup,
+  regionLabelLayerGroup,
+  departmentLabelLayerGroup,
+  circoLabelLayerGroup;
+function definePane() {
+  map.createPane('regionsPane');
+  map.getPane('regionsPane').style.zIndex = 650;
+  // map.getPane('regionsPane'.style.
+
+  map.createPane('departmentsPane');
+  map.getPane('departmentsPane').style.zIndex = 700;
+
+  map.createPane('circoPane');
+  map.getPane('circoPane').style.zIndex = 750;
+
+  map.createPane('partyLabelPane');
+  map.getPane('partyLabelPane').style.zIndex = 200;
+  map.getPane('partyLabelPane').style.pointerEvents = 'none';
+
+  regionsLayerGroup = L.layerGroup([], { pane: 'regionsPane' }).addTo(map);
+  departementsLayerGroup = L.layerGroup([], { pane: 'departmentsPane' }).addTo(
+    map
+  );
+  circoLayerGroup = L.layerGroup([], { pane: 'circoPane' }).addTo(map);
+
+  regionLabelLayerGroup = L.layerGroup([], { pane: 'partyLabelPane' }).addTo(
+    map
+  );
+  departmentLabelLayerGroup = L.layerGroup([], {
+    pane: 'partyLabelPane',
+  }).addTo(map);
+  circoLabelLayerGroup = L.layerGroup([], { pane: 'partyLabelPane' }).addTo(
+    map
+  );
+}
+
+let breadcrumbElement, breadcrumb, isWinning, selectedParty;
+const selectYear = document.getElementById('selectYear');
+const btnWinning = document.getElementById('btn_winning');
+const btnCandidat = document.getElementById('btn_candidat');
+const selectedTurn = document.getElementById('tour');
+function getHTMLElements() {
+  breadcrumbElement = document.getElementById('breadcrumb');
+  breadcrumb = [];
+
+  // smarter way to do
+
+  selectedParty = 'SARKOZY (UMP)';
+
+  isWinning = 1;
+  btnWinning.addEventListener('click', function () {
+    btnWinning.classList.add('selected');
+    btnCandidat.classList.remove('selected');
+    isWinning = 1;
+    reloadLayer();
+  });
+
+  btnCandidat.addEventListener('click', function () {
+    btnCandidat.classList.add('selected');
+    btnWinning.classList.remove('selected');
+    isWinning = 0;
+    reloadLayer();
+  });
+
+  availableYear.forEach((year) => {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+    selectYear.appendChild(option);
+  });
+
+  selectYear.addEventListener('change', reloadLayer);
+
+
+  selectedTurn.addEventListener('change', reloadLayer);
+}
+
+let currentPartys;
+function init() {
   currentPartys = getParty(presidentialData);
   generateLayerByGeoJson();
 }
+
+window.onload = async () => {
+  await initData();
+  initMap();
+  definePane();
+  getHTMLElements();
+  showLabelOnZoom();
+  init();
+};
 
 // ------------------------- UTILS
 
@@ -101,7 +195,9 @@ function replaceAndTruncateArray(array, index, newValue) {
 }
 
 function dynamicClearLayers(level) {
-  labelLayerGroup.clearLayers();
+  regionLabelLayerGroup.clearLayers();
+  departmentLabelLayerGroup.clearLayers();
+  circoLabelLayerGroup.clearLayers();
   switch (level) {
     case 'region':
       departementsLayerGroup.clearLayers();
@@ -130,8 +226,8 @@ function dynamicClearLayers(level) {
 */
 function updateBreadcrumb(newLayerName, mapDepth) {
   if (
-    mapDepth == null ||
-    newLayerName == null ||
+    mapDepth == undefined ||
+    newLayerName == undefined ||
     mapDepth < 1 ||
     mapDepth > 3
   ) {
@@ -176,8 +272,8 @@ function updateBreadcrumbHTML() {
 }
 
 function breadcrumbClick(depth) {
-  if (depth == null || depth < 0 || depth > 3) {
-    throw new Error('breadcrumbClick: Depth is null or out of bound');
+  if (depth == undefined || depth < 0 || depth > 3) {
+    throw new Error('breadcrumbClick: Depth is undefined or out of bound');
   }
 
   breadcrumb = breadcrumb.slice(0, depth);
@@ -198,17 +294,15 @@ function breadcrumbClick(depth) {
 // -------------------------- INIT
 
 function getSelectedYear() {
-  const selectYearElement = document.getElementById('selectYear');
   return (
-    selectYearElement.options[selectYearElement.selectedIndex]?.value ||
+    selectYear.options[selectYear.selectedIndex]?.value ||
     availableYear[0]
   );
 }
 
 function getSelectedTour() {
-  const selectTourElement = document.getElementById('tour');
   return (
-    selectTourElement.options[selectTourElement.selectedIndex]?.value || '1'
+    selectedTurn.options[selectedTurn.selectedIndex]?.value || '1'
   );
 }
 
@@ -219,6 +313,31 @@ async function setDataPresidentielles() {
 }
 
 // -------------------------- LAYER MANAGEMENT
+
+let minPartySelected, maxPartySelected;
+function setMinAndMaxByZone(data, party) {
+  sortedData = [];
+  data.forEach((e) => {
+    sortedData.push(data[party]);
+  });
+  return [Math.min(sortedData), Math.max(sortedData)];
+}
+
+async function reloadLayer() {
+  resetTable();
+  dynamicClearLayers();
+  resetBreadcrumb();
+
+  // if (!isWinning) {
+  //   console.log(await getPartyScoreForAllRegions(selectedParty));
+  //   // minPartySelected()
+  // }
+
+  map.setView([47.0811658, 2.399125], 6);
+  await setDataPresidentielles();
+  currentPartys = getParty(presidentialData);
+  generateLayerByGeoJson();
+}
 
 function getWinningParty(data) {
   return currentPartys.reduce((maxKey, key) =>
@@ -237,8 +356,8 @@ function setWeighByDepth(layer, depth, add) {
   }
 }
 
-function fillLayerColorByWinningParty(layer, winningParty) {
-  const fillColor = colorByParty(winningParty);
+function fillLayerColorByWinningParty(layer, winningParty, fillColor) {
+  fillColor = colorByParty(winningParty);
   layer.setStyle({
     color: '#F1F1F1',
     fillOpacity: 0.2,
@@ -265,7 +384,7 @@ function layerOnClick(feature, data, layer, depth) {
       cleanName = feature.properties.nomCirconscription;
     }
     updateBreadcrumb(cleanName, depth);
-    fillTableWithData(data); // add clean name
+    fillTableWithData(data);
     fillTitle(cleanName);
     switch (depth) {
       case 1:
@@ -281,30 +400,74 @@ function layerOnClick(feature, data, layer, depth) {
   });
 }
 
-// rajouter abstention,vote blanc....
+function getPercentByParty(data, party) {
+  return ((data[party] * 100) / data.exprimes).toFixed(2);
+}
+
+// function fillTableWithData(data) {
+//   const partyData = currentPartys.map((party) => ({
+//     name: party,
+//     percentage: getPercentByParty(data, party),
+//     votes: data[party],
+//   }));
+//   partyData.push({
+//     name: 'BLANCS ET NULS',
+//     percentage: getPercentByParty(data, 'blancs_et_nuls'),
+//     votes: data['blancs_et_nuls'],
+//   });
+//   partyData.sort((a, b) => b.votes - a.votes);
+
+//   const table = document.getElementById('table_results');
+//   const tbody = table.querySelector('tbody');
+
+//   tbody.innerHTML = '<tr><th>Color</th><th>Party</th><th>Pourcentage</th><th>Votes</th></tr>';
+
+//   partyData.forEach((party) => {
+//     const row = document.createElement('tr');
+//     row.innerHTML = `<th>${colorByParty(party.name)}</th><th>${party.name}</th><th>${party.percentage}%</th><th>${party.votes}</th>`;
+//     tbody.appendChild(row);
+//   });
+// }
 function fillTableWithData(data) {
-  // const percent = getPercentage(data);
   const partyData = currentPartys.map((party) => ({
     name: party,
-    percentage: ((data[party] * 100) / data.exprimes).toFixed(2),
+    percentage: getPercentByParty(data, party),
     votes: data[party],
+    color: colorByParty(party), // Add the color hex code here
   }));
+
+  // Add BLANCS ET NULS data
   partyData.push({
     name: 'BLANCS ET NULS',
-    percentage: ((data['blancs_et_nuls'] * 100) / data.exprimes).toFixed(2),
+    percentage: getPercentByParty(data, 'blancs_et_nuls'),
     votes: data['blancs_et_nuls'],
-  })
-  console.log(partyData);
+    color: undefined, // No color defined for this
+  });
+
+  // Sort data by votes in descending order
   partyData.sort((a, b) => b.votes - a.votes);
 
   const table = document.getElementById('table_results');
   const tbody = table.querySelector('tbody');
 
-  tbody.innerHTML = '<tr><th>Party</th><th>Pourcentage</th><th>Votes</th></tr>';
+  // Reset the table body
+  tbody.innerHTML =
+    '<tr><th>Color</th><th>Party</th><th>Pourcentage</th><th>Votes</th></tr>';
 
+  // Fill the table rows
   partyData.forEach((party) => {
     const row = document.createElement('tr');
-    row.innerHTML = `<th>${party.name}</th><th>${party.percentage}%</th><th>${party.votes}</th>`;
+
+    // Dynamically create the row with a color cell
+    row.innerHTML = `
+      <th style="background-color: ${
+        party.color || '#FFFFFF'
+      }; opacity:0.5"> </th>
+      <th>${party.name}</th>
+      <th>${party.percentage}%</th>
+      <th>${party.votes}</th>
+    `;
+
     tbody.appendChild(row);
   });
 }
@@ -346,20 +509,63 @@ function fillTitle(name) {
   title.innerHTML = name;
 }
 
-function addLabel(winningParty, center) {
-  let textLabel = L.divIcon({
+function addLabel(winningParty, center, depth) {
+  const textLabel = L.divIcon({
     className: 'winning-party-label',
-    html: `<div style="background-color: white; padding: 2px 5px; border-radius: 5px; box-shadow: 0 0 3px rgba(0,0,0,0.3);">${winningParty}</div>`,
+    html: `<div style="background-color: #090A0A; color: white; padding: 2px 5px; border-radius: 5px; opacity:0.7;">${winningParty}</div>`,
     iconSize: [100, 30],
   });
-  L.marker(center, { icon: textLabel }).addTo(labelLayerGroup);
+  switch (depth) {
+    case 1:
+      L.marker(center, { icon: textLabel }).addTo(regionLabelLayerGroup);
+      break;
+    case 2:
+      L.marker(center, { icon: textLabel }).addTo(departmentLabelLayerGroup);
+      break;
+    case 3:
+      L.marker(center, { icon: textLabel }).addTo(circoLabelLayerGroup);
+      break;
+  }
+}
+
+function showLabelOnZoom() {
+  map.on('zoomend', function () {
+    const zoom = map.getZoom();
+    if (zoom <= 4) {
+      map.removeLayer(regionLabelLayerGroup);
+    } else {
+      map.addLayer(regionLabelLayerGroup);
+    }
+
+    if (zoom <= 6) {
+      map.removeLayer(departmentLabelLayerGroup);
+      map.removeLayer(circoLabelLayerGroup);
+    } else {
+      map.addLayer(departmentLabelLayerGroup);
+      map.addLayer(circoLabelLayerGroup);
+    }
+  });
+}
+
+function colorByPercent(layer, color, percent) {
+  layer.setStyle({
+    color: '#F1F1F1',
+    fillOpacity: percent,
+    fillColor: color,
+  });
 }
 
 function eachFeatureWrapper(feature, layer, data, depth) {
-  let center = layer.getBounds().getCenter();
-  const winningParty = getWinningParty(data);
-  addLabel(winningParty, center);
-  fillLayerColorByWinningParty(layer, winningParty);
+  if (isWinning) {
+    let center = layer.getBounds().getCenter();
+    const winningParty = getWinningParty(data);
+    addLabel(winningParty, center, depth);
+    fillLayerColorByWinningParty(layer, winningParty);
+  } else {
+    let color = colorByParty(selectedParty);
+    let percent = getPercentByParty(data, selectedParty);
+    colorByPercent(layer, color, percent / 100);
+  }
   setWeighByDepth(layer, depth);
   layerHover(layer, depth);
   layerOnClick(feature, data, layer, depth);
@@ -368,7 +574,6 @@ function eachFeatureWrapper(feature, layer, data, depth) {
 // -------------------------- MOVE TO LAYER
 
 function generateLayerByGeoJson() {
-  // fillTableWithData(presidentialData);
   fillTableWithData(getFranceResults(presidentialData));
   let geoJsonLayer = L.geoJSON(regionDataGeoJson, {
     onEachFeature: async function (feature, layer) {
@@ -384,6 +589,9 @@ function generateLayerByGeoJson() {
 }
 
 async function moveToRegion(regionLayer) {
+  if (lastRegionLayer) {
+    lastRegionLayer.setStyle({ opacity: 1, fillOpacity: 0.2 });
+  }
   dynamicClearLayers('region');
   map.fitBounds(regionLayer.getBounds());
 
@@ -414,9 +622,15 @@ async function moveToRegion(regionLayer) {
     },
   });
   departementLayer.addTo(departementsLayerGroup);
+
+  lastRegionLayer = regionLayer;
+  regionLayer.setStyle({ opacity: 0, fillOpacity: 0 });
 }
 
 async function moveToDepartments(departmentLayer) {
+  if (lastDepLayer) {
+    lastDepLayer.setStyle({ opacity: 1, fillOpacity: 0.2 });
+  }
   dynamicClearLayers('departement');
   map.fitBounds(departmentLayer.getBounds());
 
@@ -443,9 +657,13 @@ async function moveToDepartments(departmentLayer) {
     },
   });
   circoLayer.addTo(circoLayerGroup);
+
+  lastDepLayer = departmentLayer;
+  departmentLayer.setStyle({ opacity: 0, fillOpacity: 0 });
 }
 
 async function moveToCirco(circoLayer) {
+  departmentLabelLayerGroup.clearLayers();
   map.fitBounds(circoLayer.getBounds());
 }
 
@@ -488,7 +706,7 @@ function zoomToDepartement(departementName) {
 // --------------------------
 
 function colorByParty(partyName) {
-  return partys[partyName];
+  return partysData[partyName];
 }
 
 // function getPercentage(data) {
