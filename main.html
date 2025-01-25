@@ -1,73 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Élections Présidentielles</title>
-    <link rel="icon" href="#">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="main.css">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-</head>
-<body>
-    <!-- Fil d'Ariane -->
-    
-    <!-- <button id="clear">clear</button>
-    <button id="regions">regions</button>
-    <button id="departements">departements</button>
-    <button id="circonscriptions">circonscription</button>
-    <button id="communes">communes</button> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presidential Election</title>
+    <link rel="icon" href="#" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
     <aside id="left-menu">
-        <h1>Presidential Election</h1>
+      <h1 class="centered">Presidential Election</h1>
 
-        <section id="section_year">
-            <h2>Years</h2>
-            <div id="btns_year">
-                <select name="selectYear" id="selectYear"></select>
-            </div>
-        </section>
+      <section>
+        <h2>Election Year</h2>
+        <select id="selectYear" class="year_select"></select>
+        <select id="turn" class="year_select">
+          <option value="1">First Turn</option>
+          <option value="2">Second Turn</option>
+        </select>
+      </section>
 
-        <section id="section_round">
-            <h2>Tour</h2>
-            <select name="tour" class="long_select" id="tour">
-                <option value="1">Premier Tour</option>
-                <option value="2">Second Tour</option>
-            </select>
-        </section>
+      <section>
+        <h2>Selection Type</h2>
+        <div>
+          <button id="btn_winning" class="btn selected">By Winners</button>
+          <button id="btn_candidate" class="btn">By Candidate</button>
+        </div>
+        <select id="slct_candidates" class="select"></select>
+      </section>
 
-        <section id="section_type">
-            <h2>Selection</h2>
-            <aside class="aside_type">
-                <button class="btn selected" id="btn_winning">Gagnants</button>
-                <button class="btn" id="btn_candidat">Candidat</button>
-            </aside>
-            <select name="candidats" class="long_select" id="candidats">
-                <option value="lasalle">Lasalle</option>
-            </select>
-        </section>
-
-        
-
+      <section id="section_results">
         <h2>Results</h2>
-        <section id="section_results">
-            <div class="">
-                <h4 id="result_place">France</h4>
-                <table id="table_results">
-                    <tbody id="body_result">
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        
-
+        <h4 id="result_place" class="centered">France</h4>
+        <table id="table_results">
+          <tbody id="body_result"></tbody>
+        </table>
+      </section>
     </aside>
-    
+
     <div id="map" class="leaflet-container" tabindex="0">
-        <div id="breadcrumb"><a href="#" onclick="breadcrumbClick(0)">France</a></div>
+      <div id="breadcrumb">
+        <a href="#" onclick="breadcrumbClick(0)">France</a>
+      </div>
     </div>
 
-    <script src="./load-data.js"></script>
-    <script src="./map.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

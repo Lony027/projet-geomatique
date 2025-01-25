@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+}
+
+.centered {
+  text-align: center;
+}
+
+/* MAP */
+
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* BREADCRUMB */
+#breadcrumb {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 15px;
+  background-color: #090a0a;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  z-index: 99999;
+  border: solid 2px #262627;
+}
+
+#breadcrumb > a {
+  text-decoration: none;
+}
+
+#slct_candidates {
+  visibility: hidden;
+}
+
+/* RESULT TABLE */
+
+table {
+  width: 90%;
+  margin: auto;
+  padding: 0px;
+}
+
+table,
+th,
+td {
+  border: solid #656565 1px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.4em;
+}
+
+td:nth-child(1),
+td:nth-child(2) {
+  text-align: left;
+}
+
+/* MENU */
+
+#left-menu {
+  display: block;
+  width: 40vw;
+  min-width: 300px;
+  height: 100vh;
+  z-index: 99999;
+  background-color: #090a0a;
+  padding: 15px;
+  color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+#left-menu h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#left-menu h2 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+#left-menu .selected {
+  background-color: #656565;
+}
+
+.year_select {
+  background-color: #262627;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  width: 49%;
+}
+
+.select {
+  background-color: #262627;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  width: 99%;
+}
+
+.btn {
+  padding: 10px;
+  width: 49%;
+  border: none;
+  background-color: #262627;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover,
+select:hover {
+  cursor: pointer;
+}
