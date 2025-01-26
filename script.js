@@ -1,12 +1,9 @@
-// @ to-do: fix darken
-// cannot hover with label
 // fix zoom
 
 // github ownership
 // add more years
 
 // Tout mettre en anglais
-// 1 seul .js
 // rapport
 // Readme
 // TEEST
@@ -61,11 +58,6 @@ const regionsList = [
 const drom = ['01', '02', '03', '04'];
 async function initData() {
   try {
-    // let regionPromises = [];
-    // regionsList.forEach((regionCode) =>
-    //   regionPromises.push(fetchData(`https://geo.api.gouv.fr/regions/${regionCode}/departements`))
-    // );
-
     let regionPromises = regionsList.map((regionCode) =>
       fetchData(
         `https://geo.api.gouv.fr/regions/${regionCode}/departements`
@@ -80,7 +72,6 @@ async function initData() {
       fetchData('ressources/geojson/regions.geojson'),
       fetchData('ressources/geojson/departements.geojson'),
       fetchData('ressources/geojson/circonscriptions.geojson'),
-      // ...regionPromises,
       ...regionPromises.map((p) => p.then((data) => data.departments)),
       setDataPresidentielles(),
     ]);
@@ -89,15 +80,12 @@ async function initData() {
     regionDataGeoJson = promise[1];
     departmentDataGeoJson = promise[2];
     circoDataGeoJson = promise[3];
-    // depByRegionData = promise.slice(4, 4 + regionsList.length).flat();
 
     depByRegionData = {};
     const regionResults = await Promise.all(regionPromises);
     regionResults.forEach(({ regionCode, departments }) => {
       depByRegionData[regionCode] = departments;
     });
-
-    console.log(depByRegionData);
   } catch (e) {
     throw new Error('Error while fetching data');
   }
@@ -121,27 +109,11 @@ function initMap() {
     zoom: 6,
     layers: [layer],
   });
-
-  // map.createPane('labels');
-  // L.tileLayer(
-  //   'https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png',
-  //   {
-  //     attribution: '©OpenStreetMap, ©CartoDB',
-  //     pane: 'labels',
-  //   }
-  // ).addTo(map);
 }
 
-let regionsLayerGroup,
-  departementsLayerGroup,
-  circoLayerGroup,
-  regionLabelLayerGroup,
-  departmentLabelLayerGroup,
-  circoLabelLayerGroup;
 function definePane() {
   map.createPane('regionsPane');
   map.getPane('regionsPane').style.zIndex = 650;
-  // map.getPane('regionsPane'.style.
 
   map.createPane('departmentsPane');
   map.getPane('departmentsPane').style.zIndex = 700;
@@ -150,9 +122,17 @@ function definePane() {
   map.getPane('circoPane').style.zIndex = 750;
 
   map.createPane('partyLabelPane');
-  map.getPane('partyLabelPane').style.zIndex = 200;
+  map.getPane('partyLabelPane').style.zIndex = 800;
   map.getPane('partyLabelPane').style.pointerEvents = 'none';
+}
 
+let regionsLayerGroup,
+  departementsLayerGroup,
+  circoLayerGroup,
+  regionLabelLayerGroup,
+  departmentLabelLayerGroup,
+  circoLabelLayerGroup;
+function defineLayerGroup() {
   regionsLayerGroup = L.layerGroup([], { pane: 'regionsPane' }).addTo(map);
   departementsLayerGroup = L.layerGroup([], { pane: 'departmentsPane' }).addTo(
     map
@@ -218,6 +198,57 @@ function init() {
   generateLayerByGeoJson();
 }
 
+let maxSelectedPartyRegion,
+  minSelectedPartyRegion,
+  maxSelectedPartyCirco,
+  minSelectedPartyDep,
+  maxSelectedPartyDep,
+  minSelectedPartyCirco;
+function fillMaxMinSelectedParty() {
+  // Circo
+  let values = presidentialData.map((v) =>
+    v ? v[selectedParty] / v.exprimes : 0
+  );
+  minSelectedPartyCirco = Math.min(...values);
+  maxSelectedPartyCirco = Math.max(...values);
+
+  // Departments List
+  const departmentsList = [
+    ...new Set(presidentialData.map((item) => item.code_departement)),
+  ];
+  values = departmentsList.reduce((acc, code) => {
+    const departmentData = presidentialData.filter(
+      (item) => item.code_departement === code
+    );
+    acc[code] = jsonReduceHelper(
+      presidentialData,
+      departmentData,
+      code,
+      'code_departement'
+    );
+    return acc;
+  }, {});
+
+  console.log(values);
+  values = Object.values(values)
+    .filter((v) => v !== undefined)
+    .map((v) => v[selectedParty] / v.exprimes);
+
+  minSelectedPartyDep = Math.min(...values);
+  maxSelectedPartyDep = Math.max(...values);
+
+  // Region
+  values = regionsList.map((codeRegion) =>
+    getByRegion(presidentialData, codeRegion, depByRegionData[codeRegion])
+  );
+
+  values = values.filter((v) => v !== undefined);
+  values = values.map((v) => v[selectedParty] / v.exprimes);
+
+  minSelectedPartyRegion = Math.min(...values);
+  maxSelectedPartyRegion = Math.max(...values);
+}
+
 function fillCandidates() {
   if (isWinning != 0) {
     return;
@@ -234,6 +265,7 @@ function fillCandidates() {
     candidates.value = currentSelection;
   } else {
     selectedParty = currentPartys[0];
+    fillMaxMinSelectedParty();
   }
 }
 
@@ -241,6 +273,7 @@ window.onload = async () => {
   await initData();
   initMap();
   definePane();
+  defineLayerGroup();
   getHTMLElements();
   showLabelOnZoom();
   init();
@@ -390,20 +423,12 @@ function selectedPartyListener() {
   candidates.addEventListener('click', function () {
     if (isWinning == 0) {
       selectedParty = candidates.options[candidates.selectedIndex]?.value;
+      fillMaxMinSelectedParty();
     }
   });
 }
 
 // -------------------------- LAYER MANAGEMENT
-
-let minPartySelected, maxPartySelected;
-function setMinAndMaxByZone(data, party) {
-  sortedData = [];
-  data.forEach((e) => {
-    sortedData.push(data[party]);
-  });
-  return [Math.min(sortedData), Math.max(sortedData)];
-}
 
 async function reloadLayer() {
   resetTable();
@@ -598,15 +623,20 @@ function addLabel(winningParty, center, depth) {
     html: `<div style="background-color: #090A0A; color: white; padding: 2px 5px; border-radius: 5px; opacity:0.7;">${winningParty}</div>`,
     iconSize: [100, 30],
   });
+  const labelMarker = L.marker(center, {
+    icon: textLabel,
+    pane: 'partyLabelPane',
+    interactive: false,
+  });
   switch (depth) {
     case 1:
-      L.marker(center, { icon: textLabel }).addTo(regionLabelLayerGroup);
+      labelMarker.addTo(regionLabelLayerGroup);
       break;
     case 2:
-      L.marker(center, { icon: textLabel }).addTo(departmentLabelLayerGroup);
+      labelMarker.addTo(departmentLabelLayerGroup);
       break;
     case 3:
-      L.marker(center, { icon: textLabel }).addTo(circoLabelLayerGroup);
+      labelMarker.addTo(circoLabelLayerGroup);
       break;
   }
 }
@@ -614,7 +644,7 @@ function addLabel(winningParty, center, depth) {
 function showLabelOnZoom() {
   map.on('zoomend', function () {
     const zoom = map.getZoom();
-    if (zoom <= 4) {
+    if (zoom <= 5) {
       map.removeLayer(regionLabelLayerGroup);
     } else {
       map.addLayer(regionLabelLayerGroup);
@@ -630,54 +660,76 @@ function showLabelOnZoom() {
   });
 }
 
-// Function From https://interactively.info/
-function darkenColor(color, percent) {
-  // Strip the leading # if it's there
-  color = color.replace(/^\s*#|\s*$/g, '');
+// function applyDarkening(data, party, color, value) {
 
-  // Convert 3 char codes -> 6, e.g. `E0F` -> `EE00FF`
-  if (color.length == 3) {
-    color = color.replace(/(.)/g, '$1$1');
+//   const dataArray = Object.values(data);
+//   const values = dataArray.map((item) => item[party] || 0);
+
+//   const min = Math.min(...values);
+//   const max = Math.max(...values);
+//   const percent = getNormalizedPercentage(value, min, max);
+
+//   return darkenColor(color, percent);
+// }
+
+// ChatGPT
+function getNormalizedPercentage(value, min, max) {
+  if (max === min) {
+    return 100;
   }
-
-  // Split HEX Color
-  const hexR = color.substring(0, 2);
-  const hexG = color.substring(2, 4);
-  const hexB = color.substring(4, 6);
-
-  // HEX to RGB
-  let r = parseInt(hexR, 16);
-  let g = parseInt(hexG, 16);
-  let b = parseInt(hexB, 16);
-
-  if (isNaN(r)) r = 0;
-  if (isNaN(g)) g = 0;
-  if (isNaN(b)) b = 0;
-
-  // Manipulate
-  // percent = 1 + (percent / 100);
-  const newR = Math.min(255, Math.floor(r + (r * percent) / 100));
-  const newG = Math.min(255, Math.floor(g + (g * percent) / 100));
-  const newB = Math.min(255, Math.floor(b + (b * percent) / 100));
-
-  // RGB to HEX
-  const newHexRColor = `${newR.toString(16)}`.padStart(2, '0');
-  const newHexGColor = `${newG.toString(16)}`.padStart(2, '0');
-  const newHexBColor = `${newB.toString(16)}`.padStart(2, '0');
-
-  return '#' + newHexRColor + newHexGColor + newHexBColor;
+  // ((data[party] * 100) / data.exprimes).toFixed(2);
+  return ((value - min) / (max - min)) * 100;
 }
 
-function colorByPercent(layer, color, percent) {
-  if (percent < 5) {
-    percent = percent * 50;
-  } else if (percent < 20) {
-    percent = percent * 5;
-  } else if (percent < 35) {
-    percent = percent * 2;
+// ChatGPT
+function darkenColor(color, percent) {
+  color = color.replace(/^#/, '');
+
+  if (color.length === 3) {
+    color = color
+      .split('')
+      .map((c) => c + c)
+      .join('');
   }
 
-  color = darkenColor(color, -percent);
+  const r = parseInt(color.substring(0, 2), 16);
+  const g = parseInt(color.substring(2, 4), 16);
+  const b = parseInt(color.substring(4, 6), 16);
+
+  percent = Math.min(100, Math.max(0, percent)) / 100;
+
+  const adjust = (channel) => Math.round(channel * percent);
+
+  const newR = adjust(r);
+  const newG = adjust(g);
+  const newB = adjust(b);
+
+  return `#${[newR, newG, newB]
+    .map((channel) => channel.toString(16).padStart(2, '0'))
+    .join('')}`;
+}
+
+function getMinAndMaxByDepth(depth) {
+  switch (depth) {
+    case 1:
+      return [minSelectedPartyRegion, maxSelectedPartyRegion];
+    case 2:
+      return [minSelectedPartyDep, maxSelectedPartyDep];
+    case 3:
+      return [minSelectedPartyCirco, maxSelectedPartyCirco];
+    default:
+      return [0, 0];
+  }
+}
+
+function colorByPercent(value, layer, color, depth) {
+  minMax = getMinAndMaxByDepth(depth);
+  const percent = getNormalizedPercentage(
+    value,
+    minMax[0],
+    minMax[1]
+  );
+  color = darkenColor(color, percent);
   layer.setStyle({
     color: '#F1F1F1',
     fillOpacity: 0.6,
@@ -693,8 +745,8 @@ function eachFeatureWrapper(feature, layer, data, depth) {
     fillLayerColorByWinningParty(layer, winningParty);
   } else {
     let color = colorByParty(selectedParty);
-    let percent = getPercentByParty(data, selectedParty);
-    colorByPercent(layer, color, percent);
+    let percent_value = data[selectedParty] / data.exprimes;
+    colorByPercent(percent_value, layer, color, depth);
   }
   setWeighByDepth(layer, depth);
   layerHover(layer, depth);
@@ -717,7 +769,7 @@ function generateLayerByGeoJson() {
   let geoJsonLayer = L.geoJSON(regionDataGeoJson, {
     onEachFeature: async function (feature, layer) {
       const regionCode = feature.properties.code;
-      const regionData = await getByRegion(
+      const regionData = getByRegion(
         presidentialData,
         regionCode,
         depByRegionData[regionCode]
@@ -757,7 +809,7 @@ async function moveToRegion(regionLayer) {
   let departementLayer = L.geoJSON(filteredDepartements, {
     onEachFeature: async function (feature, layer) {
       const departmentCode = feature.properties.code;
-      const departmentData = await getByDepartmentCode(
+      const departmentData = getByDepartmentCode(
         presidentialData,
         departmentCode
       );
@@ -790,7 +842,7 @@ async function moveToDepartments(departmentLayer) {
   let circoLayer = L.geoJSON(filteredCirco, {
     onEachFeature: async function (feature, layer) {
       const circoCode = feature.properties.codeCirconscription.slice(-2);
-      const circoData = await getByCirconscription(
+      const circoData = getByCirconscription(
         presidentialData,
         departmentCode,
         circoCode
@@ -888,7 +940,7 @@ function getByCirconscription(data, departementCode, circonscription) {
   );
 }
 
-async function getByRegion(data, codeRegion, departements) {
+function getByRegion(data, codeRegion, departements) {
   // let departements = await fetchData(
   //   `https://geo.api.gouv.fr/regions/${codeRegion}/departements`
   // );
