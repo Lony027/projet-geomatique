@@ -288,26 +288,10 @@ function replaceAndTruncateArray(array, index, newValue) {
   return array.slice(0, index).concat(newValue);
 }
 
-// function removeEachLayer(zoneGroup) {
-//   zoneGroup.eachLayer((layer) => {
-//     map.removeLayer(layer);
-//   });
-// }
-
-// function addEachLayer(zoneGroup) {
-//   zoneGroup.eachLayer((layer) => {
-//     console.log(layer);
-//     map.addLayer(layer);
-//   });
-// }
-
 function dynamicClearLayers(level) {
   regionLabelLayerGroup.clearLayers();
   departmentLabelLayerGroup.clearLayers();
   circoLabelLayerGroup.clearLayers();
-  // removeEachLayer(regionLabelLayerGroup);
-  // removeEachLayer(departmentLabelLayerGroup);
-  // removeEachLayer(circoLabelLayerGroup);
   switch (level) {
     case 'region':
       departementsLayerGroup.clearLayers();
@@ -434,11 +418,6 @@ async function reloadLayer() {
   resetTable();
   dynamicClearLayers();
   resetBreadcrumb();
-
-  // if (!isWinning) {
-  //   console.log(await getPartyScoreForAllRegions(selectedParty));
-  //   // minPartySelected()
-  // }
   fillTitle('France');
   map.setView([47.0811658, 2.399125], 6);
   await setDataPresidentielles();
@@ -512,61 +491,32 @@ function getPercentByParty(data, party) {
   return ((data[party] * 100) / data.exprimes).toFixed(2);
 }
 
-// function fillTableWithData(data) {
-//   const partyData = currentPartys.map((party) => ({
-//     name: party,
-//     percentage: getPercentByParty(data, party),
-//     votes: data[party],
-//   }));
-//   partyData.push({
-//     name: 'BLANCS ET NULS',
-//     percentage: getPercentByParty(data, 'blancs_et_nuls'),
-//     votes: data['blancs_et_nuls'],
-//   });
-//   partyData.sort((a, b) => b.votes - a.votes);
-
-//   const table = document.getElementById('table_results');
-//   const tbody = table.querySelector('tbody');
-
-//   tbody.innerHTML = '<tr><th>Color</th><th>Party</th><th>Pourcentage</th><th>Votes</th></tr>';
-
-//   partyData.forEach((party) => {
-//     const row = document.createElement('tr');
-//     row.innerHTML = `<th>${colorByParty(party.name)}</th><th>${party.name}</th><th>${party.percentage}%</th><th>${party.votes}</th>`;
-//     tbody.appendChild(row);
-//   });
-// }
 function fillTableWithData(data) {
   const partyData = currentPartys.map((party) => ({
     name: party,
     percentage: getPercentByParty(data, party),
     votes: data[party],
-    color: colorByParty(party), // Add the color hex code here
+    color: colorByParty(party),
   }));
 
-  // Add BLANCS ET NULS data
   partyData.push({
     name: 'BLANCS ET NULS',
     percentage: getPercentByParty(data, 'blancs_et_nuls'),
     votes: data['blancs_et_nuls'],
-    color: undefined, // No color defined for this
+    color: '#FFFFFF',
   });
 
-  // Sort data by votes in descending order
   partyData.sort((a, b) => b.votes - a.votes);
 
   const table = document.getElementById('table_results');
   const tbody = table.querySelector('tbody');
 
-  // Reset the table body
   tbody.innerHTML =
     '<tr><th>Color</th><th>Party</th><th>Pourcentage</th><th>Votes</th></tr>';
 
-  // Fill the table rows
   partyData.forEach((party) => {
     const row = document.createElement('tr');
 
-    // Dynamically create the row with a color cell
     row.innerHTML = `
       <th style="background-color: ${
         party.color || '#FFFFFF'
@@ -579,28 +529,6 @@ function fillTableWithData(data) {
     tbody.appendChild(row);
   });
 }
-
-// function addToolTip(layer, data) {
-//   L.tooltip(center, { content: infoAbout(data) }).addTo(map);
-//   layer.on('mouseover', (e) => {
-//     L.tooltip({
-//       content: infoAbout(data),
-//       direction: 'auto',
-//       permanent: false,
-//       interactive: false,
-//     })
-//       .setLatLng(e.latlng)
-//       .addTo(map);
-//     infoAbout(data);
-//   });
-
-//   layer.on('mouseout', () => {
-//     map.eachLayer((tooltipLayer) => {
-//       if (tooltipLayer instanceof L.Tooltip) {
-//         map.removeLayer(tooltipLayer);
-//       }
-//     });
-//   });
 
 function resetTable() {
   const table = document.getElementById('table_results');
@@ -660,24 +588,10 @@ function showLabelOnZoom() {
   });
 }
 
-// function applyDarkening(data, party, color, value) {
-
-//   const dataArray = Object.values(data);
-//   const values = dataArray.map((item) => item[party] || 0);
-
-//   const min = Math.min(...values);
-//   const max = Math.max(...values);
-//   const percent = getNormalizedPercentage(value, min, max);
-
-//   return darkenColor(color, percent);
-// }
-
-// ChatGPT
 function getNormalizedPercentage(value, min, max) {
   if (max === min) {
     return 100;
   }
-  // ((data[party] * 100) / data.exprimes).toFixed(2);
   return ((value - min) / (max - min)) * 100;
 }
 
@@ -878,7 +792,6 @@ function layerByDepthName(depthLayer, depthName) {
 
 function zoomToFrance() {
   dynamicClearLayers('region');
-  // addEachLayer(regionLabelLayerGroup);
   fillTitle('France');
   restoreLastZone(lastRegionLayer);
   map.setView([47.0811658, 2.399125], 6);
@@ -887,7 +800,6 @@ function zoomToFrance() {
 function zoomToRegion(regionName) {
   dynamicClearLayers('departement');
   fillTitle(regionName);
-  // addEachLayer(departmentLabelLayerGroup);
   map.addLayer(departementsLayerGroup);
   let regionLayer = layerByDepthName(regionDataGeoJson, regionName);
   if (!regionLayer) {
@@ -899,7 +811,6 @@ function zoomToRegion(regionName) {
 
 function zoomToDepartement(departementName) {
   fillTitle(departementName);
-  // addEachLayer(circoLabelLayerGroup);
   let departmentLayer = layerByDepthName(
     departmentDataGeoJson,
     departementName
@@ -914,14 +825,6 @@ function zoomToDepartement(departementName) {
 function colorByParty(partyName) {
   return partysData[partyName];
 }
-
-// function getPercentage(data) {
-//   let jsonToReturn = {};
-//   currentPartys.forEach((partie) => {
-//     jsonToReturn[partie] = ((data[partie] * 100) / data.exprimes).toFixed(2);
-//   });
-//   return jsonToReturn;
-// }
 
 function getByDepartmentCode(data, departementCode) {
   const circos = data.filter((v) => v.code_departement == departementCode);
@@ -941,13 +844,6 @@ function getByCirconscription(data, departementCode, circonscription) {
 }
 
 function getByRegion(data, codeRegion, departements) {
-  // let departements = await fetchData(
-  //   `https://geo.api.gouv.fr/regions/${codeRegion}/departements`
-  // );
-  // if (departements == undefined) {
-  //   return;
-  // }
-
   dep_code_array = departements.map((dep) => dep.code);
   return getRegionByDepartmentArray(data, dep_code_array, codeRegion);
 }
@@ -992,18 +888,6 @@ function getParty(data) {
   let keys = Object.keys(data[0]);
   return keys.filter((v) => v.match(/^.*\)$/g));
 }
-
-// async function getPartyScoreForAllRegions(party) {
-//   let val = [];
-//   let reg;
-//   // https://geo.api.gouv.fr/departements
-
-//   await regionsList.forEach(r => {
-//     reg = getByRegion(presidentialData, r);
-//     val.push(reg[party]);
-//   })
-//   return val;
-// }
 
 function jsonReduceHelper(data, array, code, keyName) {
   const parties = getParty(data);
