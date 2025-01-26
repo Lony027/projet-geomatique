@@ -1,5 +1,6 @@
 * {
   padding: 0;
+  box-sizing: border-box;
   margin: 0;
 }
 
@@ -44,6 +45,11 @@ body {
 
 /* RESULT TABLE */
 
+#section_results,
+#breadcrumb {
+  overflow: hidden;
+}
+
 table {
   width: 90%;
   margin: auto;
@@ -70,6 +76,8 @@ td:nth-child(2) {
 /* MENU */
 
 #left-menu {
+  height: 100vh;
+  overflow-y: auto; 
   display: block;
   width: 40vw;
   min-width: 300px;
