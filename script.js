@@ -470,9 +470,14 @@ function initMap() {
     }
   );
 
+  const southWest = L.latLng(-85, -180);
+  const northEast = L.latLng(85, 180);
+  const bounds =  L.latLngBounds(southWest, northEast);
+  
   map = L.map(divmap, {
     zoomControl: false,
     center: [47.0811658, 2.399125],
+    maxBounds: bounds,
     zoom: 6,
     layers: [layer],
   });
